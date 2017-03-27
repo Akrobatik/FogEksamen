@@ -1,15 +1,20 @@
 #FogEksamen
 
-GRUPPE KONTRAKT:
+                                  GRUPPE KONTRAKT:
 
 Denne kontrakt er blevet lavet i fællesskab mellem Jonas Andersen, Anders Nissen, Emil Rasmussen og Rikke Nielsen.
-#Fremmøde
+
+                                    Fremmøde
 Vi mødes hver dag senest kl.9.00 i vaskeriet.
-#Kommunikation
+
+                                  Kommunikation
 Der er udvekslet telefonnummer imellem os. Ellers forgår alt kommunikation på vores facebook gruppe .
-#Sygdom/fravær
+
+                                  Sygdom/fravær
 Meddeles hurtigst muligt i facebook gruppen, og via sms.
-#Alm. Dannelse
+
+                                  Alm. Dannelse
 Det er vigtigt at vi får snakket sammen på en pæn og ordentlig måde.
-#Dagbog
+
+                                    Dagbog
 Vi er alle forpligtet til at fører en kort dagbog som hjælp til rapporten.
