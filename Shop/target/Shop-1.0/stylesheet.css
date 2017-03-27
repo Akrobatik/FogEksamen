@@ -1,0 +1,23 @@
+#bottoms, #tops
+{
+    background-color: lightgrey;   
+}
+
+#tops > div, #bottoms > div
+{
+    display: inline-block;
+    margin: 10px;
+    border: solid 1px #000;
+    text-align: center;
+}
+
+#order h2
+{
+    margin: 0px;
+}
+
+#order p
+{
+    margin: 0px;    
+}
+
