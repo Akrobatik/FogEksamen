@@ -21,7 +21,7 @@
  <div class="row">
 
      <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-   <form role="form" method="post" action="" autocomplete="off">
+   <form role="form" method="post" action="UserController" autocomplete="off">
     <h2>Admin Login</h2>
     <hr>
 

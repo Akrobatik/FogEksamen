@@ -6,7 +6,6 @@
 package mapper;
 
 import db.DataBase;
-import entity.Customer;
 import entity.Ordre;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,7 +21,6 @@ import java.util.logging.Logger;
 public class OrdreMapper {
     public ArrayList<Ordre> getOrdre() {
         ArrayList<Ordre> ordre = new ArrayList<>();
-        System.out.println("Before String sql");
         try {
             String sql = "select * from ordre";
             

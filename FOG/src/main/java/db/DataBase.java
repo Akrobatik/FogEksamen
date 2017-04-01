@@ -7,6 +7,7 @@ package db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
@@ -40,5 +41,9 @@ public class DataBase {
         }
         
         return conn;
+    }
+    
+    public static PreparedStatement getPreparedStatement(String sql) throws SQLException, ClassNotFoundException{
+        return getConnection().prepareStatement(sql);
     }
 }
