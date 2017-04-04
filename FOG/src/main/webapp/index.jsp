@@ -25,7 +25,7 @@
     <h2>Admin Login</h2>
     <hr>
 
-    
+    <input type="hidden" name="origin" value="Login">
 
     <div class="form-group">
      <input type="text" name="username" id="username" class="form-control input-lg" placeholder="User Name" tabindex="1">

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package servlet;
 
 import entity.User;
@@ -15,7 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import mapper.UserMapper;
+import mapper.UserMapper2;
 
 /**
  *
@@ -23,7 +20,8 @@ import mapper.UserMapper;
  */
 @WebServlet(name = "UserController", urlPatterns = {"/UserController"})
 public class UserController extends HttpServlet {
-    UserMapper um = new UserMapper();
+    //UserMapper um = new UserMapper();
+    UserMapper2 um2 = new UserMapper2(); 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -36,34 +34,60 @@ public class UserController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
               try {
-        Object us = request.getSession().getAttribute("username");
         String origin = request.getParameter("origin");
+        HttpSession session = request.getSession();
         
-        if(us == null)
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+        //Object us = request.getSession().getAttribute("username");
         
-        if(origin != null && origin.equals("register")){
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            String password2 = request.getParameter("password2");
-            if(password.equals(password2)){
-                um.addUser(username, password);
-                request.getSession().setAttribute("username", username);    
+        //String username = request.getParameter("username");
+        //String password = request.getParameter("password");
+        
+        User user;
+        String UserName, UserPassword;
+        
+        switch(origin) {
+            case "Login": 
+                session = request.getSession();
+                UserName = request.getParameter("username");
+                UserPassword = request.getParameter("password");
+                user = um2.validateUser(UserName, UserPassword);
                 
-            }else{
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-            }
+                if(user == null) {
+                    response.sendRedirect("NotLogin.jsp");
+                } else {
+                    session.setAttribute("username", user);
+                    response.sendRedirect("test.jsp");
+                }
+                break;
         }
-        if(origin != null && origin.equals("delete")){
-            um.deleteUsers();
-        }
-           List<User> users = um.getUser();
-           request.getSession().setAttribute("userlist", users);
-           request.getRequestDispatcher("users.jsp").forward(request, response);
+        
+//        if(us == null) 
+//            request.getRequestDispatcher("test.jsp").forward(request, response);
+            
         
         
+//        if(origin != null && origin.equals("register")){
+//            String username = request.getParameter("username");
+//            String password = request.getParameter("password");
+//            String password2 = request.getParameter("password2");
+//            if(password.equals(password2)){
+//                um.addUser(username, password);
+//                request.getSession().setAttribute("username", username);    
+//                
+//            }else{
+//                request.getRequestDispatcher("login.jsp").forward(request, response);
+//            }
+//        }
+//        if(origin != null && origin.equals("delete")){
+//            um.deleteUsers();
+//        }
+//           List<User> users = um.getUser();
+//           request.getSession().setAttribute("userlist", users);
+//           request.getRequestDispatcher("users.jsp").forward(request, response);
+//        
         
-       } catch (ToLogException ex) {
+        
+       } catch (Exception ex) {
            ex.printStackTrace();
        }
     }

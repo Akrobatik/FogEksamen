@@ -43,7 +43,7 @@ public class UserMapper {
             if(rs.next()){
                 return UserName;
             }
-        }catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             throw new ToLogException("Error in verifyUser(): "+ex.getMessage());
         }
         throw new UserFeedbackException("Username or password did not match");
