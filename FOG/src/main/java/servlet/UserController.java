@@ -39,9 +39,8 @@ public class UserController extends HttpServlet {
         
         User user;
         //String UserName, UserPassword, UserRole;
-        int UserRole = 1;
-        
         String UserName, UserPassword;
+        int UserRole = 2;
         
         switch(origin) {
             case "Login": 
@@ -54,26 +53,26 @@ public class UserController extends HttpServlet {
                 
                 user = um2.validateUser(UserName, UserPassword);
                 
-//                if(user == null) {
-//                    response.sendRedirect("NotLogin.jsp");
-//                } else if (user != null && UserRole == "1") {
-//                    session.setAttribute("username", user);
-//                    response.sendRedirect("Test.jsp");
-//                } else if (user != null && UserRole == "2")
-//                    session.setAttribute("username", user);
-//                    response.sendRedirect("CustomerLogin.jsp");
-//                break;
-                
                 if(user == null) {
                     response.sendRedirect("NotLogin.jsp");
                 } else if (user != null && UserRole == 1) {
                     session.setAttribute("username", user);
                     response.sendRedirect("Test.jsp");
-                } else if (user != null && UserRole == 2) {
+                } else if (user != null && UserRole == 2)
                     session.setAttribute("username", user);
-                    response.sendRedirect("Customer.jsp");
-                }
+                    response.sendRedirect("CustomerLogin.jsp");
                 break;
+                
+//                if(user == null) {
+//                    response.sendRedirect("NotLogin.jsp");
+//                } else if (user != null && UserRole == 1) {
+//                    session.setAttribute("username", user);
+//                    response.sendRedirect("Test.jsp");
+//                } else if (user != null && UserRole == 2) {
+//                    session.setAttribute("username", user);
+//                    response.sendRedirect("Customer.jsp");
+//                }
+//                break;
                 
         }
         
