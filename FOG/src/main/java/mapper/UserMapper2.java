@@ -44,4 +44,26 @@ public class UserMapper2 {
         }
         return null;
     }
+    
+//    public User validateRole(String UserName, String UserPassword, String UserRole) throws UserFeedbackException {
+//        try {
+//            String sql = "select * from user where UserName = ? and UserPassword = ? and UserRole = ?";
+//            
+//            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+//            pstmt.setString(1, UserName);
+//            pstmt.setString(2, UserPassword);
+//            pstmt.setString(3, UserRole);
+//            ResultSet rs = pstmt.executeQuery();
+//            
+//            if (rs.next())
+//            {
+//                int UserId = rs.getInt("UserId");
+//                //double balance = rs.getDouble("balance");
+//                return new User(UserId, UserName, UserPassword, UserRole);
+//            }
+//        } catch (SQLException ex) {
+//            throw new UserFeedbackException("Username or password did not match" + ex.getMessage());
+//        }
+//        return null;
+//    }
 }

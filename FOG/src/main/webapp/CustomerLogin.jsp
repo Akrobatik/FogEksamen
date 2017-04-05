@@ -1,6 +1,6 @@
 <%-- 
-    Document   : test
-    Created on : 04-04-2017, 11:29:36
+    Document   : customerLogin
+    Created on : 05-04-2017, 08:56:41
     Author     : Anders
 --%>
 
@@ -12,7 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Du er nu logget ind som Admin</h1>
-        <a href="Ordre.jsp">Ordre liste</a>
+        <h1>Du er logget ind som kunde</h1>
     </body>
 </html>

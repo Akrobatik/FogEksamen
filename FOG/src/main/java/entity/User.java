@@ -29,11 +29,18 @@ public class User {
         this.UserRole = UserRole;
     }
     
-    public User(int UserID, String UserName, String UserPassword) {
+    public User(int UserId, String UserName, String UserPassword) {
         this.UserId = UserId;
         this.UserName = UserName;
         this.UserPassword = UserPassword;
     }
+    
+//    public User(int UserId, String UserName, String UserPassword/*, String UserRole*/) {
+//        this.UserId = UserId;
+//        this.UserName = UserName;
+//        this.UserPassword = UserPassword;
+//        this.UserRole = UserRole;
+//    }
 
     public int getUserId() {
         return UserId;

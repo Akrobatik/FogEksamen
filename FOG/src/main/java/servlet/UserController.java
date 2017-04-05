@@ -20,8 +20,8 @@ import mapper.UserMapper2;
  */
 @WebServlet(name = "UserController", urlPatterns = {"/UserController"})
 public class UserController extends HttpServlet {
-    //UserMapper um = new UserMapper();
     UserMapper2 um2 = new UserMapper2(); 
+    //int UserRole;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,12 +37,10 @@ public class UserController extends HttpServlet {
         String origin = request.getParameter("origin");
         HttpSession session = request.getSession();
         
-        //Object us = request.getSession().getAttribute("username");
-        
-        //String username = request.getParameter("username");
-        //String password = request.getParameter("password");
-        
         User user;
+        //String UserName, UserPassword, UserRole;
+        int UserRole = 1;
+        
         String UserName, UserPassword;
         
         switch(origin) {
@@ -50,15 +48,33 @@ public class UserController extends HttpServlet {
                 session = request.getSession();
                 UserName = request.getParameter("username");
                 UserPassword = request.getParameter("password");
+//                UserRole = request.getParameter("UserRole");
+//                
+//                user = um2.validateRole(UserName, UserPassword, UserRole);
+                
                 user = um2.validateUser(UserName, UserPassword);
+                
+//                if(user == null) {
+//                    response.sendRedirect("NotLogin.jsp");
+//                } else if (user != null && UserRole == "1") {
+//                    session.setAttribute("username", user);
+//                    response.sendRedirect("Test.jsp");
+//                } else if (user != null && UserRole == "2")
+//                    session.setAttribute("username", user);
+//                    response.sendRedirect("CustomerLogin.jsp");
+//                break;
                 
                 if(user == null) {
                     response.sendRedirect("NotLogin.jsp");
-                } else {
+                } else if (user != null && UserRole == 1) {
                     session.setAttribute("username", user);
-                    response.sendRedirect("test.jsp");
+                    response.sendRedirect("Test.jsp");
+                } else if (user != null && UserRole == 2) {
+                    session.setAttribute("username", user);
+                    response.sendRedirect("Customer.jsp");
                 }
                 break;
+                
         }
         
 //        if(us == null) 
