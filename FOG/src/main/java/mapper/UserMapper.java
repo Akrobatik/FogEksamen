@@ -18,34 +18,52 @@ import java.sql.SQLException;
  * @author Anders
  */
 public class UserMapper {
-    public User getUser(int UserId) throws Exception{
-        String sql = "SELECT UserId, UserName, UserPassword FROM user WHERE UserId = ?";
-        try {
-            PreparedStatement pstmt = DataBase.getPreparedStatement(sql);
-            pstmt.setInt(1, UserId);
-            ResultSet rs = pstmt.executeQuery();
-            if(rs.next()){
-                return new User(UserId, rs.getString("UserName"), rs.getString("UserPassword"));
-            }     
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new ToLogException("Error in getUser()"+ex.getMessage());
-        }
-        throw new Exception("No user by that ID");
-    }
-    
-    public String verifyUser(String UserName, String UserPassword) throws ToLogException, UserFeedbackException{
-        try{
-            String sql = "SELECT UserId, UserName, UserPassword FROM user WHERE UserName = ? AND Password = ?";
-            PreparedStatement pstmt = DataBase.getPreparedStatement(sql);
+    public User validateUser(String UserName, String UserPassword) throws ToLogException, UserFeedbackException
+    {
+        try
+        {
+            String sql = "select * from user where UserName = ? and UserPassword = ?";
+
+            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             pstmt.setString(1, UserName);
             pstmt.setString(2, UserPassword);
             ResultSet rs = pstmt.executeQuery();
-            if(rs.next()){
-                return UserName;
+            
+            if (rs.next())
+            {
+                int UserId = rs.getInt("UserId");
+                //double balance = rs.getDouble("balance");
+                return new User(UserId, UserName, UserPassword);
             }
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new ToLogException("Error in verifyUser(): "+ex.getMessage());
+
         }
-        throw new UserFeedbackException("Username or password did not match");
+        catch (SQLException ex)
+        {
+            throw new UserFeedbackException("Username or password did not match" + ex.getMessage());  
+            //throw new ToLogException("Error in validateUser(): " + ex.getMessage());
+        }
+        return null;
     }
+    
+//    public User validateRole(String UserName, String UserPassword, String UserRole) throws UserFeedbackException {
+//        try {
+//            String sql = "select * from user where UserName = ? and UserPassword = ? and UserRole = ?";
+//            
+//            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+//            pstmt.setString(1, UserName);
+//            pstmt.setString(2, UserPassword);
+//            pstmt.setString(3, UserRole);
+//            ResultSet rs = pstmt.executeQuery();
+//            
+//            if (rs.next())
+//            {
+//                int UserId = rs.getInt("UserId");
+//                //double balance = rs.getDouble("balance");
+//                return new User(UserId, UserName, UserPassword, UserRole);
+//            }
+//        } catch (SQLException ex) {
+//            throw new UserFeedbackException("Username or password did not match" + ex.getMessage());
+//        }
+//        return null;
+//    }
 }

@@ -34,6 +34,7 @@
                         out.println("</div>");
                     }
                 %>
+            </div>
         </form>
     </body>
 </html>
