@@ -28,7 +28,7 @@ public class OrdreMapper {
             ResultSet rs = pstmt.executeQuery();
             
             while (rs.next()) {
-                int ordreId = rs.getInt("OrderId");
+                int ordreId = rs.getInt("OrdreId");
                 double width = rs.getDouble("Width");
                 double height = rs.getDouble("Height");
                 int nails = rs.getInt("Nails");
