@@ -16,6 +16,11 @@ import java.util.List;
 public class OrderMapper {
     public void addOrder() throws ToLogException{
         try {
+            String sql = "insert into Order(roofType, width, length, heigth) values(?, ?, ?, ?)";
+            
+            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+            pstmt.setString(1, "roofType");
+            pstmt.setDouble(2, width);
             
         } catch (SQLException ex) {
             throw new ToLogException("" + ex.getMessage());
