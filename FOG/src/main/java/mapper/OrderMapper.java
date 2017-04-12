@@ -14,6 +14,14 @@ import java.util.List;
  * @author Anders
  */
 public class OrderMapper {
+    public void addOrder() throws ToLogException{
+        try {
+            
+        } catch (SQLException ex) {
+            throw new ToLogException("" + ex.getMessage());
+        }
+    }
+    
     public List<Order> getOrders() throws ToLogException {
         List<Order> order = new ArrayList<>();
         try {
