@@ -25,6 +25,14 @@ public class User2 {
         this.tlf = tlf;
         this.email = email;
     }
+    
+    public User2(String username, String firstname, String lastname, int tlf, String email) {
+        this.username = username;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.tlf = tlf;
+        this.email = email;
+    }
 
     public int getIdUser() {
         return idUser;
