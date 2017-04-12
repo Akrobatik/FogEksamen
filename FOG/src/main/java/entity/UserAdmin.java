@@ -5,16 +5,32 @@ package entity;
  * @author Anders
  */
 public class UserAdmin {
+    private int idAdmin;
     private String username;
     private String password;
     private String firstname;
     private String lastname;
 
-    public UserAdmin(String username, String password, String firstname, String lastname) {
+    public UserAdmin(int idAdmin, String username, String password, String firstname, String lastname) {
+        this.idAdmin = idAdmin;
         this.username = username;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
+    }
+    
+    public UserAdmin(int idAdmin, String username, String password) {
+        this.idAdmin = idAdmin;
+        this.username = username;
+        this.password = password;
+    }
+
+    public int getIdAdmin() {
+        return idAdmin;
+    }
+
+    public void setIdAdmin(int idAdmin) {
+        this.idAdmin = idAdmin;
     }
 
     public String getUsername() {
@@ -51,6 +67,8 @@ public class UserAdmin {
 
     @Override
     public String toString() {
-        return "UserAdmin{" + "username=" + username + ", password=" + password + ", firstname=" + firstname + ", lastname=" + lastname + '}';
+        return "UserAdmin{" + "idAdmin=" + idAdmin + ", username=" + username + ", password=" + password + ", firstname=" + firstname + ", lastname=" + lastname + '}';
     }
+
+    
 }

@@ -13,10 +13,8 @@ import java.sql.SQLException;
  * @author Anders
  */
 public class UserMapper {
-    public User validateUser(String UserName, String UserPassword) throws ToLogException, UserFeedbackException
-    {
-        try
-        {
+    public User validateUser(String UserName, String UserPassword) throws ToLogException, UserFeedbackException {
+        try {
             String sql = "select * from user where UserName = ? and UserPassword = ?";
 
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
@@ -24,15 +22,12 @@ public class UserMapper {
             pstmt.setString(2, UserPassword);
             ResultSet rs = pstmt.executeQuery();
             
-            if (rs.next())
-            {
+            if (rs.next()) {
                 int UserId = rs.getInt("UserId");
                 return new User(UserId, UserName, UserPassword);
             }
 
-        }
-        catch (SQLException ex)
-        {
+        } catch (SQLException ex) {
             throw new UserFeedbackException("Username or password did not match" + ex.getMessage());  
         }
         return null;
