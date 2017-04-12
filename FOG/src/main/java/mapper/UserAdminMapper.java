@@ -1,6 +1,7 @@
 package mapper;
 
 import db.DataBase;
+import entity.Order;
 import entity.User;
 import entity.User2;
 import entity.UserAdmin;
@@ -48,6 +49,23 @@ public class UserAdminMapper {
                 users.add(u);
             }
             return users;
+        } catch (SQLException ex) {
+            throw new ToLogException("" + ex.getMessage());
+        }
+    }
+    
+    public List<Order> getOrders() throws ToLogException {
+        List<Order> order = new ArrayList<>();
+        try {
+            String sql = "select roofType, width, length, heigth from Order";
+            
+            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()) {
+                Order o = new Order(rs.getString("roofType"), rs.getDouble("width"), rs.getDouble("length"), rs.getDouble("heigth"));
+                order.add(o);
+            }
+            return order;
         } catch (SQLException ex) {
             throw new ToLogException("" + ex.getMessage());
         }
