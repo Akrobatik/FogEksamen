@@ -5,7 +5,7 @@ package entity;
  * @author Anders
  */
 public class User2 {
-    private int id;
+    private int idUser;
     private String username;
     private String password;
     private String firstname;
@@ -16,8 +16,8 @@ public class User2 {
     public User2() {
     }
     
-    public User2(int id, String username, String password, String firstname, String lastname, int tlf, String email) {
-        this.id = id;
+    public User2(int idUser, String username, String password, String firstname, String lastname, int tlf, String email) {
+        this.idUser = idUser;
         this.username = username;
         this.password = password;
         this.firstname = firstname;
@@ -26,12 +26,12 @@ public class User2 {
         this.email = email;
     }
 
-    public int getId() {
-        return id;
+    public int getIdUser() {
+        return idUser;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     public String getUsername() {
@@ -84,6 +84,6 @@ public class User2 {
 
     @Override
     public String toString() {
-        return "User2{" + "id=" + id + ", username=" + username + ", password=" + password + ", firstname=" + firstname + ", lastname=" + lastname + ", tlf=" + tlf + ", email=" + email + '}';
+        return "User2{" + "idUser=" + idUser + ", username=" + username + ", password=" + password + ", firstname=" + firstname + ", lastname=" + lastname + ", tlf=" + tlf + ", email=" + email + '}';
     }
 }
