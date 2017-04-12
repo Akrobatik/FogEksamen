@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mapper;
 
 import db.DataBase;
@@ -32,7 +27,6 @@ public class UserMapper {
             if (rs.next())
             {
                 int UserId = rs.getInt("UserId");
-                //double balance = rs.getDouble("balance");
                 return new User(UserId, UserName, UserPassword);
             }
 
@@ -40,7 +34,6 @@ public class UserMapper {
         catch (SQLException ex)
         {
             throw new UserFeedbackException("Username or password did not match" + ex.getMessage());  
-            //throw new ToLogException("Error in validateUser(): " + ex.getMessage());
         }
         return null;
     }
