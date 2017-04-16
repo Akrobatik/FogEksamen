@@ -40,6 +40,16 @@ public class OrderMapper {
         }
     }
     
+    public void editOrder() throws ToLogException {
+        try {
+            String sql = "";
+            
+            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+        } catch (SQLException ex) {
+            throw new ToLogException("" + ex.getMessage());
+        }
+    }
+    
     public List<Order> getOrders() throws ToLogException {
         List<Order> order = new ArrayList<>();
         try {
