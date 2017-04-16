@@ -14,7 +14,7 @@ import java.util.List;
  * @author Anders
  */
 public class OrderMapper {
-    public void addOrder(String roofType, double width, double length, double heigth) throws ToLogException{
+    public void addOrder(String roofType, double width, double length, double heigth) throws ToLogException {
         try {
             String sql = "insert into Order(roofType, width, length, heigth) values(?, ?, ?, ?)";
             
@@ -24,6 +24,17 @@ public class OrderMapper {
             pstmt.setDouble(3, length);
             pstmt.setDouble(4, heigth);
             pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            throw new ToLogException("" + ex.getMessage());
+        }
+    }
+    
+    public void deleteOrder() throws ToLogException {
+        try {
+            String sql = "";
+            
+            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+            
         } catch (SQLException ex) {
             throw new ToLogException("" + ex.getMessage());
         }
