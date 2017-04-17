@@ -46,4 +46,15 @@ public class UserSuperAdminMapper {
             throw new ToLogException("Error in addUserAdmin" + ex.getMessage());
         }
     }
+    
+    public void deleteUserAdmin() throws ToLogException {
+        try {
+            String sql = "delete from Admin where idAdmin = ?";
+            
+            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            throw new ToLogException("" + ex.getMessage());
+        }
+    }
 }
