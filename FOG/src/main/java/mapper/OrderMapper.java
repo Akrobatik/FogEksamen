@@ -39,13 +39,13 @@ public class OrderMapper {
             throw new ToLogException("" + ex.getMessage());
         }
     }
-    
+    // editOrder skal muligvis omskrives, da der er tvivl om koden
     public void editOrder() throws ToLogException {
         try {
-            String sql = "";
+            String sql = "update Order set roofType = ?, width = ?, length = ?, heigth = ? where idOrder = ?";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
-            
+            pstmt.executeUpdate();
         } catch (SQLException ex) {
             throw new ToLogException("" + ex.getMessage());
         }
