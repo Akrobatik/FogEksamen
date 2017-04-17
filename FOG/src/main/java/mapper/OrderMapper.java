@@ -23,7 +23,7 @@ public class OrderMapper {
             pstmt.setDouble(2, width);
             pstmt.setDouble(3, length);
             pstmt.setDouble(4, heigth);
-            pstmt.executeUpdate();
+            pstmt.executeQuery();
         } catch (SQLException ex) {
             throw new ToLogException("" + ex.getMessage());
         }
@@ -31,10 +31,10 @@ public class OrderMapper {
     
     public void deleteOrder() throws ToLogException {
         try {
-            String sql = "";
+            String sql = "delete from Order where idOrder = ?";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
-            
+            pstmt.executeUpdate();
         } catch (SQLException ex) {
             throw new ToLogException("" + ex.getMessage());
         }
@@ -45,6 +45,7 @@ public class OrderMapper {
             String sql = "";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+            
         } catch (SQLException ex) {
             throw new ToLogException("" + ex.getMessage());
         }
