@@ -13,6 +13,7 @@ import java.sql.SQLException;
  * @author Anders
  */
 public class UserMapper {
+    // koden skal omskrives så den passer med entity.Order klassen
     public User validateUser(String UserName, String UserPassword) throws ToLogException, UserFeedbackException {
         try {
             String sql = "select * from user where UserName = ? and UserPassword = ?";
