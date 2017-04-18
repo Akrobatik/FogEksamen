@@ -18,7 +18,7 @@ import mapper.UserMapper2;
  * @author Anders
  */
 @WebServlet(name = "UserController", urlPatterns = {"/UserController"})
-public class UserController2 extends HttpServlet {
+public class UserController extends HttpServlet {
     UserMapper2 um2 = new UserMapper2(); 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
