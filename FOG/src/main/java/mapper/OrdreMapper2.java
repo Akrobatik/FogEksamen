@@ -6,7 +6,7 @@
 package mapper;
 
 import db.DataBase;
-import entity.Ordre;
+import entity.Ordre2;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,9 +18,9 @@ import java.util.logging.Logger;
  *
  * @author Anders
  */
-public class OrdreMapper {
-    public ArrayList<Ordre> getOrdre() {
-        ArrayList<Ordre> ordre = new ArrayList<>();
+public class OrdreMapper2 {
+    public ArrayList<Ordre2> getOrdre() {
+        ArrayList<Ordre2> ordre = new ArrayList<>();
         try {
             String sql = "select * from ordre";
             
@@ -28,13 +28,13 @@ public class OrdreMapper {
             ResultSet rs = pstmt.executeQuery();
             
             while (rs.next()) {
-                int ordreId = rs.getInt("OrderId");
+                int ordreId = rs.getInt("OrdreId");
                 double width = rs.getDouble("Width");
                 double height = rs.getDouble("Height");
                 int nails = rs.getInt("Nails");
                 int planks = rs.getInt("Planks");
                 String shed = rs.getString("Shed");
-                ordre.add(new Ordre(ordreId, width, height, nails, planks, shed));
+                ordre.add(new Ordre2(ordreId, width, height, nails, planks, shed));
             }
             
             return ordre;
