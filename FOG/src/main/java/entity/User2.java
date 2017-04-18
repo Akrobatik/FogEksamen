@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package entity;
 
 /**
@@ -5,93 +10,88 @@ package entity;
  * @author Anders
  */
 public class User2 {
-    private int idUser;
-    private String username;
-    private String password;
-    private String firstname;
-    private String lastname;
-    private int tlf;
-    private String email;
+    private int UserId;
+    private String UserName;
+    private String UserPassword;
+    private String UserFirstName;
+    private String UserLastName;
+    private int UserRole;
     
     public User2() {
     }
     
-    public User2(int idUser, String username, String password, String firstname, String lastname, int tlf, String email) {
-        this.idUser = idUser;
-        this.username = username;
-        this.password = password;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.tlf = tlf;
-        this.email = email;
+    public User2(int UserId, String UserName, String UserPassword, String UserFirstName, String UserLastName, int UserRole) {
+        this.UserId = UserId;
+        this.UserName = UserName;
+        this.UserPassword = UserPassword;
+        this.UserFirstName = UserFirstName;
+        this.UserLastName = UserLastName;
+        this.UserRole = UserRole;
     }
     
-    public User2(String username, String firstname, String lastname, int tlf, String email) {
-        this.username = username;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.tlf = tlf;
-        this.email = email;
+    public User2(int UserId, String UserName, String UserPassword) {
+        this.UserId = UserId;
+        this.UserName = UserName;
+        this.UserPassword = UserPassword;
+    }
+    
+//    public User2(int UserId, String UserName, String UserPassword/*, String UserRole*/) {
+//        this.UserId = UserId;
+//        this.UserName = UserName;
+//        this.UserPassword = UserPassword;
+//        this.UserRole = UserRole;
+//    }
+
+    public int getUserId() {
+        return UserId;
     }
 
-    public int getIdUser() {
-        return idUser;
+    public void setUserId(int UserId) {
+        this.UserId = UserId;
     }
 
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
+    public String getUserName() {
+        return UserName;
     }
 
-    public String getUsername() {
-        return username;
+    public void setUserName(String UserName) {
+        this.UserName = UserName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getUserPassword() {
+        return UserPassword;
     }
 
-    public String getPassword() {
-        return password;
+    public void setUserPassword(String UserPassword) {
+        this.UserPassword = UserPassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public String getUserFirstName() {
+        return UserFirstName;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public void setUserFirstName(String UserFirstName) {
+        this.UserFirstName = UserFirstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public String getUserLastName() {
+        return UserLastName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public void setUserLastName(String UserLastName) {
+        this.UserLastName = UserLastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public int getUserRole() {
+        return UserRole;
     }
 
-    public int getTlf() {
-        return tlf;
-    }
-
-    public void setTlf(int tlf) {
-        this.tlf = tlf;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserRole(int UserRole) {
+        this.UserRole = UserRole;
     }
 
     @Override
     public String toString() {
-        return "User2{" + "idUser=" + idUser + ", username=" + username + ", password=" + password + ", firstname=" + firstname + ", lastname=" + lastname + ", tlf=" + tlf + ", email=" + email + '}';
+        return "User{" + "UserId=" + UserId + ", UserName=" + UserName + ", UserPassword=" + UserPassword + ", UserFirstName=" + UserFirstName + ", UserLastName=" + UserLastName + ", UserRole=" + UserRole + '}';
     }
 }

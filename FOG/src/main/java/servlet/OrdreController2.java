@@ -5,7 +5,7 @@
  */
 package servlet;
 
-import entity.Ordre;
+import entity.Ordre2;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,16 +14,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import mapper.OrdreMapper;
+import mapper.OrdreMapper2;
 
 /**
  *
  * @author Anders
  */
 @WebServlet(name = "OrdreController", urlPatterns = {"/OrdreController"})
-public class OrdreController extends HttpServlet {
+public class OrdreController2 extends HttpServlet {
 
-    OrdreMapper om = new OrdreMapper();
+    OrdreMapper2 om2 = new OrdreMapper2();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String origin = request.getParameter("origin");

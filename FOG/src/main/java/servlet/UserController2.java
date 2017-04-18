@@ -1,6 +1,6 @@
 package servlet;
 
-import entity.User;
+import entity.User2;
 import exceptions.ToLogException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,15 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import mapper.UserMapper;
+import mapper.UserMapper2;
 
 /**
  *
  * @author Anders
  */
 @WebServlet(name = "UserController", urlPatterns = {"/UserController"})
-public class UserController extends HttpServlet {
-    UserMapper um = new UserMapper(); 
+public class UserController2 extends HttpServlet {
+    UserMapper2 um2 = new UserMapper2(); 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -35,7 +35,7 @@ public class UserController extends HttpServlet {
         String origin = request.getParameter("origin");
         HttpSession session = request.getSession();
         
-        User user;
+        User2 user;
         //String UserName, UserPassword, UserRole;
         String UserName, UserPassword;
         int UserRole = 1;
@@ -49,7 +49,7 @@ public class UserController extends HttpServlet {
 //                
 //                user = um2.validateRole(UserName, UserPassword, UserRole);
                 
-                user = um.validateUser(UserName, UserPassword);
+                user = um2.validateUser(UserName, UserPassword);
                 
                 if(user == null) {
                     response.sendRedirect("NotLogin.jsp");

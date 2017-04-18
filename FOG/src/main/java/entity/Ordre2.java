@@ -9,7 +9,7 @@ package entity;
  *
  * @author Anders
  */
-public class Ordre {
+public class Ordre2 {
     private int ordreId;
     private double width;
     private double height;
@@ -17,10 +17,10 @@ public class Ordre {
     private int planks;
     private String shed;
     
-    public Ordre() {
+    public Ordre2() {
     }
     
-    public Ordre(int oid, double wi, double he, int na, int pl, String sh) {
+    public Ordre2(int oid, double wi, double he, int na, int pl, String sh) {
         ordreId = oid;
         width = wi;
         height = he;
