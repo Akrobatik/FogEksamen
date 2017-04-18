@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import mapper.UserMapper2;
+import mapper.UserMapper;
 
 /**
  *
@@ -19,7 +19,7 @@ import mapper.UserMapper2;
  */
 @WebServlet(name = "UserController", urlPatterns = {"/UserController"})
 public class UserController extends HttpServlet {
-    UserMapper2 um2 = new UserMapper2(); 
+    UserMapper um = new UserMapper(); 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -49,7 +49,7 @@ public class UserController extends HttpServlet {
 //                
 //                user = um2.validateRole(UserName, UserPassword, UserRole);
                 
-                user = um2.validateUser(UserName, UserPassword);
+                user = um.validateUser(UserName, UserPassword);
                 
                 if(user == null) {
                     response.sendRedirect("NotLogin.jsp");
