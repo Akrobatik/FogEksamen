@@ -1,5 +1,6 @@
 package servlet;
 
+import entity.User;
 import entity.User2;
 import exceptions.ToLogException;
 import java.io.IOException;
@@ -35,28 +36,28 @@ public class UserController extends HttpServlet {
         String origin = request.getParameter("origin");
         HttpSession session = request.getSession();
         
-        User2 user;
+        User user;
         //String UserName, UserPassword, UserRole;
-        String UserName, UserPassword;
-        int UserRole = 1;
+        String username, password;
+        //int UserRole = 1;
         
         switch(origin) {
             case "Login": 
                 session = request.getSession();
-                UserName = request.getParameter("username");
-                UserPassword = request.getParameter("password");
+                username = request.getParameter("username");
+                password = request.getParameter("password");
 //                UserRole = request.getParameter("UserRole");
 //                
 //                user = um2.validateRole(UserName, UserPassword, UserRole);
                 
-                user = um.validateUser(UserName, UserPassword);
+                user = um.validateUser(username, password);
                 
                 if(user == null) {
                     response.sendRedirect("NotLogin.jsp");
-                } else if (user != null && UserRole == 1) {
+                } else if (user != null /*&& UserRole == 1*/) {
                     session.setAttribute("username", user);
                     response.sendRedirect("Test.jsp");
-                } else if (user != null && UserRole == 2) {
+                } else if (user != null /*&& UserRole == 2*/) {
                     session.setAttribute("username", user);
                     response.sendRedirect("CustomerLogin.jsp");
                 }

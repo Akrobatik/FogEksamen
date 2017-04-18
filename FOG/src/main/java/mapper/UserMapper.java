@@ -1,6 +1,7 @@
 package mapper;
 
 import db.DataBase;
+import entity.User;
 import entity.User2;
 import exceptions.ToLogException;
 import exceptions.UserFeedbackException;
@@ -13,19 +14,18 @@ import java.sql.SQLException;
  * @author Anders
  */
 public class UserMapper {
-    // koden skal omskrives så den passer med entity.Order klassen
-    public User2 validateUser(String UserName, String UserPassword) throws ToLogException, UserFeedbackException {
+    public User validateUser(String username, String password) throws ToLogException, UserFeedbackException {
         try {
-            String sql = "select * from user where UserName = ? and UserPassword = ?";
+            String sql = "select * from User where username = ? and password = ?";
 
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
-            pstmt.setString(1, UserName);
-            pstmt.setString(2, UserPassword);
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
             ResultSet rs = pstmt.executeQuery();
             
             if (rs.next()) {
-                int UserId = rs.getInt("UserId");
-                return new User2(UserId, UserName, UserPassword);
+                int idUser = rs.getInt("idUser");
+                return new User(idUser, username, password);
             }
         } catch (SQLException ex) {
             throw new UserFeedbackException("Username or password did not match" + ex.getMessage());  
