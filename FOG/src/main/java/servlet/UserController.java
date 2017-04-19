@@ -2,6 +2,8 @@ package servlet;
 
 import entity.User;
 import entity.User2;
+import entity.UserAdmin;
+import entity.UserSuperAdmin;
 import exceptions.ToLogException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,7 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import mapper.UserAdminMapper;
 import mapper.UserMapper;
+import mapper.UserSuperAdminMapper;
 
 /**
  *
@@ -21,6 +25,8 @@ import mapper.UserMapper;
 @WebServlet(name = "UserController", urlPatterns = {"/UserController"})
 public class UserController extends HttpServlet {
     UserMapper um = new UserMapper(); 
+    UserAdminMapper uam = new UserAdminMapper();
+    UserSuperAdminMapper usam = new UserSuperAdminMapper();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,9 +43,9 @@ public class UserController extends HttpServlet {
         HttpSession session = request.getSession();
         
         User user;
-        //String UserName, UserPassword, UserRole;
+        UserAdmin userAdmin;
+        UserSuperAdmin userSuperAdmin;
         String username, password;
-        //int UserRole = 1;
         
         switch(origin) {
             case "Login": 
@@ -51,16 +57,21 @@ public class UserController extends HttpServlet {
 //                user = um2.validateRole(UserName, UserPassword, UserRole);
                 
                 user = um.validateUser(username, password);
+                userAdmin = uam.validateAdmin(username, password);
+                userSuperAdmin = usam.validateSuperAdmin(username, password);
                 
-                if(user == null) {
+                if(user == null || userAdmin == null || userSuperAdmin == null) {
                     response.sendRedirect("NotLogin.jsp");
-                } else if (user != null /*&& UserRole == 1*/) {
+                } else if (user != null) {
                     session.setAttribute("username", user);
-                    response.sendRedirect("CustomerLogin.jsp");
-                } /*else if (user != null && UserRole == 2) {
-                    session.setAttribute("username", user);
-                    response.sendRedirect("CustomerLogin.jsp");
-                }*/
+                    response.sendRedirect("CustomerFrontPage.jsp");
+                } else if (userAdmin != null) {
+                    session.setAttribute(username, userAdmin);
+                    response.sendRedirect("AdminFrontPage.jsp");
+                } else if (userSuperAdmin != null) {
+                    session.setAttribute(username, userSuperAdmin);
+                    response.sendRedirect("SuperAdminFrontPage.jsp");
+                }
                 break;
                 
 //                if(user == null) {
