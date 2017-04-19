@@ -52,15 +52,12 @@ public class UserController extends HttpServlet {
                 session = request.getSession();
                 username = request.getParameter("username");
                 password = request.getParameter("password");
-//                UserRole = request.getParameter("UserRole");
-//                
-//                user = um2.validateRole(UserName, UserPassword, UserRole);
                 
                 user = um.validateUser(username, password);
                 userAdmin = uam.validateAdmin(username, password);
                 userSuperAdmin = usam.validateSuperAdmin(username, password);
                 
-                if(user == null || userAdmin == null || userSuperAdmin == null) {
+                if(user == null && userAdmin == null && userSuperAdmin == null) {
                     response.sendRedirect("NotLogin.jsp");
                 } else if (user != null) {
                     session.setAttribute("username", user);
@@ -73,49 +70,10 @@ public class UserController extends HttpServlet {
                     response.sendRedirect("SuperAdminFrontPage.jsp");
                 }
                 break;
-                
-//                if(user == null) {
-//                    response.sendRedirect("NotLogin.jsp");
-//                } else if (user != null && UserRole == 1) {
-//                    session.setAttribute("username", user);
-//                    response.sendRedirect("Test.jsp");
-//                } else if (user != null && UserRole == 2) {
-//                    session.setAttribute("username", user);
-//                    response.sendRedirect("Customer.jsp");
-//                }
-//                break;
-                
-        }
-        
-//        if(us == null) 
-//            request.getRequestDispatcher("test.jsp").forward(request, response);
-            
-        
-        
-//        if(origin != null && origin.equals("register")){
-//            String username = request.getParameter("username");
-//            String password = request.getParameter("password");
-//            String password2 = request.getParameter("password2");
-//            if(password.equals(password2)){
-//                um.addUser(username, password);
-//                request.getSession().setAttribute("username", username);    
-//                
-//            }else{
-//                request.getRequestDispatcher("login.jsp").forward(request, response);
-//            }
-//        }
-//        if(origin != null && origin.equals("delete")){
-//            um.deleteUsers();
-//        }
-//           List<User> users = um.getUser();
-//           request.getSession().setAttribute("userlist", users);
-//           request.getRequestDispatcher("users.jsp").forward(request, response);
-//        
-        
-        
-       } catch (Exception ex) {
+            }
+        } catch (Exception ex) {
            ex.printStackTrace();
-       }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
