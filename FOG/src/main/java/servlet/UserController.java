@@ -56,11 +56,11 @@ public class UserController extends HttpServlet {
                     response.sendRedirect("NotLogin.jsp");
                 } else if (user != null /*&& UserRole == 1*/) {
                     session.setAttribute("username", user);
-                    response.sendRedirect("Test.jsp");
-                } else if (user != null /*&& UserRole == 2*/) {
+                    response.sendRedirect("CustomerLogin.jsp");
+                } /*else if (user != null && UserRole == 2) {
                     session.setAttribute("username", user);
                     response.sendRedirect("CustomerLogin.jsp");
-                }
+                }*/
                 break;
                 
 //                if(user == null) {
