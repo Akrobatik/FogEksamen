@@ -4,9 +4,9 @@
     Author     : Anders
 --%>
 
-<%@page import="mapper.OrdreMapper"%>
+<%@page import="mapper.OrdreMapper2"%>
 <%@page import="java.util.List"%>
-<%@page import="entity.Ordre"%>
+<%@page import="entity.Ordre2"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,9 +21,9 @@
     <body>
         <h1>Ordre</h1>
         
-        <%OrdreMapper om = new OrdreMapper();%>
+        <%OrdreMapper2 om = new OrdreMapper2();%>
         
-<<<<<<< HEAD
+
         <form id="ordre" action="OrdreController" method="post"> 
             <table class="table table-striped">
                 <input type="hidden" name="origin" value="orders">
@@ -39,8 +39,8 @@
                             </tr>
                     </thead>
                     <tbody>
-                        <% List<Ordre> theordre = om.getOrdre();
-                    for (Ordre ordre : theordre) {%>
+                        <% List<Ordre2> theordre = om.getOrdre();
+                    for (Ordre2 ordre : theordre) {%>
                         <tr>
                             <td> <%= ordre.getOrdreId() %> </td>
                             <td> <%= ordre.getWidth() %></td>
@@ -57,12 +57,12 @@
       
                 
             </table>
-=======
+
         <form id="ordre" action="OrdreController" method="post">
             <input type="hidden" name="origin" value="orders">
             <div id="ordreList">
-                <% List<Ordre> theordre = om.getOrdre();
-                    for (Ordre ordre : theordre) {
+                <% List<Ordre2> theordre = om.getOrdre();
+                    for (Ordre2 ordre : theordre) {
                         out.println("<div>");
                         out.println("<p> Ordre ID: " + ordre.getOrdreId() + "</p>");
                         out.println("<p> Bredde: " + ordre.getWidth() + "</p>");
@@ -74,7 +74,7 @@
                     }
                 %>
             </div>
->>>>>>> AndersKunde
+
         </form>
            
     </body>
