@@ -5,13 +5,17 @@
  */
 package servlet;
 
+import entity.Order;
+import exceptions.ToLogException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import mapper.OrderMapper;
 
 /**
@@ -22,8 +26,23 @@ import mapper.OrderMapper;
 public class OrderController extends HttpServlet {
 
     OrderMapper om = new OrderMapper();
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            String origin = request.getParameter("origin");
+            HttpSession session = request.getSession();
         
+            Order order;
+        
+            switch(origin) {
+                case "ShowOrder":
+                    session = request.getSession();
+                    List<Order> orders = om.getOrders();
+                    request.getSession().setAttribute("Orders", orders);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
