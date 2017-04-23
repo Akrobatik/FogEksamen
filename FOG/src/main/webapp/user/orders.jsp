@@ -74,25 +74,27 @@
 			</div>
 		</div><!--/.row-->
 				
-		
+	<form id="ordre" action="OrdreController" method="post">
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<table data-toggle="table" data-url="../tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+						<table name="origin" value="orders" data-toggle="table"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
-						        <th data-field="state" data-checkbox="true" >ID</th>
-						        <th data-field="id" data-sortable="true">ID</th>
-						        <th data-field="name"  data-sortable="true">Navn</th>
-						        <th data-field="price" data-sortable="true">Pris</th>
+						        <th data-field="state" data-checkbox="true" >Tag type</th>
+						        <th data-field="id" data-sortable="true">Bredde</th>
+						        <th data-field="name"  data-sortable="true">Længde</th>
+						        <th data-field="price" data-sortable="true">Højde</th>
 						    </tr>
 						    </thead>
 						</table>
 					</div>
 				</div>
 			</div>
-		</div><!--/.row-->	
+		</div><!--/.row-->
+                
+        </form>
 		
 		
 		
