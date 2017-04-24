@@ -36,12 +36,13 @@ public class OrderController extends HttpServlet {
         
             switch(origin) {
                 case "ShowOrder":
-                    session = request.getSession();
-                    List<Order> orders = om.getOrders();
-                    request.getSession().setAttribute("Orders", orders);
-                    break;
-                case "":
-                    break;
+//                    session = request.getSession();
+//                    List<Order> orders = om.getOrders();
+//                    request.getSession().setAttribute("Orders", orders);
+//                    response.sendRedirect("Order.jsp");
+                    //break;
+//                case "AddOrder":
+//                    break;
             }
         } catch (Exception ex) {
             ex.printStackTrace();

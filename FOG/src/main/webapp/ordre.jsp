@@ -25,8 +25,8 @@
         
 
         <form id="ordre" action="OrdreController" method="post"> 
+            <input type="hidden" name="origin" value="orders">
             <table class="table table-striped">
-                <input type="hidden" name="origin" value="orders">
                     <thead>
                             <tr>
                                 <th>ID</th>
@@ -48,7 +48,7 @@
                             <td> <%= ordre.getNails() %></td>
                             <td> <%= ordre.getPlanks() %></td>
                             <td> <%= ordre.getShed() %></td>
-                            <td> <button type="button"class="btn btn-info" >Info</button> </td>
+                            <td> <button type="button" class="btn btn-info" >Info</button> </td>
                         </tr>
                         <% }
                             %>
@@ -58,22 +58,7 @@
                 
             </table>
 
-        <form id="ordre" action="OrdreController" method="post">
-            <input type="hidden" name="origin" value="orders">
-            <div id="ordreList">
-                <% List<Ordre2> theordre = om.getOrdre();
-                    for (Ordre2 ordre : theordre) {
-                        out.println("<div>");
-                        out.println("<p> Ordre ID: " + ordre.getOrdreId() + "</p>");
-                        out.println("<p> Bredde: " + ordre.getWidth() + "</p>");
-                        out.println("<p> Højde: " + ordre.getHeight() + "</p>");
-                        out.println("<p> Søm: " + ordre.getNails() + "</p>");
-                        out.println("<p> Brader: " + ordre.getPlanks() + "</p>");
-                        out.println("<p> Redskabsskur: " + ordre.getShed() + "</p>");
-                        out.println("</div>");
-                    }
-                %>
-            </div>
+        
 
         </form>
            

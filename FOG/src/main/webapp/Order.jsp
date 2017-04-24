@@ -21,29 +21,17 @@
         
         <form id="ordre" action="OrderController" method="post">
             <input type="hidden" name="origin" value="ShowOrder">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Roof Type</th>
-                        <th>Width</th>
-                        <th>Length</th>
-                        <th>Height</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% List<Order> theorder = om.getOrders();
-                    for (Order order: theorder) {%>
-                    <tr>
-                        <td><% order.getRoofType(); %></td>
-                        <td><% order.getWidth(); %></td>
-                        <td><% order.getLength(); %></td>
-                        <td><% order.getHeigth(); %></td>
-                        <td> <button type="button" class="btn btn-info">Info</button></td>
-                    </tr>
-                    <% }
+            <div>
+                <% 
+                        List<Order> theorder = om.getOrders();
+                        for (Order order: theorder) {
+                            out.println("<p>" + order.getRoofType() + "</p>");
+                            out.println("<p>" + order.getWidth() + "</p>");
+                            out.println("<p>" + order.getLength() + "</p>");
+                            out.println("<p>" + order.getHeigth() + "</p>");
+                        }
                     %>
-                </tbody>
-            </table>
+            </div>
         </form>
     </body>
 </html>
