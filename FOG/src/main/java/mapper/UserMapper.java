@@ -35,16 +35,16 @@ public class UserMapper {
     
     public void addUser(String username, String password, String firstname, String lastname, int tlf, String email) throws ToLogException {
         try {
-        String sql = "insert into User (username, password, firstname, lastname, tlf, email) values(?, ? , ?, ?, ?, ?)";
-        
-        PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
-        pstmt.setString(1, username);
-        pstmt.setString(2, password);
-        pstmt.setString(3, firstname);
-        pstmt.setString(4, lastname);
-        pstmt.setInt(5, tlf);
-        pstmt.setString(6, email);
-        pstmt.executeQuery();
+            String sql = "insert into User (username, password, firstname, lastname, tlf, email) values(?, ? , ?, ?, ?, ?)";
+
+            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+            pstmt.setString(3, firstname);
+            pstmt.setString(4, lastname);
+            pstmt.setInt(5, tlf);
+            pstmt.setString(6, email);
+            pstmt.executeQuery();
         } catch (SQLException ex) {
             throw new ToLogException("Error in addUser" + ex.getMessage());
         }

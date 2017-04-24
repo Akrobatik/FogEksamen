@@ -39,6 +39,9 @@ public class OrderController extends HttpServlet {
                     session = request.getSession();
                     List<Order> orders = om.getOrders();
                     request.getSession().setAttribute("Orders", orders);
+                    break;
+                case "":
+                    break;
             }
         } catch (Exception ex) {
             ex.printStackTrace();

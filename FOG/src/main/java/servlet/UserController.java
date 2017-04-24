@@ -70,6 +70,22 @@ public class UserController extends HttpServlet {
                     response.sendRedirect("superadmin/index.html");
                 }
                 break;
+                
+//            case "Registrer":
+//                if(origin != null && origin.equals("register")){
+//                    String newusername = request.getParameter("username");
+//                    String newpassword = request.getParameter("password");
+//                    String firstname = request.getParameter("firstname");
+//                    String lastname = request.getParameter("lastname");
+//                    int tlf = request.getParameter(tlf);
+//                    String password2 = request.getParameter("password2");
+//                if(newpassword.equals(password2)){
+//                    um.addUser(newusername, newpassword, firstname, lastname);
+//                    request.getSession().setAttribute("username", newusername);    
+//                }else{
+//                    request.getRequestDispatcher("login.jsp").forward(request, response);
+//            }
+//        }
             }
         } catch (Exception ex) {
            ex.printStackTrace();

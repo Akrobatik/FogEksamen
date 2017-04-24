@@ -10,6 +10,7 @@ public class Order {
     private double width;
     private double length;
     private double heigth;
+    private int User_idUser;
 
     public Order(int idOrder, String roofType, double width, double length, double heigth) {
         this.idOrder = idOrder;
@@ -24,6 +25,23 @@ public class Order {
         this.width = width;
         this.length = length;
         this.heigth = heigth;
+    }
+
+    public Order(int idOrder, String roofType, double width, double length, double heigth, int User_idUser) {
+        this.idOrder = idOrder;
+        this.roofType = roofType;
+        this.width = width;
+        this.length = length;
+        this.heigth = heigth;
+        this.User_idUser = User_idUser;
+    }
+    
+    public int getUser_idUser() {
+        return User_idUser;
+    }
+
+    public void setUser_idUser(int User_idUser) {
+        this.User_idUser = User_idUser;
     }
     
     public int getIdOrder() {
@@ -68,6 +86,6 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" + "idOrder=" + idOrder + ", roofType=" + roofType + ", width=" + width + ", length=" + length + ", heigth=" + heigth + '}';
+        return "Order{" + "idOrder=" + idOrder + ", roofType=" + roofType + ", width=" + width + ", length=" + length + ", heigth=" + heigth + ", User_idUser=" + User_idUser + '}';
     }
 }
