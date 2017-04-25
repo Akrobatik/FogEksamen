@@ -59,7 +59,7 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li><a href="index.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
+			<li><a href="index.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
                         <li class="active"><a href="orders.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
@@ -92,18 +92,20 @@
 						        <th data-field="roofType" data-sortable="true" >Tag type</th>
 						        <th data-field="width" data-sortable="true">Bredde</th>
 						        <th data-field="length"  data-sortable="true">Længde</th>
-						        <th data-field="height" data-sortable="true">Højde</th>						     
+						        <th data-field="height" data-sortable="true">Højde</th>
+                                                        <th data-field="userId" data-sortable="true">UserID</th>
                                                         <th data-field="info" data-sortable="false"> </th>
 						    </tr>
 						    </thead>
                                                     <tbody>
-                                                    <% List<Order> theordre = om.getOrders();
+                                                    <% List<Order> theordre = om.getUserOrder();
                                                         for (Order order : theordre) {%>
                                                     <tr>
                                                         <td> <%= order.getRoofType() %></td>
                                                         <td> <%= order.getWidth() %></td>
                                                         <td> <%= order.getLength() %></td>
-                                                        <td> <%= order.getHeight() %></td>                                                        
+                                                        <td> <%= order.getHeight() %></td>
+                                                        <td> <%= order.getUser_idUser()%></td>                                                         
                                                         <td> <button type="button" class="btn btn-info" >Info</button> </td>
                                                     </tr>
                                                     <% }

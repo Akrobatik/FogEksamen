@@ -56,12 +56,12 @@ public class OrderMapper {
     public List<Order> getOrders() throws ToLogException {
         List<Order> order = new ArrayList<>();
         try {
-            String sql = "select roofType, width, length, height from `Order`";
+            String sql = "select roofType, width, length, height, User_idUser from `Order`";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
-                Order o = new Order(rs.getString("roofType"), rs.getDouble("width"), rs.getDouble("length"), rs.getDouble("height"));
+                Order o = new Order(rs.getString("roofType"), rs.getDouble("width"), rs.getDouble("length"), rs.getDouble("height"), rs.getInt("User_idUser"));
                 order.add(o);
             }
             return order;
@@ -70,15 +70,15 @@ public class OrderMapper {
         }
     }
     
-    public List<Order> getOrder() throws ToLogException {
+    public List<Order> getUserOrder() throws ToLogException {
         List<Order> order = new ArrayList<>();
         try {
-            String sql = "select roofType, width, length, heigth from Order where User_idUser = ?";
+            String sql = "select roofType, width, length, height, User_idUser from `Order` where User_idUser = 2";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
-                Order o = new Order(rs.getString("roofType"), rs.getDouble("width"), rs.getDouble("length"), rs.getDouble("heigth"));
+                Order o = new Order(rs.getString("roofType"), rs.getDouble("width"), rs.getDouble("length"), rs.getDouble("height"), rs.getInt("User_idUser") );
                 order.add(o);
             }
             return order;

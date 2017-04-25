@@ -20,11 +20,13 @@ public class Order {
         this.height = height;
     }
 
-    public Order(String roofType, double width, double length, double height) {
+    public Order(String roofType, double width, double length, double height, int User_idUser) {
         this.roofType = roofType;
         this.width = width;
         this.length = length;
         this.height = height;
+        this.User_idUser = User_idUser;
+
     }
 
     public Order(int idOrder, String roofType, double width, double length, double height, int User_idUser) {
