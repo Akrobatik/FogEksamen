@@ -73,7 +73,14 @@ public class OrderMapper {
     public List<Order> getOrder() throws ToLogException {
         List<Order> order = new ArrayList<>();
         try {
-            String sql = "select ";
+            String sql = "select roofType, width, length, heigth from Order where User_idUser = ?";
+            
+            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()) {
+                Order o = new Order(rs.getString("roofType"), rs.getDouble("width"), rs.getDouble("length"), rs.getDouble("heigth"));
+                order.add(o);
+            }
             return order;
         } catch (SQLException ex) {
             throw new ToLogException("" + ex.getMessage());
