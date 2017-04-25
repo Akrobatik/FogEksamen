@@ -1,3 +1,7 @@
+<%@page import="java.util.List"%>
+<%@page import="entity.Order"%>
+<%@page import="entity.Order"%>
+<%@page import="mapper.OrderMapper"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +25,8 @@
 </head>
 
 <body>
+            <%OrderMapper om = new OrderMapper();%>
+
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -82,13 +88,28 @@
 						<table name="origin" value="orders" data-toggle="table"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
-						        <th data-field="state" data-checkbox="true" >Tag type</th>
-						        <th data-field="id" data-sortable="true">Bredde</th>
-						        <th data-field="name"  data-sortable="true">Længde</th>
-						        <th data-field="price" data-sortable="true">Højde</th>
+                                                        <!--<th data-field="state" data-checkbox="true" >Tag type</th> -->
+						        <th data-field="roofType" data-sortable="true" >Tag type</th>
+						        <th data-field="width" data-sortable="true">Bredde</th>
+						        <th data-field="length"  data-sortable="true">Længde</th>
+						        <th data-field="height" data-sortable="true">Højde</th>						     
+                                                        <th data-field="info" data-sortable="false"> </th>
 						    </tr>
 						    </thead>
-						</table>
+                                                    <tbody>
+                                                    <% List<Order> theordre = om.getOrders();
+                                                        for (Order order : theordre) {%>
+                                                    <tr>
+                                                        <td> <%= order.getRoofType() %></td>
+                                                        <td> <%= order.getWidth() %></td>
+                                                        <td> <%= order.getLength() %></td>
+                                                        <td> <%= order.getHeight() %></td>                                                        
+                                                        <td> <button type="button" class="btn btn-info" >Info</button> </td>
+                                                    </tr>
+                                                    <% }
+                                                        %>
+                                                    </tbody>
+                                                </table>
 					</div>
 				</div>
 			</div>

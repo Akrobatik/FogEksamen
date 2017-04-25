@@ -14,16 +14,16 @@ import java.util.List;
  * @author Anders
  */
 public class OrderMapper {
-    public void addOrder(String roofType, double width, double length, double heigth, int idUser) throws ToLogException {
+    public void addOrder(String roofType, double width, double length, double height, int idUser) throws ToLogException {
         try {
-            String sql = "insert into Order(roofType, width, length, heigth, User_idUser) "
+            String sql = "insert into Order(roofType, width, length, height, User_idUser) "
                     + "values(?, ?, ?, ?, ?)";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             pstmt.setString(1, "roofType");
             pstmt.setDouble(2, width);
             pstmt.setDouble(3, length);
-            pstmt.setDouble(4, heigth);
+            pstmt.setDouble(4, height);
             pstmt.setInt(5, idUser);
             pstmt.executeQuery();
         } catch (SQLException ex) {
@@ -44,7 +44,7 @@ public class OrderMapper {
     // editOrder skal muligvis omskrives, da der er tvivl om koden
     public void editOrder() throws ToLogException {
         try {
-            String sql = "update Order set roofType = ?, width = ?, length = ?, heigth = ? where idOrder = ?";
+            String sql = "update Order set roofType = ?, width = ?, length = ?, height = ? where idOrder = ?";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             pstmt.executeUpdate();
@@ -56,12 +56,12 @@ public class OrderMapper {
     public List<Order> getOrders() throws ToLogException {
         List<Order> order = new ArrayList<>();
         try {
-            String sql = "select roofType, width, length, heigth from Order";
+            String sql = "select roofType, width, length, height from `Order`";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
-                Order o = new Order(rs.getString("roofType"), rs.getDouble("width"), rs.getDouble("length"), rs.getDouble("heigth"));
+                Order o = new Order(rs.getString("roofType"), rs.getDouble("width"), rs.getDouble("length"), rs.getDouble("height"));
                 order.add(o);
             }
             return order;
