@@ -69,4 +69,14 @@ public class OrderMapper {
             throw new ToLogException("" + ex.getMessage());
         }
     }
+    
+    public List<Order> getOrder() throws ToLogException {
+        List<Order> order = new ArrayList<>();
+        try {
+            String sql = "select ";
+            return order;
+        } catch (SQLException ex) {
+            throw new ToLogException("" + ex.getMessage());
+        }
+    }
 }
