@@ -9,30 +9,30 @@ public class Order {
     private String roofType;
     private double width;
     private double length;
-    private double heigth;
+    private double height;
     private int User_idUser;
 
-    public Order(int idOrder, String roofType, double width, double length, double heigth) {
+    public Order(int idOrder, String roofType, double width, double length, double height) {
         this.idOrder = idOrder;
         this.roofType = roofType;
         this.width = width;
         this.length = length;
-        this.heigth = heigth;
+        this.height = height;
     }
 
-    public Order(String roofType, double width, double length, double heigth) {
+    public Order(String roofType, double width, double length, double height) {
         this.roofType = roofType;
         this.width = width;
         this.length = length;
-        this.heigth = heigth;
+        this.height = height;
     }
 
-    public Order(int idOrder, String roofType, double width, double length, double heigth, int User_idUser) {
+    public Order(int idOrder, String roofType, double width, double length, double height, int User_idUser) {
         this.idOrder = idOrder;
         this.roofType = roofType;
         this.width = width;
         this.length = length;
-        this.heigth = heigth;
+        this.height = height;
         this.User_idUser = User_idUser;
     }
     
@@ -76,16 +76,16 @@ public class Order {
         this.length = length;
     }
 
-    public double getHeigth() {
-        return heigth;
+    public double getHeight() {
+        return height;
     }
 
-    public void setHeigth(double heigth) {
-        this.heigth = heigth;
+    public void setHeight(double height) {
+        this.height = height;
     }
 
     @Override
     public String toString() {
-        return "Order{" + "idOrder=" + idOrder + ", roofType=" + roofType + ", width=" + width + ", length=" + length + ", heigth=" + heigth + ", User_idUser=" + User_idUser + '}';
+        return "Order{" + "idOrder=" + idOrder + ", roofType=" + roofType + ", width=" + width + ", length=" + length + ", height=" + height + ", User_idUser=" + User_idUser + '}';
     }
 }
