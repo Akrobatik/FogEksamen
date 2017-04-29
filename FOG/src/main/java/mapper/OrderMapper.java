@@ -73,7 +73,7 @@ public class OrderMapper {
     public List<Order> getUserOrder() throws ToLogException {
         List<Order> order = new ArrayList<>();
         try {
-            String sql = "select roofType, width, length, height, User_idUser from `Order` where User_idUser = 2";
+            String sql = "select roofType, width, length, height, User_idUser from `Order` where User_idUser = ?";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
