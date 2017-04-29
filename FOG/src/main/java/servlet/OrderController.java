@@ -33,6 +33,7 @@ public class OrderController extends HttpServlet {
             HttpSession session = request.getSession();
         
             Order order;
+            double width, length, height;
         
             switch(origin) {
                 case "ShowOrder":
@@ -41,8 +42,14 @@ public class OrderController extends HttpServlet {
 //                    request.getSession().setAttribute("Orders", orders);
 //                    response.sendRedirect("Order.jsp");
                     //break;
-//                case "AddOrder":
-//                    break;
+                    break;
+                case "AddOrder":
+                    session = request.getSession();
+                    width = Double.parseDouble("width");
+                    length = Double.parseDouble("length");
+                    height = Double.parseDouble("height");
+                    om.addOrder(origin, width, length, height, 0);
+                    break;
             }
         } catch (Exception ex) {
             ex.printStackTrace();
