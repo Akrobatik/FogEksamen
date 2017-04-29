@@ -2,7 +2,6 @@ package mapper;
 
 import db.DataBase;
 import entity.Order;
-import entity.User2;
 import entity.User;
 import entity.UserAdmin;
 import exceptions.ToLogException;

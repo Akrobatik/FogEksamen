@@ -2,7 +2,6 @@ package mapper;
 
 import db.DataBase;
 import entity.User;
-import entity.User2;
 import exceptions.ToLogException;
 import exceptions.UserFeedbackException;
 import java.sql.PreparedStatement;

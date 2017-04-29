@@ -1,7 +1,6 @@
 package servlet;
 
 import entity.User;
-import entity.User2;
 import entity.UserAdmin;
 import entity.UserSuperAdmin;
 import exceptions.ToLogException;
