@@ -1,7 +1,7 @@
-package data;
+package model.data;
 
-import db.DataBase;
-import entity.Order;
+import model.db.DataBase;
+import model.entity.Order;
 import exceptions.ToLogException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -1,9 +1,9 @@
-package data;
+package model.data;
 
-import db.DataBase;
-import entity.Order;
-import entity.User;
-import entity.UserAdmin;
+import model.db.DataBase;
+import model.entity.Order;
+import model.entity.User;
+import model.entity.UserAdmin;
 import exceptions.ToLogException;
 import exceptions.UserFeedbackException;
 import java.sql.PreparedStatement;

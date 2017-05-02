@@ -1,7 +1,7 @@
-package data;
+package model.data;
 
-import db.DataBase;
-import entity.UserSuperAdmin;
+import model.db.DataBase;
+import model.entity.UserSuperAdmin;
 import exceptions.ToLogException;
 import exceptions.UserFeedbackException;
 import java.sql.PreparedStatement;

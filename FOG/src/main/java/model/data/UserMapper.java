@@ -1,7 +1,7 @@
-package data;
+package model.data;
 
-import db.DataBase;
-import entity.User;
+import model.db.DataBase;
+import model.entity.User;
 import exceptions.ToLogException;
 import exceptions.UserFeedbackException;
 import java.sql.PreparedStatement;

@@ -1,8 +1,8 @@
-package servlet;
+package control;
 
-import entity.User;
-import entity.UserAdmin;
-import entity.UserSuperAdmin;
+import model.entity.User;
+import model.entity.UserAdmin;
+import model.entity.UserSuperAdmin;
 import exceptions.ToLogException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import data.UserAdminMapper;
-import data.UserMapper;
-import data.UserSuperAdminMapper;
+import model.data.UserAdminMapper;
+import model.data.UserMapper;
+import model.data.UserSuperAdminMapper;
 
 /**
  *
