@@ -1,4 +1,4 @@
-package mapper;
+package data;
 
 import db.DataBase;
 import entity.Order;

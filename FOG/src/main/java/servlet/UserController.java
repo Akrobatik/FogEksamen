@@ -13,9 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import mapper.UserAdminMapper;
-import mapper.UserMapper;
-import mapper.UserSuperAdminMapper;
+import data.UserAdminMapper;
+import data.UserMapper;
+import data.UserSuperAdminMapper;
 
 /**
  *
