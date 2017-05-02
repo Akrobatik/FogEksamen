@@ -7,12 +7,14 @@ import exceptions.UserFeedbackException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import model.entity.NewInterface;
 
 /**
  *
  * @author Anders
  */
 public class UserMapper {
+    //public NewInterface validateUser(String username, String password) throws ToLogException, UserFeedbackException {
     public User validateUser(String username, String password) throws ToLogException, UserFeedbackException {
         try {
             String sql = "select * from User where username = ? and password = ?";

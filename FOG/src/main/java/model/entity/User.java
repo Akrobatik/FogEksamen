@@ -4,7 +4,7 @@ package model.entity;
  *
  * @author Anders
  */
-public class User {
+public class User implements NewInterface {
     private int idUser;
     private String username;
     private String password;
@@ -40,58 +40,72 @@ public class User {
         this.password = password;
     }
 
+    @Override
     public int getIdUser() {
         return idUser;
     }
 
+    @Override
     public void setIdUser(int idUser) {
         this.idUser = idUser;
     }
 
+    @Override
     public String getUsername() {
         return username;
     }
 
+    @Override
     public void setUsername(String username) {
         this.username = username;
     }
 
+    @Override
     public String getPassword() {
         return password;
     }
 
+    @Override
     public void setPassword(String password) {
         this.password = password;
     }
 
+    @Override
     public String getFirstname() {
         return firstname;
     }
 
+    @Override
     public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
+    @Override
     public String getLastname() {
         return lastname;
     }
 
+    @Override
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
 
+    @Override
     public int getTlf() {
         return tlf;
     }
 
+    @Override
     public void setTlf(int tlf) {
         this.tlf = tlf;
     }
 
+    @Override
     public String getEmail() {
         return email;
     }
 
+    @Override
     public void setEmail(String email) {
         this.email = email;
     }
