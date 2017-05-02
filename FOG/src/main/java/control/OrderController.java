@@ -46,6 +46,7 @@ public class OrderController extends HttpServlet {
                 case "AddOrder":
                     session = request.getSession();
                     width = Double.parseDouble("width");
+                    //double width = request.getParameter(width);
                     length = Double.parseDouble("length");
                     height = Double.parseDouble("height");
                     om.addOrder(origin, width, length, height, 0);
