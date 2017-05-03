@@ -13,5 +13,8 @@
     </head>
     <body>
         <h1>Tilføj ny admin</h1>
+        <form action="SuperAdminController" method="post">
+            
+        </form>
     </body>
 </html>
