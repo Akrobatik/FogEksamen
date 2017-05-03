@@ -14,7 +14,11 @@
     <body>
         <h1>Tilføj ny admin</h1>
         <form action="SuperAdminController" method="post">
-            
+            <input type="text" name="username" placeholder="Brugernavn"/>
+            <input type="password" name="password" placeholder="password"/>
+            <input type="password" name="password2" placeholder="Gentag password"/>
+            <input type="text" name="firstname" placeholder="Fornavn"/>
+            <input type="text" name="lastname" placeholder="Efternavn"/>
         </form>
     </body>
 </html>
