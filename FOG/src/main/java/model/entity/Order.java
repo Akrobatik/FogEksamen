@@ -26,7 +26,6 @@ public class Order {
         this.length = length;
         this.height = height;
         this.User_idUser = User_idUser;
-
     }
 
     public Order(int idOrder, String roofType, double width, double length, double height, int User_idUser) {
@@ -37,6 +36,14 @@ public class Order {
         this.height = height;
         this.User_idUser = User_idUser;
     }
+
+    public Order(String roofType, double width, double length, double height) {
+        this.roofType = roofType;
+        this.width = width;
+        this.length = length;
+        this.height = height;
+    }
+    
     
     public int getUser_idUser() {
         return User_idUser;
