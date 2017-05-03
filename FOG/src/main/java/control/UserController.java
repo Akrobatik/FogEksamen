@@ -49,6 +49,7 @@ public class UserController extends HttpServlet {
         switch(origin) {
             case "Login": 
                 session = request.getSession();
+               // session.setAttribute("User_idUser", );
                 username = request.getParameter("username");
                 password = request.getParameter("password");
                 
@@ -59,8 +60,9 @@ public class UserController extends HttpServlet {
                 if(user == null && userAdmin == null && userSuperAdmin == null) {
                     response.sendRedirect("NotLogin.jsp");
                 } else if (user != null) {
-                    session.setAttribute("username", user);
-                    response.sendRedirect("user/index.jsp");
+                    session.setAttribute("user", user);
+                    //response.sendRedirect("user/index.jsp");
+                    response.sendRedirect("AddOrder.jsp");
                 } else if (userAdmin != null) {
                     session.setAttribute("username", userAdmin);
                     response.sendRedirect("admin/index.html");

@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.data.OrderMapper;
+import model.entity.User;
 
 /**
  *
@@ -33,7 +34,7 @@ public class OrderController extends HttpServlet {
             HttpSession session = request.getSession();
         
             Order order;
-            double width, length, height;
+            //double width, length, height;
         
             switch(origin) {
                 case "ShowOrder":
@@ -45,11 +46,15 @@ public class OrderController extends HttpServlet {
                     break;
                 case "AddOrder":
                     session = request.getSession();
-                    width = Double.parseDouble("width");
-                    //double width = request.getParameter(width);
-                    length = Double.parseDouble("length");
-                    height = Double.parseDouble("height");
-                    om.addOrder(origin, width, length, height, 0);
+                    //width = Double.parseDouble("width"); skal slettes
+                    //length = Double.parseDouble("length"); // skal slettes
+                    //height = Double.parseDouble("height"); // skal slettes
+                    String roofType = request.getParameter("roofType");
+                    double width = Double.parseDouble(request.getParameter("width"));
+                    double length = Double.parseDouble(request.getParameter("length"));
+                    double height = Double.parseDouble(request.getParameter("height"));
+                    om.addOrder(roofType, width, length, height, ((User)session.getAttribute("user")).getIdUser());
+                    response.sendRedirect("SendOrder.jsp");
                     break;
             }
         } catch (Exception ex) {
