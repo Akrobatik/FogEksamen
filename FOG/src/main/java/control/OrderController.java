@@ -34,7 +34,6 @@ public class OrderController extends HttpServlet {
             HttpSession session = request.getSession();
         
             Order order;
-            //double width, length, height;
         
             switch(origin) {
                 case "ShowOrder":
@@ -46,9 +45,6 @@ public class OrderController extends HttpServlet {
                     break;
                 case "AddOrder":
                     session = request.getSession();
-                    //width = Double.parseDouble("width"); skal slettes
-                    //length = Double.parseDouble("length"); // skal slettes
-                    //height = Double.parseDouble("height"); // skal slettes
                     String roofType = request.getParameter("roofType");
                     double width = Double.parseDouble(request.getParameter("width"));
                     double length = Double.parseDouble(request.getParameter("length"));

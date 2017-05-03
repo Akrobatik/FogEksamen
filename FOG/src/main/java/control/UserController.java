@@ -49,7 +49,6 @@ public class UserController extends HttpServlet {
         switch(origin) {
             case "Login": 
                 session = request.getSession();
-               // session.setAttribute("User_idUser", );
                 username = request.getParameter("username");
                 password = request.getParameter("password");
                 
