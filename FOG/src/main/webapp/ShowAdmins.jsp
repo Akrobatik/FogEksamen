@@ -45,7 +45,7 @@
         <td> <%=usera.getPassword() %></td>
         <td> <%=usera.getFirstname() %></td>
         <td> <%=usera.getLastname() %></td>
-        <td> <button type="button" class="btn btn-info" value="delete">Info</button> </td>
+        <td> <button type="button" class="btn btn-info" name="origin" value="delete">Info</button> </td>
       </tr>
         <%
             }
