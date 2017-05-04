@@ -38,7 +38,7 @@ public class SuperAdminController extends HttpServlet {
                     String lastname = request.getParameter("lastname");
                     if(password.equals(password2)) {
                         usam.addUserAdmin(username, password, firstname, lastname);
-                        response.sendRedirect("SendNewAdmin");
+                        response.sendRedirect("SendNewAdmin.jsp");
                     }
                     break;
             }

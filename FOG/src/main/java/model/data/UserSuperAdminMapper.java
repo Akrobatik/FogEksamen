@@ -41,7 +41,7 @@ public class UserSuperAdminMapper {
         pstmt.setString(2, password);
         pstmt.setString(3, firstname);
         pstmt.setString(4, lastname);
-        pstmt.executeQuery();
+        pstmt.executeUpdate();
         } catch (SQLException ex) {
             throw new ToLogException("Error in addUserAdmin" + ex.getMessage());
         }
