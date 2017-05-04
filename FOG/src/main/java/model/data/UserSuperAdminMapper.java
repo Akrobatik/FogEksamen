@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.entity.UserAdmin;
 
 /**
  *
@@ -60,17 +61,17 @@ public class UserSuperAdminMapper {
         }
     }
     
-    public List<UserSuperAdmin> getAdmins() throws ToLogException {
-        List<UserSuperAdmin> usersa = new ArrayList<>();
+    public List<UserAdmin> getAdmins() throws ToLogException {
+        List<UserAdmin> usera = new ArrayList<>();
         try {
             String sql = "";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                UserSuperAdmin usa = new UserSuperAdmin(rs.getString(""), rs.getString(""), rs.getString(""));
+                UserAdmin ua = new UserAdmin();
             }
-            return usersa;
+            return usera;
         } catch (SQLException ex) {
             throw new ToLogException("" + ex.getMessage());
         }

@@ -25,6 +25,13 @@ public class UserAdmin {
         this.password = password;
     }
 
+    public UserAdmin(String username, String password, String firstname, String lastname) {
+        this.username = username;
+        this.password = password;
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
+
     public int getIdAdmin() {
         return idAdmin;
     }
