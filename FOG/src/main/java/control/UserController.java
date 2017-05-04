@@ -60,8 +60,8 @@ public class UserController extends HttpServlet {
                     response.sendRedirect("NotLogin.jsp");
                 } else if (user != null) {
                     session.setAttribute("user", user);
-                    response.sendRedirect("user/index.jsp");
-                    //response.sendRedirect("KundeForside.jsp");
+                    //response.sendRedirect("user/index.jsp");
+                    response.sendRedirect("KundeForside.jsp");
                 } else if (userAdmin != null) {
                     session.setAttribute("username", userAdmin);
                     response.sendRedirect("admin/index.html");

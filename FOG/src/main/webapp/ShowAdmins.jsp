@@ -4,10 +4,9 @@
     Author     : Anders
 --%>
 
-<%@page import="model.entity.UserSuperAdmin"%>
+<%@page import="model.data.UserSuperAdminMapper"%>
 <%@page import="model.entity.UserAdmin"%>
 <%@page import="java.util.List"%>
-<%@page import="model.data.UserSuperAdminMapper"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,32 +18,41 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <h1>Slet Admin bruger</h1>
+        <h1>Vis Admin bruger</h1>
         <%
-            UserSuperAdminMapper usam = new UserSuperAdminMapper(); 
+            UserSuperAdminMapper usam = new UserSuperAdminMapper();
         %> 
         <div class="container">
   <h2>Basic Table</h2>
-  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>   
+  <form action="SuperAdminController" method="post">
   <table class="table">
     <thead>
       <tr>
         <th>Brugernavn</th>
+        <th>Password</th>
         <th>Fornavn</th>
         <th>Efternavn</th>
       </tr>
     </thead>
     <tbody>
         <% 
-            
+            List<UserAdmin> theadmin = usam.getAdmins();
+            for (UserAdmin usera : theadmin) {
         %>
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+        <td> <%=usera.getUsername() %></td>
+        <td> <%=usera.getPassword() %></td>
+        <td> <%=usera.getFirstname() %></td>
+        <td> <%=usera.getLastname() %></td>
+        <td> <button type="button" class="btn btn-info" value="delete">Info</button> </td>
       </tr>
+        <%
+            }
+        %>
     </tbody>
   </table>
+    </form>
 </div>
     </body>
 </html>

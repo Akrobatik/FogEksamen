@@ -20,7 +20,7 @@ public class OrderMapper {
                     + "values(?, ?, ?, ?, ?)";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
-            pstmt.setString(1, "roofType");
+            pstmt.setString(1, roofType);
             pstmt.setDouble(2, width);
             pstmt.setDouble(3, length);
             pstmt.setDouble(4, height);

@@ -14,6 +14,6 @@
     <body>
         <h1>Super Admin Forside</h1>
         <a href="AddAdmin.jsp">Tilføj Admin</a>
-        <a href="DeleteAdmin.jsp">Slet Admin bruger</a>
+        <a href="ShowAdmins.jsp">Vis Admin bruger</a>
     </body>
 </html>
