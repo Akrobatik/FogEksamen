@@ -41,6 +41,10 @@ public class SuperAdminController extends HttpServlet {
                         response.sendRedirect("SendNewAdmin.jsp");
                     }
                     break;
+                case "DeleteAdmin":
+                    session = request.getSession();
+                    
+                    break;
             }
         } catch (Exception ex) {
             ex.printStackTrace();

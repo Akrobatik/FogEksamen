@@ -1,7 +1,7 @@
 <%@page import="java.util.List"%>
 <%@page import="entity.Order"%>
 <%@page import="entity.Order"%>
-<%@page import="mapper.OrderMapper"%>
+<%@page import="mapper.OrderMapper"%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,7 +80,7 @@
 			</div>
 		</div><!--/.row-->
 				
-	<form id="ordre" action="OrdreController" method="post">
+	<form id="ordre" action="OrderController" method="post">
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
