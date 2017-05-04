@@ -64,12 +64,13 @@ public class UserSuperAdminMapper {
     public List<UserAdmin> getAdmins() throws ToLogException {
         List<UserAdmin> usera = new ArrayList<>();
         try {
-            String sql = "";
+            String sql = "select username, password, firstname, lastname from Admin";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                UserAdmin ua = new UserAdmin();
+                UserAdmin ua = new UserAdmin(rs.getString("username"), rs.getString("password"), rs.getString("firstname"), rs.getString("lastname"));
+                usera.add(ua);
             }
             return usera;
         } catch (SQLException ex) {
