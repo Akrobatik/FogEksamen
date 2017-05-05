@@ -43,6 +43,7 @@ public class SuperAdminController extends HttpServlet {
                     break;
                 case "DeleteAdmin":
                     session = request.getSession();
+                    request.getAttribute(orderId);
                     if(origin != null && origin.equals("DeleteAdmin")) {
                         usam.deleteUserAdmin();
                         response.sendRedirect("AdminDeleted.jsp");
