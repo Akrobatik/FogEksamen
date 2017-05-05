@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.entity.User;
 
 /**
  *
@@ -70,13 +71,14 @@ public class OrderMapper {
         }
     }
     
-    public List<Order> getUserOrder() throws ToLogException {
+    public List<Order> getUserOrder(User user) throws ToLogException {
         List<Order> order = new ArrayList<>();
         try {
             String sql = "select roofType, width, length, height, User_idUser from `Order` where User_idUser = ?";
             //String sql = "select roofType, width, length, height from `Order` where User_idUser = ?";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+            pstmt.setInt(1, user.getIdUser());
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
                 Order o = new Order(rs.getString("roofType"), rs.getDouble("width"), rs.getDouble("length"), rs.getDouble("height"), rs.getInt("User_idUser") );
