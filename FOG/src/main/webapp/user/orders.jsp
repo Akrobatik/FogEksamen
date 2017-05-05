@@ -1,7 +1,6 @@
+<%@page import="model.entity.Order"%>
+<%@page import="model.data.OrderMapper"%>
 <%@page import="java.util.List"%>
-<%@page import="entity.Order"%>
-<%@page import="entity.Order"%>
-<%@page import="mapper.OrderMapper"%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,8 +24,8 @@
 </head>
 
 <body>
-            <%OrderMapper om = new OrderMapper();%>
-
+            
+<% OrderMapper om = new OrderMapper(); %>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -85,7 +84,7 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<table name="origin" value="orders" data-toggle="table"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+						<table data-toggle="table"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
                                                         <!--<th data-field="state" data-checkbox="true" >Tag type</th> -->

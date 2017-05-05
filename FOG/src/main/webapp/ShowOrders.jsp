@@ -20,7 +20,6 @@
         <% OrderMapper om = new OrderMapper(); %>
         
         <form action="OrderController" method="post">
-            
             <% 
                 List<Order> theorder = om.getOrders();
                 
