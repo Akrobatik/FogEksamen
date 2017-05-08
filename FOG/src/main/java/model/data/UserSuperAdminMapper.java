@@ -50,11 +50,12 @@ public class UserSuperAdminMapper {
         }
     }
     
-    public void deleteUserAdmin() throws ToLogException {
+    public void deleteUserAdmin(int idAdmin) throws ToLogException {
         try {
             String sql = "delete from Admin where idAdmin = ?";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+            pstmt.setInt(1, idAdmin);
             pstmt.executeUpdate();
         } catch (SQLException ex) {
             throw new ToLogException("" + ex.getMessage());

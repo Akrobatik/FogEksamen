@@ -34,7 +34,7 @@ public class OrderController extends HttpServlet {
             HttpSession session = request.getSession();
         
             Order order;
-        //System.out.println(request.getAttribute("origin"));
+        
             switch(origin) {
                 case "ShowOrder":
 //                    session = request.getSession();
@@ -54,13 +54,16 @@ public class OrderController extends HttpServlet {
                     break;
                 case "DeleteOrder":
                     session = request.getSession();
-                    //System.out.println(request.getAttribute("orderId"));
-                    
-                    
                     if(origin != null && origin.equals("DeleteOrder")) {
-                        //om.deleteOrder((int)request.getAttribute("orderId"));
                         om.deleteOrder(Integer.parseInt(request.getParameter("orderId")));
                         response.sendRedirect("OrderDeleted.jsp");
+                    }
+                    break;
+                case "EditOrder": //ER IKKE FÆRDIG!!
+                    session = request.getSession();
+                    if(origin != null && origin.equals("")) {
+                        
+                        response.sendRedirect("");
                     }
                     break;
             }
