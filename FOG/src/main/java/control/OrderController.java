@@ -34,7 +34,7 @@ public class OrderController extends HttpServlet {
             HttpSession session = request.getSession();
         
             Order order;
-        
+        //System.out.println(request.getAttribute("origin"));
             switch(origin) {
                 case "ShowOrder":
 //                    session = request.getSession();
@@ -51,6 +51,17 @@ public class OrderController extends HttpServlet {
                     double height = Double.parseDouble(request.getParameter("height"));
                     om.addOrder(roofType, width, length, height, ((User)session.getAttribute("user")).getIdUser());
                     response.sendRedirect("SendOrder.jsp");
+                    break;
+                case "DeleteOrder":
+                    session = request.getSession();
+                    //System.out.println(request.getAttribute("orderId"));
+                    
+                    
+                    if(origin != null && origin.equals("DeleteOrder")) {
+                        //om.deleteOrder((int)request.getAttribute("orderId"));
+                        om.deleteOrder(Integer.parseInt(request.getParameter("orderId")));
+                        response.sendRedirect("OrderDeleted.jsp");
+                    }
                     break;
             }
         } catch (Exception ex) {

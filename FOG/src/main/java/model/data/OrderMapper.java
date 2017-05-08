@@ -32,11 +32,12 @@ public class OrderMapper {
         }
     }
     
-    public void deleteOrder() throws ToLogException {
+    public void deleteOrder(int idOrder) throws ToLogException {
         try {
             String sql = "delete from `Order` where idOrder = ?";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+            pstmt.setInt(1, idOrder);
             pstmt.executeUpdate();
         } catch (SQLException ex) {
             throw new ToLogException("" + ex.getMessage());

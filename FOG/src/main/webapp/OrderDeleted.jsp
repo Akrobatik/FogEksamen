@@ -1,6 +1,6 @@
 <%-- 
-    Document   : KundeForside
-    Created on : 03-05-2017, 21:10:01
+    Document   : OrderDeleted
+    Created on : 07-05-2017, 00:12:57
     Author     : Anders
 --%>
 
@@ -12,8 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <a href="AddOrder.jsp">Ny ordre</a>
-        <a href="ShowOrders.jsp">Vis ordre</a>
+        <h1>Ordren blev slettet af user</h1>
     </body>
 </html>
