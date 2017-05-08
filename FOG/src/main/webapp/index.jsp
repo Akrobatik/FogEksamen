@@ -4,7 +4,7 @@
     Author     : Rasmussen
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"  errorPage="error_page.jsp"%>
 <jsp:include page="header.jsp" />
  <div class="row">
 

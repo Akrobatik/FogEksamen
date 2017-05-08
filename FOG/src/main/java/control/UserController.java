@@ -55,7 +55,7 @@ public class UserController extends HttpServlet {
                 user = um.validateUser(username, password);
                 userAdmin = uam.validateAdmin(username, password);
                 userSuperAdmin = usam.validateSuperAdmin(username, password);
-                
+               
                 if(user == null && userAdmin == null && userSuperAdmin == null) {
                     response.setStatus(403);
                 } else if (user != null) {

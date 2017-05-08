@@ -1,10 +1,10 @@
 <%-- 
-    Document   : header
-    Created on : 08-05-2017, 19:00:04
+    Document   : error_page
+    Created on : 08-05-2017, 23:24:43
     Author     : Rikke Nielsen 
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8" errorPage="error_page.jsp"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" isErrorPage="true"%>
 <% String ctx = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
@@ -19,15 +19,16 @@
         <script src="<%= ctx %>/js/lumino.glyphs.js"></script>
 
         <title>FOG</title>
-
-
             
 </head>
-<body>
-        <% if (session.getAttribute("username") != null) { %>
-            <jsp:include page="menu.jsp"/>
-        <% } else { %>
-            <div id="menu_container"></div>
-        <% } %>
-<div id="root" class="container">
-   
+    <body>
+        <div id="root" class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Oops</h1>
+                    Noget gik galt
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
