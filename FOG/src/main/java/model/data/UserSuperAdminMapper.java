@@ -50,11 +50,12 @@ public class UserSuperAdminMapper {
         }
     }
     
-    public void deleteUserAdmin() throws ToLogException {
+    public void deleteUserAdmin(int idAdmin) throws ToLogException {
         try {
             String sql = "delete from Admin where idAdmin = ?";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+            pstmt.setInt(1, idAdmin);
             pstmt.executeUpdate();
         } catch (SQLException ex) {
             throw new ToLogException("" + ex.getMessage());
@@ -64,12 +65,12 @@ public class UserSuperAdminMapper {
     public List<UserAdmin> getAdmins() throws ToLogException {
         List<UserAdmin> usera = new ArrayList<>();
         try {
-            String sql = "select username, password, firstname, lastname from Admin";
+            String sql = "select idAdmin, username, password, firstname, lastname from Admin";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                UserAdmin ua = new UserAdmin(rs.getString("username"), rs.getString("password"), rs.getString("firstname"), rs.getString("lastname"));
+                UserAdmin ua = new UserAdmin(rs.getInt("idAdmin"), rs.getString("username"), rs.getString("password"), rs.getString("firstname"), rs.getString("lastname"));
                 usera.add(ua);
             }
             return usera;

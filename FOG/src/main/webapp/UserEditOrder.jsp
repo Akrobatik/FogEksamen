@@ -14,7 +14,7 @@
     <body>
         <h1>Hello World!</h1>
         <form action="OrderController" method="POST">
-            <input type="hidden" name="origin" value="AddOrder">
+            <input type="hidden" name="origin" value="UserEditOrder">
             <h3>Tag type</h3>
             <select name="roofType">
                 <option value="">Angiv Tagtype</option>

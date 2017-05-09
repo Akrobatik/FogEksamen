@@ -43,28 +43,26 @@
                         for (Order order : theorder) {
                     %>
                     <tr>
-                    <td> <%=order.getRoofType()%></td>
-                    <td> <%=order.getWidth()%></td>
-                    <td> <%=order.getLength()%></td>
-                    <td> <%=order.getHeight()%></td>
-                    <td> <%=order.getUser_idUser()%></td>
-                    <td> <button type="button" class="btn btn-info" name="origin" value="EditOrder">Rediger Ordre</button> </td>
-                    <td> 
-                        
-                <form action="OrderController" method="get">
-                    <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
-                    <input type="hidden" name="origin" value="DeleteOrder">
-                        <input type="submit" class="btn btn-info" value="Slet Ordre"/>
-                        <input type="hidden" name="orderNumber" value="DeleteOrder">
-                </form>
-                </td>
-                </tr>
-                <%
-                    }
-                %>
+                        <td> <%=order.getRoofType()%></td>
+                        <td> <%=order.getWidth()%></td>
+                        <td> <%=order.getLength()%></td>
+                        <td> <%=order.getHeight()%></td>
+                        <td> <%=order.getUser_idUser()%></td>
+                        <td> <button type="button" class="btn btn-info" name="origin" value="EditOrder">Rediger Ordre</button> </td>
+                        <td> 
+                            <form action="OrderController" method="get">
+                                <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
+                                <input type="hidden" name="origin" value="DeleteOrder">
+                                <input type="submit" class="btn btn-info" value="Slet Ordre"/>
+                                <!--<input type="hidden" name="orderNumber" value="DeleteOrder">-->
+                            </form>
+                        </td>
+                    </tr>
+                    <%
+                        }
+                    %>
                 </tbody>
             </table>
-
         </div>
     </body>
 </html>
