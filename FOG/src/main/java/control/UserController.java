@@ -55,16 +55,16 @@ public class UserController extends HttpServlet {
                 user = um.validateUser(username, password);
                 userAdmin = uam.validateAdmin(username, password);
                 userSuperAdmin = usam.validateSuperAdmin(username, password);
-                
+               
                 if(user == null && userAdmin == null && userSuperAdmin == null) {
-                    response.sendRedirect("NotLogin.jsp");
+                    response.setStatus(403);
                 } else if (user != null) {
-                    session.setAttribute("user", user);
+                    session.setAttribute("username", user);
                     //response.sendRedirect("user/index.jsp");
                     response.sendRedirect("KundeForside.jsp");
                 } else if (userAdmin != null) {
                     session.setAttribute("username", userAdmin);
-                    response.sendRedirect("admin/index.html");
+                    response.sendRedirect("admin/index.jsp");
                 } else if (userSuperAdmin != null) {
                     session.setAttribute("username", userSuperAdmin);
                     //response.sendRedirect("superadmin/index.html");
