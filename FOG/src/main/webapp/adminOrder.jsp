@@ -7,6 +7,7 @@
 
 <link href="../css/bootstrap.min.css" rel="stylesheet">
 <link href="../css/datepicker3.css" rel="stylesheet">
+<link href="../css/bootstrap-table.css" rel="stylesheet">
 <link href="../css/styles.css" rel="stylesheet">
 
 <!--Icons-->
@@ -52,9 +53,9 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li class="active"><a href="index.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
-                        <li><a href="orders.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
-
+			<li><a href="adminIndex.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
+                        <li><a href="adminUser.jsp"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Users</a></li>
+                        <li class="active"><a href="adminOrder.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
 		<div class="attribution">By <a href="http://www.Rasmussen-Solutions.dk/">Emil Rasmussen</a></div>
@@ -64,48 +65,39 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Forside</li>
-                        </ol>
+				<li class="active">Orders</li>
+			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Dashboard</h1>
+				<h1 class="page-header">Orders</h1>
 			</div>
 		</div><!--/.row-->
+				
 		
 		<div class="row">
-			<div class="col-xs-12 col-md-6 col-lg-3">
-				<div class="panel panel-blue panel-widget ">
-					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							<svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>
-						</div>
-						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">120</div>
-							<div class="text-muted">New Orders</div>
-						</div>
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+                                            <table class="table">
+                                                    <thead>
+						    <tr>
+						        <th data-field="state" data-checkbox="true" >ID</th>
+						        <th data-field="id" data-sortable="true">ID</th>
+						        <th data-field="name"  data-sortable="true">Navn</th>
+						        <th data-field="price" data-sortable="true">Pris</th>
+						    </tr>
+                                                    </thead>
+						</table>
 					</div>
 				</div>
 			</div>
-			
-			<div class="col-xs-12 col-md-6 col-lg-3">
-				<div class="panel panel-teal panel-widget">
-					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							<svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>
-						</div>
-						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">24</div>
-							<div class="text-muted">New Users</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</div><!--/.row-->
+		</div><!--/.row-->	
 		
-	</div>	<!--/.main-->
+		
+		
+	</div><!--/.main-->
 
 	<script src="../js/jquery-1.11.1.min.js"></script>
 	<script src="../js/bootstrap.min.js"></script>
@@ -114,7 +106,8 @@
 	<script src="../js/easypiechart.js"></script>
 	<script src="../js/easypiechart-data.js"></script>
 	<script src="../js/bootstrap-datepicker.js"></script>
-	
+	<script src="../js/bootstrap-table.js"></script>
+		
 </body>
 
 </html>

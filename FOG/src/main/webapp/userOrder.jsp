@@ -1,3 +1,4 @@
+<%@page import="model.entity.User"%>
 <%@page import="model.entity.Order"%>
 <%@page import="model.data.OrderMapper"%>
 <%@page import="java.util.List"%>
@@ -8,25 +9,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FOG</title>
 
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/datepicker3.css" rel="stylesheet">
-<link href="../css/bootstrap-table.css" rel="stylesheet">
-<link href="../css/styles.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/bootstrap-table.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
 
 <!--Icons-->
-<script src="../js/lumino.glyphs.js"></script>
+<script src="js/lumino.glyphs.js"></script>
 
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
 <script src="js/respond.min.js"></script>
 <![endif]-->
 
+
+
 </head>
 
 <body>
             
-<% OrderMapper om = new OrderMapper(); %>
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <% OrderMapper om = new OrderMapper(); %>
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
@@ -79,13 +83,13 @@
 			</div>
 		</div><!--/.row-->
 				
-	<form id="ordre" action="OrderController" method="post">
-		<div class="row">
+<!-- order -->
+                <div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<table data-toggle="table"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
-						    <thead>
+                                            <table class="table">
+                                                <thead>
 						    <tr>
                                                         <!--<th data-field="state" data-checkbox="true" >Tag type</th> -->
 						        <th data-field="roofType" data-sortable="true" >Tag type</th>
@@ -94,21 +98,36 @@
 						        <th data-field="height" data-sortable="true">Højde</th>
                                                         <th data-field="userId" data-sortable="true">UserID</th>
                                                         <th data-field="info" data-sortable="false"> </th>
+                                                        <th data-field="info" data-sortable="false"> </th>
+
 						    </tr>
-						    </thead>
+                                                </thead>
                                                     <tbody>
-                                                    <% List<Order> theordre = om.getUserOrder();
-                                                        for (Order order : theordre) {%>
-                                                    <tr>
-                                                        <td> <%= order.getRoofType() %></td>
-                                                        <td> <%= order.getWidth() %></td>
-                                                        <td> <%= order.getLength() %></td>
-                                                        <td> <%= order.getHeight() %></td>
-                                                        <td> <%= order.getUser_idUser()%></td>                                                         
-                                                        <td> <button type="button" class="btn btn-info" >Info</button> </td>
-                                                    </tr>
-                                                    <% }
-                                                        %>
+                                                    <%
+                        User u = (User) (session.getAttribute("user"));
+                        List<Order> theorder = om.getUserOrder(u);
+                        for (Order order : theorder) {
+                    %>
+                    <tr>
+                    <td> <%=order.getRoofType()%></td>
+                    <td> <%=order.getWidth()%></td>
+                    <td> <%=order.getLength()%></td>
+                    <td> <%=order.getHeight()%></td>
+                    <td> <%=order.getUser_idUser()%></td>
+                    <td> <button type="button" class="btn btn-info" name="origin" value="EditOrder">Rediger Ordre</button> </td>
+                    <td> 
+                        
+                <form action="OrderController" method="get">
+                    <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
+                    <input type="hidden" name="origin" value="DeleteOrder">
+                        <input type="submit" class="btn btn-info" value="Slet Ordre"/>
+                        <input type="hidden" name="orderNumber" value="DeleteOrder">
+                </form>
+                </td>
+                </tr>
+                <%
+                    }
+                %>
                                                     </tbody>
                                                 </table>
 					</div>
@@ -116,20 +135,19 @@
 			</div>
 		</div><!--/.row-->
                 
-        </form>
 		
 		
 		
 	</div><!--/.main-->
 
-	<script src="../js/jquery-1.11.1.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/chart.min.js"></script>
-	<script src="../js/chart-data.js"></script>
-	<script src="../js/easypiechart.js"></script>
-	<script src="../js/easypiechart-data.js"></script>
-	<script src="../js/bootstrap-datepicker.js"></script>
-	<script src="../js/bootstrap-table.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/chart-data.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/bootstrap-table.js"></script>
 		
 </body>
 
