@@ -36,13 +36,6 @@ public class OrderController extends HttpServlet {
             Order order;
         
             switch(origin) {
-                case "ShowOrder":
-//                    session = request.getSession();
-//                    List<Order> orders = om.getOrders();
-//                    request.getSession().setAttribute("Orders", orders);
-//                    response.sendRedirect("Order.jsp");
-                    //break;
-                    break;
                 case "AddOrder":
                     session = request.getSession();
                     String roofType = request.getParameter("roofType");
@@ -61,9 +54,9 @@ public class OrderController extends HttpServlet {
                     break;
                 case "EditOrder": //ER IKKE FÆRDIG!!
                     session = request.getSession();
-                    if(origin != null && origin.equals("")) {
-                        
-                        response.sendRedirect("");
+                    if(origin != null && origin.equals("UserEditOrder")) {
+                        //om.editOrder(Integer.parseInt(request.getParameter("")));
+                        response.sendRedirect("UserEditOrder.jsp");
                     }
                     break;
             }

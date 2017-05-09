@@ -23,36 +23,43 @@
             UserSuperAdminMapper usam = new UserSuperAdminMapper();
         %> 
         <div class="container">
-  <h2>Basic Table</h2>
-  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>   
-  <form action="SuperAdminController" method="post">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Brugernavn</th>
-        <th>Password</th>
-        <th>Fornavn</th>
-        <th>Efternavn</th>
-      </tr>
-    </thead>
-    <tbody>
-        <% 
-            List<UserAdmin> theadmin = usam.getAdmins();
-            for (UserAdmin usera : theadmin) {
-        %>
-      <tr>
-        <td> <%=usera.getUsername() %></td>
-        <td> <%=usera.getPassword() %></td>
-        <td> <%=usera.getFirstname() %></td>
-        <td> <%=usera.getLastname() %></td>
-        <td> <button type="button" class="btn btn-info" name="origin" value="DeleteAdmin">Slet Bruger</button> </td>
-      </tr>
-        <%
-            }
-        %>
-    </tbody>
-  </table>
-    </form>
-</div>
+            <h2>Basic Table</h2>
+            <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>   
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Brugernavn</th>
+                            <th>Password</th>
+                            <th>Fornavn</th>
+                            <th>Efternavn</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            //UserAdmin ua = (UserAdmin) (session.getAttribute("admin"));
+                            List<UserAdmin> theadmin = usam.getAdmins();
+                            for (UserAdmin usera : theadmin) {
+                        %>
+                        <tr>
+                            <td> <%=usera.getUsername()%></td>
+                            <td> <%=usera.getPassword()%></td>
+                            <td> <%=usera.getFirstname()%></td>
+                            <td> <%=usera.getLastname()%></td>
+                            <!--<td> <button type="button" class="btn btn-info" name="origin" value="DeleteAdmin">Slet Bruger</button> </td>-->
+                            <td> 
+                            <form action="SuperAdminController" method="get">
+                                <input type="hidden" name="idAdmin" value="<% out.print(usera.getIdAdmin());%>">
+                                <input type="hidden" name="origin" value="DeleteAdmin">
+                                <input type="submit" class="btn btn-info" value="Slet Admin"/>
+                                <!--<input type="hidden" name="orderNumber" value="DeleteAdmin">-->
+                            </form>
+                            </td>
+                        </tr>
+                        <%
+                            }
+                        %>
+                    </tbody>
+                </table>
+        </div>
     </body>
 </html>
