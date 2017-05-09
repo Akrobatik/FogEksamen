@@ -56,6 +56,7 @@ public class OrderController extends HttpServlet {
                     session = request.getSession();
                     if(origin != null && origin.equals("UserEditOrder")) {
                         //om.editOrder(Integer.parseInt(request.getParameter("")));
+                        //om.editOrder(roofType, width, length, height); // Skal bruges 
                         response.sendRedirect("UserEditOrder.jsp");
                     }
                     break;
