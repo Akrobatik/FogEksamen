@@ -6,10 +6,7 @@
 package control;
 
 import model.entity.Order;
-import exceptions.ToLogException;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -55,7 +52,9 @@ public class OrderController extends HttpServlet {
                 case "UserEditOrder": //ER IKKE FÆRDIG!!
                     session = request.getSession();
                     if(origin != null && origin.equals("UserEditOrder")) {
+                        //om.getOrder();
                         response.sendRedirect("UserEditOrder.jsp");
+                        
                         //om.editOrder(roofType, width, length, height); // Skal bruges 
                     }
                     break;

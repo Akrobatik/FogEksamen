@@ -41,7 +41,9 @@
 //                        User u = (User) (session.getAttribute("user"));
 //                        List<Order> theorder = om.getUserOrder(u);
 //                        for (Order order : theorder) {
-                        
+                        //Order o = (Order) (session.getAttribute(""));
+                        List<Order> theorder = om.getOrder();
+                        for (Order order : theorder) {
                     %>
                     <tr>
                         <td> <%=order.getRoofType()%></td>

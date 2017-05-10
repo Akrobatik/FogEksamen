@@ -54,22 +54,6 @@ public class OrderMapper {
             throw new ToLogException("" + ex.getMessage());
         }
     }
-    // Denne metode skal kun vi 1 user ordre 
-    public Order getOrder(int idOrder) throws ToLogException {
-        try {
-            String sql = "select * from `Order` where idOrder = ?"; 
-            
-            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
-            pstmt.setInt(1, idOrder);
-            ResultSet rs = pstmt.executeQuery();
-            
-            if(rs.next()) {
-                int idOrder = rs.getInt("");
-            }
-        } catch (SQLException ex) {
-            throw new ToLogException("" + ex.getMessage());
-        }
-    }
     
     public List<Order> getOrders() throws ToLogException {
         List<Order> order = new ArrayList<>();
@@ -98,6 +82,25 @@ public class OrderMapper {
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
                 Order o = new Order(rs.getInt("idOrder"), rs.getString("roofType"), rs.getDouble("width"), rs.getDouble("length"), rs.getDouble("height"), rs.getInt("User_idUser") );
+                order.add(o);
+            }
+            return order;
+        } catch (SQLException ex) {
+            throw new ToLogException("" + ex.getMessage());
+        }
+    }
+    
+    // Denne metode skal kun vi 1 user ordre 
+    public List<Order> getOrder() throws ToLogException {
+        List<Order> order = new ArrayList<>();
+        try {
+            String sql = "select idOrder, roofType, width, length, height from `Order` where idOrder = ?"; 
+            
+            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+            //pstmt.setInt(1, idOrder.getIdOrder());
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()) {
+                Order o = new Order(rs.getInt("idOrder"), rs.getString("roofType"), rs.getDouble("width"), rs.getDouble("length"), rs.getDouble("height"));
                 order.add(o);
             }
             return order;
