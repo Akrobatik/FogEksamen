@@ -55,8 +55,20 @@ public class OrderMapper {
         }
     }
     // Denne metode skal kun vi 1 user ordre 
-    public void getOrder() throws ToLogException {
-        
+    public Order getOrder(int idOrder) throws ToLogException {
+        try {
+            String sql = "select * from `Order` where idOrder = ?"; 
+            
+            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+            pstmt.setInt(1, idOrder);
+            ResultSet rs = pstmt.executeQuery();
+            
+            if(rs.next()) {
+                int idOrder = rs.getInt("");
+            }
+        } catch (SQLException ex) {
+            throw new ToLogException("" + ex.getMessage());
+        }
     }
     
     public List<Order> getOrders() throws ToLogException {

@@ -50,5 +50,4 @@ public class UserMapper {
             throw new ToLogException("Error in addUser" + ex.getMessage());
         }
     }
-    
 }

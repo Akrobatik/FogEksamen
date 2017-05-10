@@ -38,9 +38,10 @@
                 </thead>
                 <tbody>
                     <%
-                        User u = (User) (session.getAttribute("user"));
-                        List<Order> theorder = om.getUserOrder(u);
-                        for (Order order : theorder) {
+//                        User u = (User) (session.getAttribute("user"));
+//                        List<Order> theorder = om.getUserOrder(u);
+//                        for (Order order : theorder) {
+                        
                     %>
                     <tr>
                         <td> <%=order.getRoofType()%></td>
@@ -48,20 +49,6 @@
                         <td> <%=order.getLength()%></td>
                         <td> <%=order.getHeight()%></td>
                         <td> <%=order.getUser_idUser()%></td>
-<!--                        <td>
-                            <form action="OrderController" method="get">
-                                <input type="hidden" name="origin" value="UserEditOrder">
-                                <input type="submit" class="btn btn-info" value="Rediger ordre">
-                            </form>
-                        </td>
-                        <td> 
-                            <form action="OrderController" method="get">
-                                <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
-                                <input type="hidden" name="origin" value="DeleteOrder">
-                                <input type="submit" class="btn btn-info" value="Slet Ordre"/>
-                                <input type="hidden" name="orderNumber" value="DeleteOrder">
-                            </form>
-                        </td>-->
                     </tr>
                     <%
                         }

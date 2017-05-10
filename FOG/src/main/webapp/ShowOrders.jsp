@@ -50,6 +50,7 @@
                         <td> <%=order.getUser_idUser()%></td>
                         <td>
                             <form action="OrderController" method="get">
+                                <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
                                 <input type="hidden" name="origin" value="UserEditOrder">
                                 <input type="submit" class="btn btn-info" value="Rediger ordre">
                             </form>

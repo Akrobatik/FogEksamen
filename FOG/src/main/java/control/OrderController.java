@@ -55,7 +55,6 @@ public class OrderController extends HttpServlet {
                 case "UserEditOrder": //ER IKKE FÆRDIG!!
                     session = request.getSession();
                     if(origin != null && origin.equals("UserEditOrder")) {
-                        //om.editOrder(Integer.parseInt(request.getParameter("")));
                         response.sendRedirect("UserEditOrder.jsp");
                         //om.editOrder(roofType, width, length, height); // Skal bruges 
                     }
