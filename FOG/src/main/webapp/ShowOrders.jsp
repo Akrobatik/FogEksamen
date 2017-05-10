@@ -48,7 +48,12 @@
                         <td> <%=order.getLength()%></td>
                         <td> <%=order.getHeight()%></td>
                         <td> <%=order.getUser_idUser()%></td>
-                        <td> <button type="button" class="btn btn-info" name="origin" value="EditOrder">Rediger Ordre</button> </td>
+                        <td>
+                            <form action="OrderController" method="get">
+                                <input type="hidden" name="origin" value="UserEditOrder">
+                                <input type="submit" class="btn btn-info" value="Rediger ordre">
+                            </form>
+                        </td>
                         <td> 
                             <form action="OrderController" method="get">
                                 <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">

@@ -52,12 +52,12 @@ public class OrderController extends HttpServlet {
                         response.sendRedirect("OrderDeleted.jsp");
                     }
                     break;
-                case "EditOrder": //ER IKKE FÆRDIG!!
+                case "UserEditOrder": //ER IKKE FÆRDIG!!
                     session = request.getSession();
                     if(origin != null && origin.equals("UserEditOrder")) {
                         //om.editOrder(Integer.parseInt(request.getParameter("")));
-                        //om.editOrder(roofType, width, length, height); // Skal bruges 
                         response.sendRedirect("UserEditOrder.jsp");
+                        //om.editOrder(roofType, width, length, height); // Skal bruges 
                     }
                     break;
             }

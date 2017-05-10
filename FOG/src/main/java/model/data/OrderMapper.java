@@ -54,6 +54,10 @@ public class OrderMapper {
             throw new ToLogException("" + ex.getMessage());
         }
     }
+    // Denne metode skal kun vi 1 user ordre 
+    public void getOrder() throws ToLogException {
+        
+    }
     
     public List<Order> getOrders() throws ToLogException {
         List<Order> order = new ArrayList<>();
