@@ -9,4 +9,5 @@
         <h1>Super Admin Forside</h1>
         <a href="AddAdmin.jsp">Tilføj Admin</a>
         <a href="ShowAdmins.jsp">Vis Admin bruger</a>
+        <a href="SuperAdminShowOrders.jsp">Vis alle ordre</a>
   
