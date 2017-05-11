@@ -55,6 +55,16 @@ public class UserAdminMapperTest {
     }
 
  
+    @Test
+    public void testValidateAdmin2() throws Exception {
+        System.out.println("validateAdmin");
+        String username = "Emile12";
+        String password = "hej";
+        UserAdminMapper instance = new UserAdminMapper();
+        
+        UserAdmin result = instance.validateAdmin(username, password);
+        assertEquals("Emile12", result.getUsername());
+        assertEquals("hej", result.getPassword());
    
-    
+    }
 }
