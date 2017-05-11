@@ -54,4 +54,24 @@ public class UserMapperTest {
 
    
     
+
+@Test
+    public void testValidateUser2() throws Exception {
+        System.out.println("validateUser");
+        String username = "Kalle";
+        String password = "1234";
+        UserMapper instance = new UserMapper();
+        
+        User result = instance.validateUser(username, password);
+        assertEquals("Kalle", result.getUsername());
+        assertEquals("1234", result.getPassword());
+        // TODO review the generated test code and remove the default call to fail.
+        
+    }
+
+
+
+
+
+
 }
