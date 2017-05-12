@@ -42,14 +42,13 @@
 				<a class="navbar-brand" href="#"><span>FOG</span></a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
-							<li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
-							<li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
-						</ul>
-					</li>
-				</ul>
+                                                <form action="UserController" method="post">
+                                                <input type="hidden" name="logout" value="<% session.invalidate(); %>">
+                                                <input type="hidden" name="origin" value="Logout">
+                                                <input type="submit" class="btn btn-info" value="Log ud"> 
+                                            </form>					
+                                        </li>
+				</ul>   
 			</div>
 							
 		</div><!-- /.container-fluid -->
@@ -92,13 +91,14 @@
                                                 <thead>
 						    <tr>
                                                         <!--<th data-field="state" data-checkbox="true" >Tag type</th> -->
-						        <th data-field="roofType" data-sortable="true" >Tag type</th>
-						        <th data-field="width" data-sortable="true">Bredde</th>
-						        <th data-field="length"  data-sortable="true">Længde</th>
-						        <th data-field="height" data-sortable="true">Højde</th>
-                                                        <th data-field="userId" data-sortable="true">UserID</th>
-                                                        <th data-field="info" data-sortable="false"> </th>
-                                                        <th data-field="info" data-sortable="false"> </th>
+                                                        <th>Order ID</th> 
+                                                        <th>Tag type</th>
+						        <th>Bredde</th>
+						        <th>Længde</th>
+						        <th>Højde</th>
+                                                        <th>UserID</th>
+                                                        <th> </th>
+                                                        <th> </th>
 
 						    </tr>
                                                 </thead>
@@ -109,25 +109,30 @@
                         for (Order order : theorder) {
                     %>
                     <tr>
-                    <td> <%=order.getRoofType()%></td>
-                    <td> <%=order.getWidth()%></td>
-                    <td> <%=order.getLength()%></td>
-                    <td> <%=order.getHeight()%></td>
-                    <td> <%=order.getUser_idUser()%></td>
-                    <td> <button type="button" class="btn btn-info" name="origin" value="EditOrder">Rediger Ordre</button> </td>
-                    <td> 
-                        
-                <form action="OrderController" method="get">
-                    <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
-                    <input type="hidden" name="origin" value="DeleteOrder">
-                        <input type="submit" class="btn btn-info" value="Slet Ordre"/>
-                        <input type="hidden" name="orderNumber" value="DeleteOrder">
-                </form>
-                </td>
-                </tr>
-                <%
-                    }
-                %>
+                        <td> <%=order.getRoofType()%></td>
+                        <td> <%=order.getWidth()%></td>
+                        <td> <%=order.getLength()%></td>
+                        <td> <%=order.getHeight()%></td>
+                        <td> <%=order.getUser_idUser()%></td>
+                        <td>
+                            <form action="OrderController" method="get">
+                                <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
+                                <input type="hidden" name="origin" value="UserEditOrder">
+                                <input type="submit" class="btn btn-info" value="Rediger ordre">
+                            </form>
+                        </td>
+                        <td> 
+                            <form action="OrderController" method="get">
+                                <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
+                                <input type="hidden" name="origin" value="DeleteOrder">
+                                <input type="submit" class="btn btn-info" value="Slet Ordre"/>
+                                <!--<input type="hidden" name="orderNumber" value="DeleteOrder">-->
+                            </form>
+                        </td>
+                    </tr>
+                    <%
+                        }
+                    %>
                                                     </tbody>
                                                 </table>
 					</div>

@@ -62,7 +62,7 @@ public class UserController extends HttpServlet {
                 } else if (user != null) {
                     session.setAttribute("user", user);
                     //response.sendRedirect("userIndex.jsp");
-                    response.sendRedirect("KundeForside.jsp");
+                    response.sendRedirect("userIndex.jsp");
                 } else if (userAdmin != null) {
                     session.setAttribute("username", userAdmin);
                     response.sendRedirect("adminIndex.jsp");
@@ -73,7 +73,9 @@ public class UserController extends HttpServlet {
                 }
                 break;
             case "Logout": 
+                request.getParameter("logout");
                 response.sendRedirect("index.jsp");
+                break;
                 
 //            case "Registrer":
 //                if(origin != null && origin.equals("register")){

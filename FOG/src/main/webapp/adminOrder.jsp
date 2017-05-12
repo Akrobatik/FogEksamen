@@ -1,3 +1,7 @@
+<%@page import="model.entity.User"%>
+<%@page import="model.entity.Order"%>
+<%@page import="model.data.OrderMapper"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,23 +9,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FOG</title>
 
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/datepicker3.css" rel="stylesheet">
-<link href="../css/bootstrap-table.css" rel="stylesheet">
-<link href="../css/styles.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/bootstrap-table.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
 
 <!--Icons-->
-<script src="../js/lumino.glyphs.js"></script>
+<script src="js/lumino.glyphs.js"></script>
 
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
 <script src="js/respond.min.js"></script>
 <![endif]-->
 
+
+
 </head>
 
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            
+    <% OrderMapper om = new OrderMapper(); %>
+    
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar-collapse">
@@ -33,13 +42,12 @@
 				<a class="navbar-brand" href="#"><span>FOG</span></a>
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> User <span class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Profile</a></li>
-							<li><a href="#"><svg class="glyph stroked gear"><use xlink:href="#stroked-gear"></use></svg> Settings</a></li>
-							<li><a href="#"><svg class="glyph stroked cancel"><use xlink:href="#stroked-cancel"></use></svg> Logout</a></li>
-						</ul>
-					</li>
+                                            <form action="UserController" method="post">
+                                                <input type="hidden" name="logout" value="<% session.invalidate(); %>">
+                                                <input type="hidden" name="origin" value="Logout">
+                                                <input type="submit" class="btn btn-info" value="Log ud"> 
+                                            </form>
+                                        </li>
 				</ul>
 			</div>
 							
@@ -53,9 +61,8 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li><a href="adminIndex.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
-                        <li><a href="adminUser.jsp"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Users</a></li>
-                        <li class="active"><a href="adminOrder.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
+			<li><a href="index.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
+                        <li class="active"><a href="orders.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
 		<div class="attribution">By <a href="http://www.Rasmussen-Solutions.dk/">Emil Rasmussen</a></div>
@@ -75,38 +82,77 @@
 			</div>
 		</div><!--/.row-->
 				
-		
-		<div class="row">
+<!-- order -->
+                <div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-body">
                                             <table class="table">
-                                                    <thead>
+                                                <thead>
 						    <tr>
-						        <th data-field="state" data-checkbox="true" >ID</th>
-						        <th data-field="id" data-sortable="true">ID</th>
-						        <th data-field="name"  data-sortable="true">Navn</th>
-						        <th data-field="price" data-sortable="true">Pris</th>
+                                                        <!--<th data-field="state" data-checkbox="true" >Tag type</th> -->
+                                                        <th>Order ID</th>
+                                                        <th>Tag type</th>
+						        <th>Bredde</th>
+						        <th>Længde</th>
+						        <th>Højde</th>
+                                                        <th>UserID</th>
+                                                        <th> </th>
+                                                        <th> </th>
+
 						    </tr>
-                                                    </thead>
-						</table>
+                                                </thead>
+                                                    <tbody>
+                                                        <%
+                        List<Order> theorder = om.getOrders();
+                        for (Order order : theorder) {
+                    %>
+                    <tr>
+                        <td> <%=order.getIdOrder()%></td>
+                        <td> <%=order.getRoofType()%></td>
+                        <td> <%=order.getWidth()%></td>
+                        <td> <%=order.getLength()%></td>
+                        <td> <%=order.getHeight()%></td>
+                        <td> <%=order.getUser_idUser()%></td>
+                        <td>
+                            <form action="OrderController" method="get">
+                                <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
+                                <input type="hidden" name="origin" value="UserEditOrder">
+                                <input type="submit" class="btn btn-info" value="Rediger ordre">
+                            </form>
+                        </td>
+                        <td> 
+                            <form action="OrderController" method="get">
+                                <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
+                                <input type="hidden" name="origin" value="DeleteOrder">
+                                <input type="submit" class="btn btn-info" value="Slet Ordre"/>
+                                <!--<input type="hidden" name="orderNumber" value="DeleteOrder">-->
+                            </form>
+                        </td>
+                    </tr>
+                    <%
+                        }
+                    %>
+                                                    </tbody>
+                                                </table>
 					</div>
 				</div>
 			</div>
-		</div><!--/.row-->	
+		</div><!--/.row-->
+                
 		
 		
 		
 	</div><!--/.main-->
 
-	<script src="../js/jquery-1.11.1.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/chart.min.js"></script>
-	<script src="../js/chart-data.js"></script>
-	<script src="../js/easypiechart.js"></script>
-	<script src="../js/easypiechart-data.js"></script>
-	<script src="../js/bootstrap-datepicker.js"></script>
-	<script src="../js/bootstrap-table.js"></script>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/chart.min.js"></script>
+	<script src="js/chart-data.js"></script>
+	<script src="js/easypiechart.js"></script>
+	<script src="js/easypiechart-data.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	<script src="js/bootstrap-table.js"></script>
 		
 </body>
 
