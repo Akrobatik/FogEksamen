@@ -58,7 +58,7 @@ public class UserController extends HttpServlet {
                 userSuperAdmin = usam.validateSuperAdmin(username, password);
                
                 if(user == null && userAdmin == null && userSuperAdmin == null) {
-                    response.setStatus(403);
+                    response.sendRedirect("index.jsp");
                 } else if (user != null) {
                     session.setAttribute("user", user);
                     //response.sendRedirect("userIndex.jsp");
@@ -73,7 +73,9 @@ public class UserController extends HttpServlet {
                 }
                 break;
             case "Logout": 
+                request.getParameter("logout");
                 response.sendRedirect("index.jsp");
+                break;
                 
 //            case "Registrer":
 //                if(origin != null && origin.equals("register")){

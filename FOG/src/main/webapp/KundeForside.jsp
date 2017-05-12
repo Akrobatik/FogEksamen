@@ -16,5 +16,10 @@
         <a href="AddOrder.jsp">Ny ordre</a>
         <a href="ShowOrders.jsp">Vis ordre</a>
         <a href="userIndex.jsp">DIN MOR</a>
+        <form action="UserController" method="post">
+            <input type="hidden" name="logout" value="<% session.invalidate(); %>">
+            <input type="hidden" name="origin" value="Logout">
+            <input type="submit" class="btn btn-info" value="Log ud"> 
+        </form>
     </body>
 </html>
