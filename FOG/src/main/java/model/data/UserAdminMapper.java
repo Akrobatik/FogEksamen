@@ -39,12 +39,12 @@ public class UserAdminMapper {
     public List<User> getUsers() throws ToLogException {
         List<User> users = new ArrayList<>();
         try {
-            String sql = "select username, firstname, lastname, tlf, email from User";
+            String sql = "select idUser, username, firstname, lastname, tlf, email from User";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
-                User u = new User(rs.getString("username"), rs.getString("firstname"), rs.getString("lastname"), rs.getInt("tlf"), rs.getString("email"));
+                User u = new User(rs.getInt("idUser"), rs.getString("username"), rs.getString("firstname"), rs.getString("lastname"), rs.getInt("tlf"), rs.getString("email"));
                 users.add(u);
             }
             return users;

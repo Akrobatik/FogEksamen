@@ -40,6 +40,15 @@ public class User implements NewInterface {
         this.password = password;
     }
 
+    public User(int idUser, String username, String firstname, String lastname, int tlf, String email) {
+        this.idUser = idUser;
+        this.username = username;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.tlf = tlf;
+        this.email = email;
+    }
+    
     @Override
     public int getIdUser() {
         return idUser;
