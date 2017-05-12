@@ -53,6 +53,19 @@ public class UserController extends HttpServlet {
                 username = request.getParameter("username");
                 password = request.getParameter("password");
                 
+//                try {
+//                User user = um.validateUser(username, password);
+//                if(user == null) {
+//                    response.sendRedirect("index.jsp");
+//                } else if (user != null) {
+//                    session.setAttribute("user", user);
+//                    response.sendRedirect("KundeForside.jsp");
+//                }
+//                    
+//                } catch (ToLogException ex) {
+//                    ex.getMessage();
+//                }
+                
                 user = um.validateUser(username, password);
                 userAdmin = uam.validateAdmin(username, password);
                 userSuperAdmin = usam.validateSuperAdmin(username, password);
