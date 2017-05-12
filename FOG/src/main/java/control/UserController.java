@@ -4,6 +4,7 @@ import model.entity.User;
 import model.entity.UserAdmin;
 import model.entity.UserSuperAdmin;
 import exceptions.ToLogException;
+import exceptions.UserFeedbackException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -60,7 +61,7 @@ public class UserController extends HttpServlet {
                     response.setStatus(403);
                 } else if (user != null) {
                     session.setAttribute("user", user);
-                    //response.sendRedirect("user/index.jsp");
+                    //response.sendRedirect("userIndex.jsp");
                     response.sendRedirect("KundeForside.jsp");
                 } else if (userAdmin != null) {
                     session.setAttribute("username", userAdmin);
@@ -71,6 +72,8 @@ public class UserController extends HttpServlet {
                     response.sendRedirect("SuperAdminForside.jsp");
                 }
                 break;
+            case "Logout": 
+                response.sendRedirect("index.jsp");
                 
 //            case "Registrer":
 //                if(origin != null && origin.equals("register")){
