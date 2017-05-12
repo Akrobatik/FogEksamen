@@ -62,7 +62,7 @@ public class UserController extends HttpServlet {
                 } else if (user != null) {
                     session.setAttribute("user", user);
                     //response.sendRedirect("userIndex.jsp");
-                    response.sendRedirect("userIndex.jsp");
+                    response.sendRedirect("KundeForside.jsp");
                 } else if (userAdmin != null) {
                     session.setAttribute("username", userAdmin);
                     response.sendRedirect("adminIndex.jsp");

@@ -27,6 +27,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>Ordre ID</th>
                         <th>Tag type</th>
                         <th>Længde</th>
                         <th>Bredde</th>
@@ -40,6 +41,7 @@
                         for (Order order: theorder) {
                     %>
                     <tr>
+                        <td> <%=order.getIdOrder()%></td>
                         <td> <%=order.getRoofType()%></td>
                         <td> <%=order.getWidth()%></td>
                         <td> <%=order.getLength()%></td>

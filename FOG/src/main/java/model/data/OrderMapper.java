@@ -17,7 +17,7 @@ import model.entity.User;
 public class OrderMapper {
     public void addOrder(String roofType, double width, double length, double height, int idUser) throws ToLogException {
         try {
-            String sql = "insert into `Order`(roofType, width, length, height, User_idUser) "
+            String sql = "insert into Orders(roofType, width, length, height, User_idUser) "
                     + "values(?, ?, ?, ?, ?)";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
@@ -34,7 +34,7 @@ public class OrderMapper {
     
     public void deleteOrder(int idOrder) throws ToLogException {
         try {
-            String sql = "delete from `Order` where idOrder = ?";
+            String sql = "delete from Orders where idOrder = ?";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             pstmt.setInt(1, idOrder);
@@ -46,7 +46,7 @@ public class OrderMapper {
     // editOrder skal muligvis omskrives, da der er tvivl om koden
     public void editOrder() throws ToLogException {
         try {
-            String sql = "update `Order` set roofType = ?, width = ?, length = ?, height = ? where idOrder = ?";
+            String sql = "update Orders set roofType = ?, width = ?, length = ?, height = ? where idOrder = ?";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             pstmt.executeUpdate();
@@ -58,12 +58,12 @@ public class OrderMapper {
     public List<Order> getOrders() throws ToLogException {
         List<Order> order = new ArrayList<>();
         try {
-            String sql = "select roofType, width, length, height, User_idUser from `Order`";
+            String sql = "select idOrder, roofType, width, length, height, User_idUser from Orders";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             while(rs.next()) {
-                Order o = new Order(rs.getString("roofType"), rs.getDouble("width"), rs.getDouble("length"), rs.getDouble("height"), rs.getInt("User_idUser"));
+                Order o = new Order(rs.getInt("idOrder"), rs.getString("roofType"), rs.getDouble("width"), rs.getDouble("length"), rs.getDouble("height"), rs.getInt("User_idUser"));
                 order.add(o);
             }
             return order;
@@ -75,7 +75,7 @@ public class OrderMapper {
     public List<Order> getUserOrder(User user) throws ToLogException {
         List<Order> order = new ArrayList<>();
         try {
-            String sql = "select idOrder, roofType, width, length, height, User_idUser from `Order` where User_idUser = ?";
+            String sql = "select idOrder, roofType, width, length, height, User_idUser from Orders where User_idUser = ?";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             pstmt.setInt(1, user.getIdUser());
@@ -94,7 +94,7 @@ public class OrderMapper {
     public List<Order> getOrder() throws ToLogException {
         List<Order> order = new ArrayList<>();
         try {
-            String sql = "select idOrder, roofType, width, length, height from `Order` where idOrder = ?"; 
+            String sql = "select idOrder, roofType, width, length, height from Orders where idOrder = ?"; 
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             //pstmt.setInt(1, idOrder.getIdOrder());
