@@ -76,22 +76,25 @@ public class UserController extends HttpServlet {
                 request.getParameter("logout");
                 response.sendRedirect("index.jsp");
                 break;
-                
-//            case "Registrer":
-//                if(origin != null && origin.equals("register")){
-//                    String newusername = request.getParameter("username");
-//                    String newpassword = request.getParameter("password");
-//                    String firstname = request.getParameter("firstname");
-//                    String lastname = request.getParameter("lastname");
-//                    int tlf = request.getParameter(tlf);
-//                    String password2 = request.getParameter("password2");
-//                if(newpassword.equals(password2)){
-//                    um.addUser(newusername, newpassword, firstname, lastname);
-//                    request.getSession().setAttribute("username", newusername);    
-//                }else{
-//                    request.getRequestDispatcher("login.jsp").forward(request, response);
-//            }
-//        }
+            case "Register":
+                response.sendRedirect("userRegister.jsp");
+                break;
+            case "RegisterUser" :
+                username = request.getParameter("username");
+                password = request.getParameter("password");
+                String password2 = request.getParameter("password2");
+                String firstname = request.getParameter("firstname");
+                String lastname = request.getParameter("lastname");
+                int tlf = Integer.parseInt(request.getParameter("tlf"));
+                String email = request.getParameter("email");
+                if(password.equals(password2)){
+                    um.addUser(username, password, firstname, lastname, tlf, email);
+                    request.getSession().setAttribute("username", username);   
+                    response.sendRedirect("index.jsp");
+                }else{
+                    //request.getRequestDispatcher("login.jsp").forward(request, response);
+                    response.sendRedirect("userRegisterError.jsp");
+                }
             }
         } catch (Exception ex) {
            ex.printStackTrace();

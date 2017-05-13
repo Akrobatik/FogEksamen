@@ -45,7 +45,7 @@ public class UserMapper {
             pstmt.setString(4, lastname);
             pstmt.setInt(5, tlf);
             pstmt.setString(6, email);
-            pstmt.executeQuery();
+            pstmt.executeUpdate();
         } catch (SQLException ex) {
             throw new ToLogException("Error in addUser" + ex.getMessage());
         }

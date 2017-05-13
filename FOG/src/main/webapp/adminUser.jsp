@@ -1,3 +1,6 @@
+<%@page import="model.data.UserAdminMapper"%>
+<%@page import="model.entity.User"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +24,9 @@
 </head>
 
 <body>
+    <%
+        UserAdminMapper uam = new UserAdminMapper();
+    %>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -79,7 +85,38 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th>Bruger ID</th>
+                                                    <th>Brugernavn</th>
+                                                    <th>Fornavn</th>
+                                                    <th>Efternavn</th>
+                                                    <th>Tlf</th>
+                                                    <th>Email</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <%
+                                                    List<User> theuser = uam.getUsers();
+                                                    for (User user : theuser) {
+                                                %>
+                                                <tr>
+                                                    <td> <%=user.getIdUser()%></td>
+                                                    <td> <%=user.getUsername()%></td>
+                                                    <td> <%=user.getFirstname()%></td>
+                                                    <td> <%=user.getLastname()%></td>
+                                                    <td> <%=user.getTlf()%></td>
+                                                    <td> <%=user.getEmail()%></td>
+                                                </tr>
+                                                <%
+                                                    }
+                                                %>
+                                            </tbody>
+                                            </table>
+                                            
+                                            
+<!--						<table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
 						        <th data-field="state" data-checkbox="true" >ID</th>
@@ -88,7 +125,7 @@
 						        <th data-field="price" data-sortable="true">Pris</th>
 						    </tr>
 						    </thead>
-						</table>
+						</table>-->
 					</div>
 				</div>
 			</div>
