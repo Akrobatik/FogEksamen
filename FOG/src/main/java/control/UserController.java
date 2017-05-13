@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.data.DataFacade;
+import model.data.IDataFacade;
 import model.data.UserAdminMapper;
 import model.data.UserMapper;
 import model.data.UserSuperAdminMapper;
@@ -24,9 +26,10 @@ import model.data.UserSuperAdminMapper;
  */
 @WebServlet(name = "UserController", urlPatterns = {"/UserController"})
 public class UserController extends HttpServlet {
-    UserMapper um = new UserMapper(); 
-    UserAdminMapper uam = new UserAdminMapper();
-    UserSuperAdminMapper usam = new UserSuperAdminMapper();
+    //UserMapper um = new UserMapper(); 
+    //UserAdminMapper uam = new UserAdminMapper();
+    //UserSuperAdminMapper usam = new UserSuperAdminMapper();
+    IDataFacade idf = new DataFacade();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -53,9 +56,9 @@ public class UserController extends HttpServlet {
                 username = request.getParameter("username");
                 password = request.getParameter("password");
                 
-                user = um.validateUser(username, password);
-                userAdmin = uam.validateAdmin(username, password);
-                userSuperAdmin = usam.validateSuperAdmin(username, password);
+                user = idf.validateUser(username, password);
+                userAdmin = idf.validateAdmin(username, password);
+                userSuperAdmin = idf.validateSuperAdmin(username, password);
                
                 if(user == null && userAdmin == null && userSuperAdmin == null) {
                     response.setStatus(403);
@@ -88,7 +91,7 @@ public class UserController extends HttpServlet {
                 int tlf = Integer.parseInt(request.getParameter("tlf"));
                 String email = request.getParameter("email");
                 if(password.equals(password2)){
-                    um.addUser(username, password, firstname, lastname, tlf, email);
+                    idf.addUser(username, password, firstname, lastname, tlf, email);
                     request.getSession().setAttribute("username", username);   
                     response.sendRedirect("index.jsp");
                 }else{

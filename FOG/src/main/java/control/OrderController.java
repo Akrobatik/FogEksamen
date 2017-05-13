@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.data.DataFacade;
+import model.data.IDataFacade;
 import model.data.OrderMapper;
 import model.entity.User;
 
@@ -23,7 +25,9 @@ import model.entity.User;
 @WebServlet(name = "OrderController", urlPatterns = {"/OrderController"})
 public class OrderController extends HttpServlet {
 
-    OrderMapper om = new OrderMapper();
+    //OrderMapper om = new OrderMapper();
+    IDataFacade idf = new DataFacade();
+    
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
@@ -37,13 +41,13 @@ public class OrderController extends HttpServlet {
                     double width = Double.parseDouble(request.getParameter("width"));
                     double length = Double.parseDouble(request.getParameter("length"));
                     double height = Double.parseDouble(request.getParameter("height"));
-                    om.addOrder(roofType, width, length, height, ((User)session.getAttribute("user")).getIdUser());
+                    idf.addOrder(roofType, width, length, height, ((User)session.getAttribute("user")).getIdUser());
                     response.sendRedirect("SendOrder.jsp");
                     break;
                 case "DeleteOrder":
                     session = request.getSession();
                     if(origin != null && origin.equals("DeleteOrder")) {
-                        om.deleteOrder(Integer.parseInt(request.getParameter("orderId")));
+                        idf.deleteOrder(Integer.parseInt(request.getParameter("orderId")));
                         response.sendRedirect("OrderDeleted.jsp");
                     }
                     break;
