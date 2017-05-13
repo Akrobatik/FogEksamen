@@ -30,8 +30,6 @@ public class OrderController extends HttpServlet {
             String origin = request.getParameter("origin");
             HttpSession session = request.getSession();
         
-            Order order;
-        
             switch(origin) {
                 case "AddOrder":
                     session = request.getSession();
@@ -49,15 +47,15 @@ public class OrderController extends HttpServlet {
                         response.sendRedirect("OrderDeleted.jsp");
                     }
                     break;
-                case "UserEditOrder": //ER IKKE FÆRDIG!!
-                    session = request.getSession();
-                    if(origin != null && origin.equals("UserEditOrder")) {
-                        //om.getOrder();
-                        response.sendRedirect("UserEditOrder.jsp");
-                        
-                        //om.editOrder(roofType, width, length, height); // Skal bruges 
-                    }
-                    break;
+//                case "UserEditOrder": //ER IKKE FÆRDIG!!
+//                    session = request.getSession();
+//                    if(origin != null && origin.equals("UserEditOrder")) {
+//                        //om.getOrder();
+//                        response.sendRedirect("UserEditOrder.jsp");
+//                        
+//                        //om.editOrder(roofType, width, length, height); // Skal bruges 
+//                    }
+//                    break;
             }
         } catch (Exception ex) {
             ex.printStackTrace();

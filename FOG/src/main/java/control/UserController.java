@@ -92,7 +92,6 @@ public class UserController extends HttpServlet {
                     request.getSession().setAttribute("username", username);   
                     response.sendRedirect("index.jsp");
                 }else{
-                    //request.getRequestDispatcher("login.jsp").forward(request, response);
                     response.sendRedirect("userRegisterError.jsp");
                 }
             }
