@@ -24,11 +24,11 @@ public class Productline {
         this.price = price;
     }
 
-    public int getId() {
+    public int getIdStorage() {
         return idStorage;
     }
 
-    public void setId(int idStorage) {
+    public void setIdStorage(int idStorage) {
         this.idStorage = idStorage;
     }
 
@@ -66,7 +66,6 @@ public class Productline {
 
     @Override
     public String toString() {
-        return "Storage{" + "idStorage=" + idStorage + ", description=" + description + ", type=" + type + ", name=" + name + ", price=" + price + '}';
+        return "Productline{" + "idStorage=" + idStorage + ", description=" + description + ", type=" + type + ", name=" + name + ", price=" + price + '}';
     }
-
 }

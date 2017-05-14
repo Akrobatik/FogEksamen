@@ -14,7 +14,7 @@ import model.entity.User;
  *
  * @author Anders
  */
-public class OrderMapper {
+public class OrderMapper  {
     public void addOrder(String roofType, double width, double length, double height, int idUser) throws ToLogException {
         try {
             String sql = "insert into Orders(roofType, width, length, height, User_idUser) "

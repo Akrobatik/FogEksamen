@@ -16,5 +16,6 @@
         <a href="AddOrder.jsp">Ny ordre</a>
         <a href="ShowOrders.jsp">Vis ordre</a>
         <a href="userIndex.jsp">DIN MOR</a>
+        <a href="ShowProductline.jsp">Vis produktlinjen</a>
     </body>
 </html>
