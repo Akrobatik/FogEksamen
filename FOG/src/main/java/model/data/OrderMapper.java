@@ -15,7 +15,6 @@ import model.entity.User;
  * @author Anders
  */
 public class OrderMapper {
-    
     public void addOrder(String roofType, double width, double length, double height, int idUser) throws ToLogException {
         try {
             String sql = "insert into Orders(roofType, width, length, height, User_idUser) "
@@ -45,17 +44,6 @@ public class OrderMapper {
         }
     }
   
-//    public void editOrder() throws ToLogException {
-//        try {
-//            String sql = "update Orders set roofType = ?, width = ?, length = ?, height = ? where idOrder = ?";
-//            
-//            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
-//            pstmt.executeUpdate();
-//        } catch (SQLException ex) {
-//            throw new ToLogException("" + ex.getMessage());
-//        }
-//    }
-    
     public List<Order> getOrders() throws ToLogException {
         List<Order> order = new ArrayList<>();
         try {
@@ -90,22 +78,4 @@ public class OrderMapper {
             throw new ToLogException("" + ex.getMessage());
         }
     }
-    
-//    public List<Order> getOrder() throws ToLogException {
-//        List<Order> order = new ArrayList<>();
-//        try {
-//            String sql = "select idOrder, roofType, width, length, height from Orders where idOrder = ?"; 
-//            
-//            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
-//            //pstmt.setInt(1, idOrder.getIdOrder());
-//            ResultSet rs = pstmt.executeQuery();
-//            while(rs.next()) {
-//                Order o = new Order(rs.getInt("idOrder"), rs.getString("roofType"), rs.getDouble("width"), rs.getDouble("length"), rs.getDouble("height"));
-//                order.add(o);
-//            }
-//            return order;
-//        } catch (SQLException ex) {
-//            throw new ToLogException("" + ex.getMessage());
-//        }
-//    }
 }
