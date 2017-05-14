@@ -14,12 +14,14 @@ public class Storage {
     private String description;
     private String type;
     private String name;
+    private double price;
 
-    public Storage(int id, String description, String type, String name) {
+    public Storage(int id, String description, String type, String name, double price) {
         this.id = id;
         this.description = description;
         this.type = type;
         this.name = name;
+        this.price = price;
     }
 
     public int getId() {
@@ -54,8 +56,17 @@ public class Storage {
         this.name = name;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
-        return "Storage{" + "id=" + id + ", description=" + description + ", type=" + type + ", name=" + name + '}';
+        return "Storage{" + "id=" + id + ", description=" + description + ", type=" + type + ", name=" + name + ", price=" + price + '}';
     }
+
 }
