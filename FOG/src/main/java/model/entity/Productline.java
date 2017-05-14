@@ -9,15 +9,15 @@ package model.entity;
  *
  * @author Anders
  */
-public class Storage {
-    private int id;
+public class Productline {
+    private int idStorage;
     private String description;
     private String type;
     private String name;
     private double price;
 
-    public Storage(int id, String description, String type, String name, double price) {
-        this.id = id;
+    public Productline(int idStorage, String description, String type, String name, double price) {
+        this.idStorage = idStorage;
         this.description = description;
         this.type = type;
         this.name = name;
@@ -25,11 +25,11 @@ public class Storage {
     }
 
     public int getId() {
-        return id;
+        return idStorage;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int idStorage) {
+        this.idStorage = idStorage;
     }
 
     public String getDescription() {
@@ -66,7 +66,7 @@ public class Storage {
 
     @Override
     public String toString() {
-        return "Storage{" + "id=" + id + ", description=" + description + ", type=" + type + ", name=" + name + ", price=" + price + '}';
+        return "Storage{" + "idStorage=" + idStorage + ", description=" + description + ", type=" + type + ", name=" + name + ", price=" + price + '}';
     }
 
 }
