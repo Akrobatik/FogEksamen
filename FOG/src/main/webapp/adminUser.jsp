@@ -1,3 +1,5 @@
+<%@page import="model.data.NewClass"%>
+<%@page import="model.data.NewInterface"%>
 <%@page import="model.data.UserAdminMapper"%>
 <%@page import="model.entity.User"%>
 <%@page import="java.util.List"%>
@@ -26,6 +28,7 @@
 <body>
     <%
         UserAdminMapper uam = new UserAdminMapper();
+        //NewInterface ni = new NewClass();
     %>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
