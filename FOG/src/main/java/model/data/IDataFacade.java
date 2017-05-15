@@ -17,7 +17,7 @@ import model.entity.UserSuperAdmin;
  *
  * @author Anders
  */
-public interface NewInterface {
+public interface IDataFacade {
 
     void addUser(String username, String password, String firstname, String lastname, int tlf, String email) throws ToLogException;
 

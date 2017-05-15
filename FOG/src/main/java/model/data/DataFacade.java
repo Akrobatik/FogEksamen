@@ -17,7 +17,7 @@ import model.entity.UserSuperAdmin;
  *
  * @author Anders
  */
-public class NewClass implements NewInterface{
+public class DataFacade implements IDataFacade{
     
     UserMapper um = new UserMapper();
     UserAdminMapper uam = new UserAdminMapper();
