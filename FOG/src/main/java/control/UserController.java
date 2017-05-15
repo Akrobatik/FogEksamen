@@ -23,8 +23,9 @@ import model.data.UserSuperAdminMapper;
 @WebServlet(name = "UserController", urlPatterns = {"/UserController"})
 public class UserController extends HttpServlet {
     NewInterface ni = new NewClass();
+    
     //UserMapper um = new UserMapper(); 
-    UserAdminMapper uam = new UserAdminMapper();
+    //UserAdminMapper uam = new UserAdminMapper();
     UserSuperAdminMapper usam = new UserSuperAdminMapper();
     //IDataFacade idf = new DataFacade();
     /**
@@ -54,7 +55,7 @@ public class UserController extends HttpServlet {
                 password = request.getParameter("password");
                 
                 user = ni.validateUser(username, password);
-                userAdmin = uam.validateAdmin(username, password);
+                userAdmin = ni.validateAdmin(username, password);
                 userSuperAdmin = usam.validateSuperAdmin(username, password);
                
                 if(user == null && userAdmin == null && userSuperAdmin == null) {
