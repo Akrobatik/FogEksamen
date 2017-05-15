@@ -24,15 +24,13 @@
             OrderMapper om = new OrderMapper();
         %>
         <div class="container">
-            <h2>Basic Table</h2>
-            <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>   
             <table class="table">
                 <thead>
                     <tr>
                         <th>Ordre ID</th>
                         <th>Tag type</th>
-                        <th>Længde</th>
                         <th>Bredde</th>
+                        <th>Længde</th>
                         <th>Højde</th>
                         <th>Bruger ID</th>
                     </tr>
@@ -50,19 +48,11 @@
                         <td> <%=order.getLength()%></td>
                         <td> <%=order.getHeight()%></td>
                         <td> <%=order.getUser_idUser()%></td>
-                        <td>
-                            <form action="OrderController" method="get">
-                                <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
-                                <input type="hidden" name="origin" value="UserEditOrder">
-                                <input type="submit" class="btn btn-info" value="Rediger ordre">
-                            </form>
-                        </td>
                         <td> 
                             <form action="OrderController" method="get">
                                 <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
                                 <input type="hidden" name="origin" value="DeleteOrder">
                                 <input type="submit" class="btn btn-info" value="Slet Ordre"/>
-                                <!--<input type="hidden" name="orderNumber" value="DeleteOrder">-->
                             </form>
                         </td>
                     </tr>
