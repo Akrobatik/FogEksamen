@@ -1,3 +1,5 @@
+<%@page import="model.data.DataFacade"%>
+<%@page import="model.data.IDataFacade"%>
 <%@page import="model.entity.User"%>
 <%@page import="model.entity.Order"%>
 <%@page import="model.data.OrderMapper"%>
@@ -28,7 +30,10 @@
 
 <body>
             
-    <% OrderMapper om = new OrderMapper(); %>
+    <% 
+        IDataFacade idf = new DataFacade();
+        //OrderMapper om = new OrderMapper(); 
+    %>
     
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
@@ -104,7 +109,7 @@
                                                 </thead>
                                                     <tbody>
                                                         <%
-                        List<Order> theorder = om.getOrders();
+                        List<Order> theorder = idf.getOrders();
                         for (Order order : theorder) {
                     %>
                     <tr>
