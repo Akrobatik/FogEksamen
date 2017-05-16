@@ -1,3 +1,5 @@
+<%@page import="model.entity.Productline"%>
+<%@page import="model.data.ProductlineMapper"%>
 <%@page import="model.entity.User"%>
 <%@page import="model.entity.Order"%>
 <%@page import="model.data.OrderMapper"%>
@@ -28,7 +30,9 @@
 
 <body>
             
-    <% OrderMapper om = new OrderMapper(); %>
+    <%
+            ProductlineMapper pm = new ProductlineMapper();
+        %>
     
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
@@ -55,14 +59,10 @@
 	</nav>
 		
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-		<form role="search">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search">
-			</div>
-		</form>
+		
 		<ul class="nav menu">
-			<li><a href="index.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
-                        <li class="active"><a href="orders.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
+			<li><a href="userIndex.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
+                        <li class="active"><a href="#"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
 		<div class="attribution">By <a href="http://www.Rasmussen-Solutions.dk/">Emil Rasmussen</a></div>
@@ -104,27 +104,19 @@
                                                 </thead>
                                                     <tbody>
                                                     <%
-                        User u = (User) (session.getAttribute("user"));
-                        List<Order> theorder = om.getUserOrder(u);
-                        for (Order order : theorder) {
-                    %>
-                    <tr>
-                        <td> <%=order.getRoofType()%></td>
-                        <td> <%=order.getWidth()%></td>
-                        <td> <%=order.getLength()%></td>
-                        <td> <%=order.getHeight()%></td>
-                        <td> <%=order.getUser_idUser()%></td>
-                        <td> 
-                            <form action="OrderController" method="get">
-                                <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
-                                <input type="hidden" name="origin" value="DeleteOrder">
-                                <input type="submit" class="btn btn-info" value="Slet Ordre"/>
-                            </form>
-                        </td>
-                    </tr>
-                    <%
-                        }
-                    %>
+                                                        List<Productline> theproductline = pm.getProductline();
+                                                        for(Productline productline : theproductline) {
+                                                    %>
+                                                    <tr>
+                                                        <td> <%=productline.getIdStorage()%></td>
+                                                        <td> <%=productline.getDescription()%></td>
+                                                        <td> <%=productline.getType()%></td>
+                                                        <td> <%=productline.getName()%></td>
+                                                        <td> <%=productline.getPrice()%></td>
+                                                    </tr>
+                                                    <%
+                                                        }
+                                                    %>
                                                     </tbody>
                                                 </table>
 					</div>
