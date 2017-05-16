@@ -78,7 +78,7 @@ public class UserController extends HttpServlet {
                 response.sendRedirect("index.jsp");
                 break;
             case "Register":
-                response.sendRedirect("userRegister.jsp");
+                response.sendRedirect("register.jsp");
                 break;
             case "RegisterUser" :
                 username = request.getParameter("username");
