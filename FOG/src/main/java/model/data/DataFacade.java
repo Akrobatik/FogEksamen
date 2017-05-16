@@ -38,10 +38,10 @@ public class DataFacade implements IDataFacade{
     public UserAdmin validateAdmin(String username, String password) throws UserFeedbackException {
         return uam.validateAdmin(username, password);
     }
-    //Få hjælp her
+    
     @Override
     public List<User> getUsers() throws ToLogException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return uam.getUsers();
     }
 
     @Override
@@ -58,10 +58,10 @@ public class DataFacade implements IDataFacade{
     public void deleteUserAdmin(int idAdmin) throws ToLogException {
         usam.deleteUserAdmin(idAdmin);
     }
-    //Få hjælp her
+    
     @Override
     public List<UserAdmin> getAdmins() throws ToLogException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return usam.getAdmins();
     }
 
     @Override
@@ -73,15 +73,15 @@ public class DataFacade implements IDataFacade{
     public void deleteOrder(int idOrder) throws ToLogException {
         om.deleteOrder(idOrder);
     }
-    //Få hjælp her
+    
     @Override
     public List<Order> getOrders() throws ToLogException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return om.getOrders();
     }
-    //Få hjælp her
+    
     @Override
     public List<Order> getUserOrder(User user) throws ToLogException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return om.getUserOrder(user);
     }
     
 }
