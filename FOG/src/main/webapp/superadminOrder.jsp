@@ -1,3 +1,7 @@
+<%@page import="model.entity.Order"%>
+<%@page import="java.util.List"%>
+<%@page import="model.data.DataFacade"%>
+<%@page import="model.data.IDataFacade"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +25,9 @@
 </head>
 
 <body>
+    <%
+        IDataFacade idf = new DataFacade();
+    %>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -80,16 +87,45 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
-						    <thead>
+                                            <table class="table">
+                                                <thead>
 						    <tr>
-						        <th data-field="state" data-checkbox="true" >ID</th>
-						        <th data-field="id" data-sortable="true">ID</th>
-						        <th data-field="name"  data-sortable="true">Navn</th>
-						        <th data-field="price" data-sortable="true">Pris</th>
+                                                        <!--<th data-field="state" data-checkbox="true" >Tag type</th> -->
+                                                        <th>Ordre ID</th>
+                                                        <th>Tag type</th>
+						        <th>Bredde</th>
+						        <th>Længde</th>
+						        <th>Højde</th>
+                                                        <th>Bruger ID</th>
+                                                        <th> </th>
+                                                        <th> </th>
 						    </tr>
-						    </thead>
-						</table>
+                                                </thead>
+                                                <tbody>
+                                                        <%
+                        List<Order> theorder = idf.getOrders();
+                        for (Order order : theorder) {
+                    %>
+                    <tr>
+                        <td> <%=order.getIdOrder()%></td>
+                        <td> <%=order.getRoofType()%></td>
+                        <td> <%=order.getWidth()%></td>
+                        <td> <%=order.getLength()%></td>
+                        <td> <%=order.getHeight()%></td>
+                        <td> <%=order.getUser_idUser()%></td>
+                        <td> 
+                            <form action="OrderController" method="get">
+                                <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
+                                <input type="hidden" name="origin" value="DeleteOrder">
+                                <input type="submit" class="btn btn-info" value="Slet Ordre"/>
+                            </form>
+                        </td>
+                    </tr>
+                    <%
+                        }
+                    %>
+                                                    </tbody>
+                                            </table>
 					</div>
 				</div>
 			</div>
