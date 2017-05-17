@@ -1,3 +1,7 @@
+<%@page import="model.entity.UserAdmin"%>
+<%@page import="java.util.List"%>
+<%@page import="model.data.DataFacade"%>
+<%@page import="model.data.IDataFacade"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +25,9 @@
 </head>
 
 <body>
+    <%
+        IDataFacade idf = new DataFacade();
+    %>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -80,16 +87,38 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<table data-toggle="table" data-url="tables/data1.json"  data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
-						    <thead>
-						    <tr>
-						        <th data-field="state" data-checkbox="true" >ID</th>
-						        <th data-field="id" data-sortable="true">ID</th>
-						        <th data-field="name"  data-sortable="true">Navn</th>
-						        <th data-field="price" data-sortable="true">Pris</th>
-						    </tr>
-						    </thead>
-						</table>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Brugernavn</th>
+                                                        <th>Password</th>
+                                                        <th>Fornavn</th>
+                                                        <th>Efternavn</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <%
+                                                        List<UserAdmin> theadmin = idf.getAdmins();
+                                                        for (UserAdmin usera : theadmin) {
+                                                    %>
+                                                    <tr>
+                                                        <td> <%=usera.getUsername()%></td>
+                                                        <td> <%=usera.getPassword()%></td>
+                                                        <td> <%=usera.getFirstname()%></td>
+                                                        <td> <%=usera.getLastname()%></td>
+                                                        <td> 
+                                                        <form action="SuperAdminController" method="get">
+                                                            <input type="hidden" name="idAdmin" value="<% out.print(usera.getIdAdmin());%>">
+                                                            <input type="hidden" name="origin" value="DeleteAdmin">
+                                                            <input type="submit" class="btn btn-info" value="Slet Admin"/>
+                                                        </form>
+                                                        </td>
+                                                    </tr>
+                                                    <%
+                                                        }
+                                                    %>
+                                                </tbody>
+                                            </table>
 					</div>
 				</div>
 			</div>
