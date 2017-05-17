@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 <%@page import="model.data.DataFacade"%>
 <%@page import="model.data.IDataFacade"%>
-=======
-<%@page import="model.entity.Productline"%>
-<%@page import="model.data.ProductlineMapper"%>
->>>>>>> c242387f36d466b806078f76a2a14a4678354c62
 <%@page import="model.entity.User"%>
 <%@page import="model.entity.Order"%>
 <%@page import="model.data.OrderMapper"%>
@@ -35,16 +30,10 @@
 
 <body>
             
-<<<<<<< HEAD
     <% 
         IDataFacade idf = new DataFacade();
         //OrderMapper om = new OrderMapper(); 
     %>
-=======
-    <%
-            ProductlineMapper pm = new ProductlineMapper();
-        %>
->>>>>>> c242387f36d466b806078f76a2a14a4678354c62
     
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
@@ -71,10 +60,14 @@
 	</nav>
 		
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-		
+		<form role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+		</form>
 		<ul class="nav menu">
-			<li><a href="userIndex.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
-                        <li class="active"><a href="#"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
+			<li><a href="index.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
+                        <li class="active"><a href="orders.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
 		<div class="attribution">By <a href="http://www.Rasmussen-Solutions.dk/">Emil Rasmussen</a></div>
@@ -116,7 +109,6 @@
                                                 </thead>
                                                     <tbody>
                                                     <%
-<<<<<<< HEAD
                         User u = (User) (session.getAttribute("user"));
                         List<Order> theorder = idf.getUserOrder(u);
                         for (Order order : theorder) {
@@ -138,21 +130,6 @@
                     <%
                         }
                     %>
-=======
-                                                        List<Productline> theproductline = pm.getProductline();
-                                                        for(Productline productline : theproductline) {
-                                                    %>
-                                                    <tr>
-                                                        <td> <%=productline.getIdStorage()%></td>
-                                                        <td> <%=productline.getDescription()%></td>
-                                                        <td> <%=productline.getType()%></td>
-                                                        <td> <%=productline.getName()%></td>
-                                                        <td> <%=productline.getPrice()%></td>
-                                                    </tr>
-                                                    <%
-                                                        }
-                                                    %>
->>>>>>> c242387f36d466b806078f76a2a14a4678354c62
                                                     </tbody>
                                                 </table>
 					</div>
