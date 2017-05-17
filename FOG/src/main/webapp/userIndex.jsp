@@ -47,13 +47,9 @@
 	</nav>
 		
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
-		<form role="search">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search">
-			</div>
-		</form>
+		
 		<ul class="nav menu">
-			<li class="active"><a href="index.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
+			<li class="active"><a href="#"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
                         <li><a href="userOrder.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
 
 			<li role="presentation" class="divider"></li>
@@ -77,32 +73,41 @@
 		
 		<div class="row">
 			<div class="col-xs-12 col-md-6 col-lg-3">
-				<div class="panel panel-blue panel-widget ">
-					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							<svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>
-						</div>
-						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">120</div>
-							<div class="text-muted">New Orders</div>
-						</div>
-					</div>
-				</div>
+				<form action="OrderController" method="POST">
+            <input type="hidden" name="origin" value="AddOrder">
+            <h3>Tag type</h3>
+            <select name="roofType">
+                <option value="">Angiv Tagtype</option>
+                <option value="Tegl">Tegl</option>
+                <option value="Plastmo Ecolite">Plastmo Ecolite</option>
+            </select>
+            <h3>Bredde</h3>
+            <select name="width">
+                <option value="">Angiv bredde</option>
+                <option value="3.0">3.0m</option>
+                <option value="3.3">3.3m</option>
+                <option value="3.6">3.6m</option>
+            </select>
+            <h3>Længde</h3>
+            <select name="length">
+                <option value="">Angiv længde</option>
+                <option value="3.0">3.0m</option>
+                <option value="3.3">3.3m</option>
+                <option value="3.6">3.6m</option>
+            </select>
+            <h3>Højde</h3>
+            <select name="height">
+                <option value="">Angiv højde</option>
+                <option value="2.4">2.4m</option>
+                <option value="2.7">2.7m</option>
+                <option value="3.0">3.0m</option>
+            </select><br>
+            <input type="submit" value="submit"/>
+        </form>
 			</div>
+                    
+                    
 			
-			<div class="col-xs-12 col-md-6 col-lg-3">
-				<div class="panel panel-teal panel-widget">
-					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							<svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>
-						</div>
-						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">24</div>
-							<div class="text-muted">New Users</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			
 		</div><!--/.row-->
 		

@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FOG</title>
 
-<link href="../css/bootstrap.min.css" rel="stylesheet">
-<link href="../css/datepicker3.css" rel="stylesheet">
-<link href="../css/styles.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/datepicker3.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
 
 <!--Icons-->
-<script src="../js/lumino.glyphs.js"></script>
+<script src="js/lumino.glyphs.js"></script>
 
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
@@ -52,9 +52,9 @@
 			</div>
 		</form>
 		<ul class="nav menu">
-			<li class="active"><a href="adminIndex.html"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
-			<li><a href="users.html"><svg class="glyph stroked user"><use xlink:href="#stroked-user"></use></svg> Users</a></li>
-                        <li><a href="orders.html"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
+			<li class="active"><a href="#"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
+			<li><a href="superadminUser.jsp"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Users</a></li>
+                        <li><a href="superadminOrder.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
 
 			<li role="presentation" class="divider"></li>
 		</ul>
