@@ -114,11 +114,11 @@
                         <td> <%=order.getHeight()%></td>
                         <td> <%=order.getUser_idUser()%></td>
                         <td> 
-                            <form action="OrderController" method="get">
+<!--                            <form action="OrderController" method="get">
                                 <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
                                 <input type="hidden" name="origin" value="DeleteOrder">
                                 <input type="submit" class="btn btn-info" value="Slet Ordre"/>
-                            </form>
+                            </form>-->
                         </td>
                     </tr>
                     <%
