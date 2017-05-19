@@ -20,8 +20,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Anders
  */
-@WebServlet(name = "UserController", urlPatterns = {"/UserController"})
-public class UserController extends HttpServlet {
+@WebServlet(name = "UserController2", urlPatterns = {"/UserController2"})
+public class UserController2 extends HttpServlet {
     
     UserDomainFacade udf = new UserDomainFacade();
     UserAdminDomainFacade uadf = new UserAdminDomainFacade();

@@ -17,7 +17,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-                    <form role="form" method="post" action="UserController" autocomplete="off">
+                    <form role="form" method="post" action="UserController2" autocomplete="off">
                         <h2>Opret Bruger</h2>
                         <hr>
                         <input type="hidden" name="origin" value="RegisterUser">
