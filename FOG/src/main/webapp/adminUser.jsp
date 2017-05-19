@@ -28,8 +28,6 @@
 
 <body>
     <%
-        //UserAdminMapper uam = new UserAdminMapper();
-        //IDataFacade idf = new DataFacade();
         UserAdminDomainFacade uadf = new UserAdminDomainFacade();
     %>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
