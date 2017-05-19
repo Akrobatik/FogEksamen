@@ -1,3 +1,4 @@
+<%@page import="business.UserAdminDomainFacade"%>
 <%@page import="model.data.DataFacade"%>
 <%@page import="model.data.IDataFacade"%>
 <%@page import="model.data.UserAdminMapper"%>
@@ -28,7 +29,8 @@
 <body>
     <%
         //UserAdminMapper uam = new UserAdminMapper();
-        IDataFacade idf = new DataFacade();
+        //IDataFacade idf = new DataFacade();
+        UserAdminDomainFacade uadf = new UserAdminDomainFacade();
     %>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
@@ -101,7 +103,7 @@
                                             </thead>
                                             <tbody>
                                                 <%
-                                                    List<User> theuser = idf.getUsers();
+                                                    List<User> theuser = uadf.getUsers();
                                                     for (User user : theuser) {
                                                 %>
                                                 <tr>

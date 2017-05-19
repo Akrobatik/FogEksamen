@@ -1,3 +1,5 @@
+<%@page import="business.OrderDomainFacade"%>
+<%@page import="model.data.UserSuperAdminDataFacade"%>
 <%@page import="model.entity.Order"%>
 <%@page import="java.util.List"%>
 <%@page import="model.data.DataFacade"%>
@@ -26,7 +28,7 @@
 
 <body>
     <%
-        IDataFacade idf = new DataFacade();
+        OrderDomainFacade odf = new OrderDomainFacade();
     %>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
@@ -97,13 +99,11 @@
 						        <th>Længde</th>
 						        <th>Højde</th>
                                                         <th>Bruger ID</th>
-                                                        <th> </th>
-                                                        <th> </th>
 						    </tr>
                                                 </thead>
                                                 <tbody>
                                                         <%
-                        List<Order> theorder = idf.getOrders();
+                        List<Order> theorder = odf.getOrders();
                         for (Order order : theorder) {
                     %>
                     <tr>
@@ -113,13 +113,7 @@
                         <td> <%=order.getLength()%></td>
                         <td> <%=order.getHeight()%></td>
                         <td> <%=order.getUser_idUser()%></td>
-                        <td> 
-<!--                            <form action="OrderController" method="get">
-                                <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
-                                <input type="hidden" name="origin" value="DeleteOrder">
-                                <input type="submit" class="btn btn-info" value="Slet Ordre"/>
-                            </form>-->
-                        </td>
+                        <td></td>
                     </tr>
                     <%
                         }

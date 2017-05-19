@@ -1,3 +1,4 @@
+<%@page import="business.OrderDomainFacade"%>
 <%@page import="model.data.DataFacade"%>
 <%@page import="model.data.IDataFacade"%>
 <%@page import="model.entity.User"%>
@@ -31,8 +32,9 @@
 <body>
             
     <% 
-        IDataFacade idf = new DataFacade();
+        //IDataFacade idf = new DataFacade();
         //OrderMapper om = new OrderMapper(); 
+        OrderDomainFacade odf = new OrderDomainFacade();
     %>
     
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -104,14 +106,11 @@
 						        <th>Længde</th>
 						        <th>Højde</th>
                                                         <th>Bruger ID</th>
-                                                        <th> </th>
-                                                        <th> </th>
-
 						    </tr>
                                                 </thead>
                                                     <tbody>
                                                         <%
-                        List<Order> theorder = idf.getOrders();
+                        List<Order> theorder = odf.getOrders();
                         for (Order order : theorder) {
                     %>
                     <tr>
