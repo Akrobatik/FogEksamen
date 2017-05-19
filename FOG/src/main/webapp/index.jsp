@@ -17,7 +17,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-                    <form role="form" method="get" action="UserController2" autocomplete="off">
+                    <form role="form" method="get" action="UserController" autocomplete="off">
                         <h2>Admin Login</h2>
                         <hr>
                         <input type="hidden" name="origin" value="">
@@ -33,7 +33,7 @@
                             <div class="col-xs-6 col-md-6"><input type="submit" name="submit" value="Login" class="btn btn-primary btn-block btn-lg" tabindex="5"></div>
                         </div>
                     </form>
-                    <form role="form" method="post" action="UserController2" autocomplete="off">
+                    <form role="form" method="post" action="UserController" autocomplete="off">
                         <hr>
                         <input type="hidden" name="origin" value="Register">
                         <div class="row">
