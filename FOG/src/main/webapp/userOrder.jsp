@@ -31,7 +31,8 @@
 <body>
             
     <%
-            ProductlineMapper pm = new ProductlineMapper();
+            
+            OrderMapper om = new OrderMapper();
         %>
     
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -47,7 +48,7 @@
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
                                                 <form action="UserController" method="post">
-                                                <input type="hidden" name="logout" value="<% session.invalidate(); %>">
+                                                <input type="hidden" name="logout" value="<% //session.invalidate(); %>">
                                                 <input type="hidden" name="origin" value="Logout">
                                                 <input type="submit" class="btn btn-info" value="Log ud"> 
                                             </form>					
@@ -104,15 +105,26 @@
                                                 </thead>
                                                     <tbody>
                                                     <%
-                                                        List<Productline> theproductline = pm.getProductline();
-                                                        for(Productline productline : theproductline) {
+                                                        User u = (User) (session.getAttribute("user"));
+                                                        List<Order> theorder = om.getUserOrder(u);
+                                                        for (Order order : theorder) {
                                                     %>
                                                     <tr>
-                                                        <td> <%=productline.getIdStorage()%></td>
-                                                        <td> <%=productline.getDescription()%></td>
-                                                        <td> <%=productline.getType()%></td>
-                                                        <td> <%=productline.getName()%></td>
-                                                        <td> <%=productline.getPrice()%></td>
+                                                        
+                                                        
+                                                        <td> <%=order.getIdOrder()%></td>
+                                                        <td> <%=order.getRoofType()%></td>
+                                                        <td> <%=order.getWidth()%></td>
+                                                        <td> <%=order.getLength()%></td>
+                                                        <td> <%=order.getHeight()%></td>
+                                                        <td> <%=order.getUser_idUser()%></td>
+                                                        <td> 
+                                                            <form action="OrderController" method="get">
+                                                                <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
+                                                                <input type="hidden" name="origin" value="DeleteOrder">
+                                                                <input type="submit" class="btn btn-info" value="Slet Ordre"/>
+                                                            </form>
+                                                        </td>
                                                     </tr>
                                                     <%
                                                         }

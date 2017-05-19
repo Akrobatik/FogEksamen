@@ -51,6 +51,7 @@ public class OrderMapper  {
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
+            
             while(rs.next()) {
                 Order o = new Order(rs.getInt("idOrder"), rs.getString("roofType"), rs.getDouble("width"), rs.getDouble("length"), rs.getDouble("height"), rs.getInt("User_idUser"));
                 order.add(o);
@@ -59,6 +60,7 @@ public class OrderMapper  {
         } catch (SQLException ex) {
             throw new ToLogException("" + ex.getMessage());
         }
+        
     }
     
     public List<Order> getUserOrder(User user) throws ToLogException {

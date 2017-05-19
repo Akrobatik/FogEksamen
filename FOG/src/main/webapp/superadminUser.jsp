@@ -1,3 +1,4 @@
+<%@page import="model.data.UserSuperAdminDataFacade"%>
 <%@page import="model.entity.UserAdmin"%>
 <%@page import="java.util.List"%>
 <%@page import="model.data.DataFacade"%>
@@ -26,7 +27,7 @@
 
 <body>
     <%
-        IDataFacade idf = new DataFacade();
+        UserSuperAdminDataFacade usadf = new UserSuperAdminDataFacade();
     %>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
@@ -98,7 +99,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <%
-                                                        List<UserAdmin> theadmin = idf.getAdmins();
+                                                        List<UserAdmin> theadmin = usadf.getAdmins();
                                                         for (UserAdmin usera : theadmin) {
                                                     %>
                                                     <tr>

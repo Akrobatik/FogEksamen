@@ -1,5 +1,8 @@
 package control;
 
+import business.UserAdminDomainFacade;
+import business.UserDomainFacade;
+import business.UserSuperAdminDomainFacade;
 import model.entity.User;
 import model.entity.UserAdmin;
 import model.entity.UserSuperAdmin;
@@ -10,11 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.data.DataFacade;
 import model.data.UserAdminMapper;
 import model.data.UserMapper;
 import model.data.UserSuperAdminMapper;
-import model.data.IDataFacade;
 
 /**
  *
@@ -22,11 +23,14 @@ import model.data.IDataFacade;
  */
 @WebServlet(name = "UserController", urlPatterns = {"/UserController"})
 public class UserController extends HttpServlet {
-    IDataFacade idf = new DataFacade();
     
     //UserMapper um = new UserMapper(); 
     //UserAdminMapper uam = new UserAdminMapper();
     //UserSuperAdminMapper usam = new UserSuperAdminMapper();
+    
+    UserDomainFacade udf = new UserDomainFacade();
+    UserAdminDomainFacade uadf = new UserAdminDomainFacade();
+    UserSuperAdminDomainFacade usadf = new UserSuperAdminDomainFacade();
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -54,9 +58,9 @@ public class UserController extends HttpServlet {
                 username = request.getParameter("username");
                 password = request.getParameter("password");
                 
-                user = idf.validateUser(username, password);
-                userAdmin = idf.validateAdmin(username, password);
-                userSuperAdmin = idf.validateSuperAdmin(username, password);
+                user = udf.validateUser(username, password);
+                userAdmin = uadf.validateAdmin(username, password);
+                userSuperAdmin = usadf.validateSuperAdmin(username, password);
                
                 if(user == null && userAdmin == null && userSuperAdmin == null) {
                     response.setStatus(403);
@@ -89,7 +93,7 @@ public class UserController extends HttpServlet {
                 int tlf = Integer.parseInt(request.getParameter("tlf"));
                 String email = request.getParameter("email");
                 if(password.equals(password2)){
-                    idf.addUser(username, password, firstname, lastname, tlf, email);
+                    udf.addUser(username, password, firstname, lastname, tlf, email);
                     request.getSession().setAttribute("username", username);   
                     response.sendRedirect("index.jsp");
                 }else{

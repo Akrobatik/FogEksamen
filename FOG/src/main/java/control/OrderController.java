@@ -5,6 +5,7 @@
  */
 package control;
 
+import business.OrderDomainFacade;
 import model.entity.Order;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -16,7 +17,6 @@ import javax.servlet.http.HttpSession;
 import model.data.DataFacade;
 import model.data.OrderMapper;
 import model.entity.User;
-import model.data.IDataFacade;
 
 /**
  *
@@ -25,8 +25,11 @@ import model.data.IDataFacade;
 @WebServlet(name = "OrderController", urlPatterns = {"/OrderController"})
 public class OrderController extends HttpServlet {
 
-    IDataFacade idf = new DataFacade();
+    OrderDomainFacade odf = new OrderDomainFacade();
+    
     //OrderMapper om = new OrderMapper();
+    
+    //DataFacade df = new DataFacade();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
@@ -40,13 +43,13 @@ public class OrderController extends HttpServlet {
                     double width = Double.parseDouble(request.getParameter("width"));
                     double length = Double.parseDouble(request.getParameter("length"));
                     double height = Double.parseDouble(request.getParameter("height"));
-                    idf.addOrder(roofType, width, length, height, ((User)session.getAttribute("user")).getIdUser());
+                    odf.addOrder(roofType, width, length, height, ((User)session.getAttribute("user")).getIdUser());
                     response.sendRedirect("SendOrder.jsp");
                     break;
                 case "DeleteOrder":
                     session = request.getSession();
                     if(origin != null && origin.equals("DeleteOrder")) {
-                        idf.deleteOrder(Integer.parseInt(request.getParameter("orderId")));
+                        odf.deleteOrder(Integer.parseInt(request.getParameter("orderId")));
                         response.sendRedirect("OrderDeleted.jsp");
                     }
                     break;
@@ -94,5 +97,4 @@ public class OrderController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }

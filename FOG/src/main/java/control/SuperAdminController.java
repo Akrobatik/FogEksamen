@@ -5,6 +5,7 @@
  */
 package control;
 
+import business.UserSuperAdminDomainFacade;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,9 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.data.DataFacade;
 import model.data.UserSuperAdminMapper;
-import model.data.IDataFacade;
 
 /**
  *
@@ -24,8 +23,9 @@ import model.data.IDataFacade;
 @WebServlet(name = "SuperAdminController", urlPatterns = {"/SuperAdminController"})
 public class SuperAdminController extends HttpServlet {
 
-    IDataFacade idf = new DataFacade();
     //UserSuperAdminMapper usam = new UserSuperAdminMapper();
+    
+    UserSuperAdminDomainFacade usadf = new UserSuperAdminDomainFacade();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
@@ -41,14 +41,14 @@ public class SuperAdminController extends HttpServlet {
                     String firstname = request.getParameter("firstname");
                     String lastname = request.getParameter("lastname");
                     if(password.equals(password2)) {
-                        idf.addUserAdmin(username, password, firstname, lastname);
+                        usadf.addUserAdmin(username, password, firstname, lastname);
                         response.sendRedirect("SendNewAdmin.jsp");
                     }
                     break;
                 case "DeleteAdmin":
                     session = request.getSession();
                     if(origin != null && origin.equals("DeleteAdmin")) {
-                        idf.deleteUserAdmin(Integer.parseInt(request.getParameter("idAdmin")));
+                        usadf.deleteUserAdmin(Integer.parseInt(request.getParameter("idAdmin")));
                         response.sendRedirect("AdminDeleted.jsp");
                     }
                     break;
