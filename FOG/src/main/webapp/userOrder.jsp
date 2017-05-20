@@ -74,7 +74,7 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Orders</li>
+				<li class="active">Alle ordre</li>
 			</ol>
 		</div><!--/.row-->
 		
