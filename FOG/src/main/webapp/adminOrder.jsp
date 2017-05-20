@@ -32,8 +32,6 @@
 <body>
             
     <% 
-        //IDataFacade idf = new DataFacade();
-        //OrderMapper om = new OrderMapper(); 
         OrderDomainFacade odf = new OrderDomainFacade();
     %>
     
@@ -50,7 +48,7 @@
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
                                             <form action="UserController" method="post">
-                                                <input type="hidden" name="logout" value="<% session.invalidate(); %>">
+                                                <input type="hidden" name="logout" value="<% //session.invalidate(); %>">
                                                 <input type="hidden" name="origin" value="Logout">
                                                 <input type="submit" class="btn btn-info" value="Log ud"> 
                                             </form>
@@ -118,7 +116,7 @@
                         <td> <%=order.getHeight()%></td>
                         <td> <%=order.getUser_idUser()%></td>
                         <td> 
-                            <form action="OrderController" method="get">
+                            <form action="OrderController" method="post">
                                 <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
                                 <input type="hidden" name="origin" value="DeleteOrder">
                                 <input type="submit" class="btn btn-info" value="Slet Ordre"/>

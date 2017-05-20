@@ -105,7 +105,7 @@
                                                         <td> <%=usera.getFirstname()%></td>
                                                         <td> <%=usera.getLastname()%></td>
                                                         <td> 
-                                                        <form action="SuperAdminController" method="get">
+                                                        <form action="SuperAdminController" method="post">
                                                             <input type="hidden" name="idAdmin" value="<% out.print(usera.getIdAdmin());%>">
                                                             <input type="hidden" name="origin" value="DeleteAdmin">
                                                             <input type="submit" class="btn btn-info" value="Slet Admin"/>
