@@ -91,7 +91,8 @@ public class OrderController extends HttpServlet {
         return order;
     }
     
-    public List getUserOrder() {
-        List<Order> order = odf.getUserOrder(User);
+    public List getUserOrder(User user) throws ToLogException {
+        List<Order> userorder = odf.getUserOrder(user);
+        return userorder;
     }
 }

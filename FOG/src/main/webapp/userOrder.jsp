@@ -1,3 +1,4 @@
+<%@page import="control.OrderController"%>
 <%@page import="business.OrderDomainFacade"%>
 <%@page import="model.entity.Productline"%>
 <%@page import="model.data.ProductlineMapper"%>
@@ -32,7 +33,8 @@
 <body>
             
     <%
-        OrderDomainFacade odf = new OrderDomainFacade();
+        //OrderDomainFacade odf = new OrderDomainFacade();
+        OrderController oc = new OrderController();
     %>
     
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -103,7 +105,7 @@
                                                     <tbody>
                                                     <%
                                                         User u = (User) (session.getAttribute("user"));
-                                                        List<Order> theorder = odf.getUserOrder(u);
+                                                        List<Order> theorder = oc.getUserOrder(u);
                                                         for (Order order : theorder) {
                                                     %>
                                                     <tr>
