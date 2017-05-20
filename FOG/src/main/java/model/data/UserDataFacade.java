@@ -8,6 +8,7 @@ package model.data;
 import model.data.interfaces.IUserDataFacade;
 import exceptions.ToLogException;
 import exceptions.UserFeedbackException;
+import java.util.List;
 import model.entity.User;
 
 /**
@@ -31,6 +32,11 @@ public class UserDataFacade implements IUserDataFacade{
     @Override
     public void deleteUser(int idUser) throws ToLogException {
         um.deleteUser(idUser);
+    }
+
+    @Override
+    public List<User> getUser(User user) throws ToLogException {
+        return um.getUser(user);
     }
     
 }

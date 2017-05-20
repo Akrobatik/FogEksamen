@@ -99,9 +99,6 @@
 						        <th>Længde</th>
 						        <th>Højde</th>
                                                         <th>Bruger ID</th>
-                                                        <th> </th>
-                                                        <th> </th>
-
 						    </tr>
                                                 </thead>
                                                     <tbody>
@@ -111,8 +108,6 @@
                                                         for (Order order : theorder) {
                                                     %>
                                                     <tr>
-                                                        
-                                                        
                                                         <td> <%=order.getIdOrder()%></td>
                                                         <td> <%=order.getRoofType()%></td>
                                                         <td> <%=order.getWidth()%></td>
@@ -136,10 +131,6 @@
 				</div>
 			</div>
 		</div><!--/.row-->
-                
-		
-		
-		
 	</div><!--/.main-->
 
 	<script src="js/jquery-1.11.1.min.js"></script>

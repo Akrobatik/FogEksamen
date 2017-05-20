@@ -103,9 +103,11 @@
                 <option value="2.7">2.7m</option>
                 <option value="3.0">3.0m</option>
             </select><br>
-            <input type="submit" value="submit"/>
+            <!--<input type="submit" value="Send"/>-->
+            <h1>
+                <input type="submit" name="submit" value="Send" class="btn btn-primary btn-block btn-lg">
         </form>
-			</div>
+        </div>
                     
                     
 			

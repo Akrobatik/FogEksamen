@@ -7,6 +7,8 @@ import exceptions.UserFeedbackException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -56,6 +58,24 @@ public class UserMapper {
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             pstmt.setInt(1, idUser);
             pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            throw new ToLogException("" + ex.getMessage());
+        }
+    }
+    
+    public List<User> getUser(User user) throws ToLogException{
+        List<User> user2 = new ArrayList<>();
+        try {
+            String sql = "select idUser, username, password, firstname, lastname, tlf, email where idUser = ?";
+            
+            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+            pstmt.setInt(1, user.getIdUser());
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()) {
+                User u = new User(rs.getInt("idUser"), rs.getString("username"), rs.getString("password"), rs.getString("firstname"), rs.getString("lastname"), rs.getInt("tlf"), rs.getString("email"));
+                user2.add(u);
+            }
+            return user2;
         } catch (SQLException ex) {
             throw new ToLogException("" + ex.getMessage());
         }
