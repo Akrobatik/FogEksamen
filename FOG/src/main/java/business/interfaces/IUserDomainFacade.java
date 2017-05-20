@@ -17,4 +17,6 @@ public interface IUserDomainFacade {
     void addUser(String username, String password, String firstname, String lastname, int tlf, String email) throws ToLogException;
 
     User validateUser(String username, String password) throws ToLogException, UserFeedbackException;
+    
+    void deleteUser(int idUser) throws ToLogException;
 }
