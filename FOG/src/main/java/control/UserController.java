@@ -33,6 +33,7 @@ public class UserController extends HttpServlet {
     String username, password;
     
     String origin;
+    HttpSession session;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -72,7 +73,7 @@ public class UserController extends HttpServlet {
         
         switch(origin) {
             case "Logout": 
-                request.getParameter("logout");
+                logoutUser(request, response);
                 response.sendRedirect("index.jsp");
                 break;
             case "Register":
@@ -115,11 +116,21 @@ public class UserController extends HttpServlet {
         try {
             origin = request.getParameter("origin");
             if(origin != null && origin.equals("DeleteUser")) {
-                udf.deleteUser(Integer.parseInt(request.getParameter("")));
+                udf.deleteUser(Integer.parseInt(request.getParameter("userId")));
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
     
+    protected void logoutUser (HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        try {
+            request.getParameter("logout");
+            //session = request.getSession();
+            session.invalidate();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 }

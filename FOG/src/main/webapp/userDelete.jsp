@@ -1,4 +1,4 @@
-<%@page import="control.OrderController"%>
+<%@page import="business.UserDomainFacade"%>
 <%@page import="business.OrderDomainFacade"%>
 <%@page import="model.entity.Productline"%>
 <%@page import="model.data.ProductlineMapper"%>
@@ -33,8 +33,7 @@
 <body>
             
     <%
-        //OrderDomainFacade odf = new OrderDomainFacade();
-        OrderController oc = new OrderController();
+        UserDomainFacade udf = new UserDomainFacade();
     %>
     
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -65,8 +64,8 @@
 		
 		<ul class="nav menu">
 			<li><a href="userIndex.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
-                        <li class="active"><a href="#"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg>Alle ordre</a></li>
-                        <li><a href="userDelete.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg>Indstillinger</a></li>
+                        <li><a href="userOrder.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg>Alle ordre</a></li>
+                        <li class="active"><a href="#"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg>Indstillinger</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
 		<div class="attribution">By <a href="http://www.Rasmussen-Solutions.dk/">Emil Rasmussen</a></div>
@@ -74,12 +73,15 @@
 		
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
 		<div class="row">
-
+			<ol class="breadcrumb">
+				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
+				<li class="active">Indstillinger</li>
+			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Alle ordre</h1>
+				<h1 class="page-header">Indstillinger</h1>
 			</div>
 		</div><!--/.row-->
 				
@@ -92,36 +94,29 @@
                                                 <thead>
 						    <tr>
                                                         <!--<th data-field="state" data-checkbox="true" >Tag type</th> -->
-                                                        <th>Ordre ID</th> 
-                                                        <th>Tag type</th>
-						        <th>Bredde</th>
-						        <th>Længde</th>
-						        <th>Højde</th>
-                                                        <th>Bruger ID</th>
-                                                        <th> </th>
-                                                        <th> </th>
-
+                                                        <th>Brugernavn</th>
+                                                        <th>Fornavn</th>
+                                                        <th>Efternavn</th>
+                                                        <th>Tlf</th>
+                                                        <th>Email</th>
 						    </tr>
                                                 </thead>
                                                     <tbody>
                                                     <%
                                                         User u = (User) (session.getAttribute("user"));
-                                                        List<Order> theorder = oc.getUserOrder(u);
-                                                        for (Order order : theorder) {
+                                                        List<User> theuser = udf.getUser(u);
+                                                        for (User user : theuser) {
                                                     %>
                                                     <tr>
-                                                        
-                                                        
-                                                        <td> <%=order.getIdOrder()%></td>
-                                                        <td> <%=order.getRoofType()%></td>
-                                                        <td> <%=order.getWidth()%></td>
-                                                        <td> <%=order.getLength()%></td>
-                                                        <td> <%=order.getHeight()%></td>
-                                                        <td> <%=order.getUser_idUser()%></td>
+                                                        <td> <%=user.getUsername()%></td>
+                                                        <td> <%=user.getFirstname()%></td>
+                                                        <td> <%=user.getLastname()%></td>
+                                                        <td> <%=user.getTlf()%></td>
+                                                        <td> <%=user.getEmail()%></td>
                                                         <td> 
-                                                            <form action="OrderController" method="post">
-                                                                <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
-                                                                <input type="hidden" name="origin" value="DeleteOrder">
+                                                            <form action="UserController" method="post">
+                                                                <input type="hidden" name="userId" value="<% out.print(user.getIdUser());%>">
+                                                                <input type="hidden" name="origin" value="DeleteUser">
                                                                 <input type="submit" class="btn btn-info" value="Slet Ordre"/>
                                                             </form>
                                                         </td>
@@ -135,10 +130,6 @@
 				</div>
 			</div>
 		</div><!--/.row-->
-                
-		
-		
-		
 	</div><!--/.main-->
 
 	<script src="js/jquery-1.11.1.min.js"></script>

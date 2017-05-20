@@ -7,6 +7,7 @@ package business.interfaces;
 
 import exceptions.ToLogException;
 import exceptions.UserFeedbackException;
+import java.util.List;
 import model.entity.User;
 
 /**
@@ -19,4 +20,6 @@ public interface IUserDomainFacade {
     User validateUser(String username, String password) throws ToLogException, UserFeedbackException;
     
     void deleteUser(int idUser) throws ToLogException;
+    
+    List<User> getUser(User user) throws ToLogException;
 }
