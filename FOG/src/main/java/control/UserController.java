@@ -31,6 +31,8 @@ public class UserController extends HttpServlet {
     UserAdmin userAdmin;
     UserSuperAdmin userSuperAdmin;
     String username, password;
+    
+    String origin;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -76,8 +78,12 @@ public class UserController extends HttpServlet {
             case "Register":
                 response.sendRedirect("register.jsp");
                 break;
-            case "RegisterUser" :
+            case "RegisterUser":
                 registerUser(request, response);
+                break;
+            case "DeleteUser":
+                deleteUser(request, response);
+                response.sendRedirect("index.jsp");
                 break;
         }
     }
@@ -98,6 +104,18 @@ public class UserController extends HttpServlet {
                 response.sendRedirect("index.jsp");
             }else{
                 response.sendRedirect("userRegisterError.jsp");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    protected void deleteUser(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        try {
+            origin = request.getParameter("origin");
+            if(origin != null && origin.equals("DeleteUser")) {
+                udf.deleteUser(Integer.parseInt(request.getParameter("")));
             }
         } catch (Exception ex) {
             ex.printStackTrace();
