@@ -6,13 +6,17 @@
 package control;
 
 import business.UserSuperAdminDomainFacade;
+import exceptions.ToLogException;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.entity.Order;
+import model.entity.UserAdmin;
 
 /**
  *
@@ -80,5 +84,14 @@ public class SuperAdminController extends HttpServlet {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+    
+    /**
+     *
+     * @return
+     */
+    public List getAdmins() throws ToLogException{
+        List<UserAdmin> useradmin = usadf.getAdmins();
+        return useradmin;
     }
 }

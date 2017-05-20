@@ -1,3 +1,4 @@
+<%@page import="control.SuperAdminController"%>
 <%@page import="model.data.UserSuperAdminDataFacade"%>
 <%@page import="model.entity.UserAdmin"%>
 <%@page import="java.util.List"%>
@@ -27,7 +28,8 @@
 
 <body>
     <%
-        UserSuperAdminDataFacade usadf = new UserSuperAdminDataFacade();
+        //UserSuperAdminDataFacade usadf = new UserSuperAdminDataFacade();
+        SuperAdminController sac = new SuperAdminController();
     %>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
@@ -62,7 +64,7 @@
 		</form>
 		<ul class="nav menu">
 			<li><a href="superadminIndex.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
-                        <li class="active"><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Users</a></li>
+                        <li class="active"><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Admins</a></li>
                         <li><a href="superadminOrder.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
                         <li role="presentation" class="divider"></li>
 		</ul>
@@ -96,7 +98,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <%
-                                                        List<UserAdmin> theadmin = usadf.getAdmins();
+                                                        List<UserAdmin> theadmin = sac.getAdmins();
                                                         for (UserAdmin usera : theadmin) {
                                                     %>
                                                     <tr>

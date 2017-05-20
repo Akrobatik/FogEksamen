@@ -1,3 +1,4 @@
+<%@page import="control.OrderController"%>
 <%@page import="business.OrderDomainFacade"%>
 <%@page import="model.data.UserSuperAdminDataFacade"%>
 <%@page import="model.entity.Order"%>
@@ -28,7 +29,8 @@
 
 <body>
     <%
-        OrderDomainFacade odf = new OrderDomainFacade();
+        //OrderDomainFacade odf = new OrderDomainFacade();
+        OrderController oc = new OrderController();
     %>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
@@ -63,7 +65,7 @@
 		</form>
 		<ul class="nav menu">
 			<li><a href="superadminIndex.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
-                        <li><a href="superadminUser.jsp"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Users</a></li>
+                        <li><a href="superadminUser.jsp"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Admins</a></li>
                         <li class="active"><a href="#"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
@@ -103,7 +105,7 @@
                                                 </thead>
                                                 <tbody>
                                                         <%
-                        List<Order> theorder = odf.getOrders();
+                        List<Order> theorder = oc.getOrders();
                         for (Order order : theorder) {
                     %>
                     <tr>
