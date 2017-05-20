@@ -118,7 +118,6 @@
                         <td> <%=order.getLength()%></td>
                         <td> <%=order.getHeight()%></td>
                         <td> <%=order.getUser_idUser()%></td>
-                        
                     </tr>
                     <%
                         }

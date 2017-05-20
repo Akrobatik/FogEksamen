@@ -48,4 +48,16 @@ public class UserMapper {
             throw new ToLogException("Error in addUser" + ex.getMessage());
         }
     }
+    
+    public void deleteUser(int idUser) throws ToLogException {
+        try {
+            String sql = "delete from User where idUser = ?"; 
+            
+            PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
+            pstmt.setInt(1, idUser);
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            throw new ToLogException("" + ex.getMessage());
+        }
+    }
 }
