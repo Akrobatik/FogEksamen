@@ -27,5 +27,10 @@ public class UserDataFacade implements IUserDataFacade{
     public User validateUser(String username, String password) throws ToLogException, UserFeedbackException {
         return um.validateUser(username, password);
     }
+
+    @Override
+    public void deleteUser(int idUser) throws ToLogException {
+        um.deleteUser(idUser);
+    }
     
 }
