@@ -19,8 +19,8 @@ import model.entity.User;
  *
  * @author Anders
  */
-@WebServlet(name = "OrderController", urlPatterns = {"/OrderController"})
-public class OrderController extends HttpServlet {
+@WebServlet(name = "OrderController2", urlPatterns = {"/OrderController2"})
+public class OrderController2 extends HttpServlet {
 
     OrderDomainFacade odf = new OrderDomainFacade();
     

@@ -36,9 +36,9 @@ public class UserController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-        HttpSession session = request.getSession();
+            HttpSession session = request.getSession();
+            session = request.getSession();
         
-        session = request.getSession();
                 username = request.getParameter("username");
                 password = request.getParameter("password");
                 
