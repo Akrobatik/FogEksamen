@@ -78,6 +78,7 @@ h3, h4 {
 .form-control {
 	border: 1px solid #eee;
 	box-shadow: none;
+        width: 15em;
 }
 
 .form-control:focus {

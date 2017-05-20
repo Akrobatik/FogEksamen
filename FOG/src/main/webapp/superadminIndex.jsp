@@ -62,12 +62,6 @@
 	</div><!--/.sidebar-->
 		
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">			
-		<div class="row">
-			<ol class="breadcrumb">
-				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Forside</li>
-                        </ol>
-		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
@@ -76,34 +70,43 @@
 		</div><!--/.row-->
 		
 		<div class="row">
-			<div class="col-xs-12 col-md-6 col-lg-3">
-				<div class="panel panel-blue panel-widget ">
-					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							<svg class="glyph stroked bag"><use xlink:href="#stroked-bag"></use></svg>
-						</div>
-						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">120</div>
-							<div class="text-muted">New Orders</div>
-						</div>
-					</div>
+			
+			
+			<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+                                        <h1 style="padding-left: 1em;">Tilføj ny admin</h1>
+                                        <hr>
+                                        <form action="SuperAdminController" method="post" >
+                                            <div class="form-group" style="padding-left: 2em;">
+                                                <input type="text" name="username" class="form-control input-lg" placeholder="Username" tabindex="1">
+                                            </div>
+                                            <div class="form-group" style="padding-left: 2em;">
+                                                <input type="password" name="password" class="form-control input-lg" placeholder="Password" tabindex="2">
+                                            </div>
+                                            <div class="form-group" style="padding-left: 2em;">
+                                                <input type="password" name="password2" class="form-control input-lg" placeholder="Gentag password" tabindex="3">
+                                            </div>
+                                            <div class="form-group" style="padding-left: 2em;">
+                                                <input type="text" name="firstname" class="form-control input-lg" placeholder="Fornavn" tabindex="4">
+                                            </div>
+                                            <div class="form-group" style="padding-left: 2em;">
+                                                <input type="text" name="lastname" class="form-control input-lg" placeholder="Efternavn" tabindex="5">
+                                            </div>
+                                            <div class="form-group" style="padding-left: 2em;">
+                                                <input type="text" name="tlf" class="form-control input-lg" placeholder="Tlf" tabindex="6">
+                                            </div>
+                                            <div class="form-group" style="padding-left: 2em;">
+                                                <input type="text" name="email" class="form-control input-lg" placeholder="Email" tabindex="7">
+                                            </div>
+                                                                <hr/>
+                                            <div class="row" style="padding-left: 2em;">
+                                                <input type="submit" value="Submit" class="btn btn-primary " tabindex="8">
+                                            </div>
+                                        </form>
 				</div>
 			</div>
-			
-			<div class="col-xs-12 col-md-6 col-lg-3">
-				<div class="panel panel-teal panel-widget">
-					<div class="row no-padding">
-						<div class="col-sm-3 col-lg-5 widget-left">
-							<svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>
-						</div>
-						<div class="col-sm-9 col-lg-7 widget-right">
-							<div class="large">24</div>
-							<div class="text-muted">New Users</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
+		</div><!--/.row-->
 		</div><!--/.row-->
 		
 	</div>	<!--/.main-->
