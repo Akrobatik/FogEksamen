@@ -43,7 +43,7 @@
 				<ul class="user-menu">
 					<li class="dropdown pull-right">
                                             <form action="UserController" method="post">
-                                                <input type="hidden" name="logout" value="<% session.invalidate(); %>">
+                                                <input type="hidden" name="logout" value="<% //session.invalidate(); %>">
                                                 <input type="hidden" name="origin" value="Logout">
                                                 <input type="submit" class="btn btn-info" value="Log ud"> 
                                             </form>

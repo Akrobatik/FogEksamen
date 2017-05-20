@@ -18,8 +18,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Anders
  */
-@WebServlet(name = "SuperAdminController", urlPatterns = {"/SuperAdminController"})
-public class SuperAdminController extends HttpServlet {
+@WebServlet(name = "SuperAdminController2", urlPatterns = {"/SuperAdminController2"})
+public class SuperAdminController2 extends HttpServlet {
 
     UserSuperAdminDomainFacade usadf = new UserSuperAdminDomainFacade();
     
