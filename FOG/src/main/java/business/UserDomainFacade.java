@@ -28,5 +28,10 @@ public class UserDomainFacade implements IUserDomainFacade{
     public User validateUser(String username, String password) throws ToLogException, UserFeedbackException {
         return udf.validateUser(username, password);
     }
+
+    @Override
+    public void deleteUser(int idUser) throws ToLogException {
+        udf.deleteUser(idUser);
+    }
     
 }

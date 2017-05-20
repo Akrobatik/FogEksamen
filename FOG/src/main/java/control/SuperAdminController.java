@@ -44,9 +44,11 @@ public class SuperAdminController extends HttpServlet {
         switch (origin) {
             case "AddAdmin":
                 addAdmin(request, response);
+                response.sendRedirect("adminIndex.jsp");
                 break;
             case "DeleteAdmin":
                 deleteOrder(request, response);
+                response.sendRedirect("adminIndex.jsp");
                 break;
         }
     }
@@ -62,7 +64,6 @@ public class SuperAdminController extends HttpServlet {
             String lastname = request.getParameter("lastname");
             if(password.equals(password2)) {
                 usadf.addUserAdmin(username, password, firstname, lastname);
-                response.sendRedirect("SendNewAdmin.jsp");
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -75,7 +76,6 @@ public class SuperAdminController extends HttpServlet {
             session = request.getSession();
             if(origin != null && origin.equals("DeleteAdmin")) {
                 usadf.deleteUserAdmin(Integer.parseInt(request.getParameter("idAdmin")));
-                response.sendRedirect("AdminDeleted.jsp");
             }
         } catch (Exception ex) {
             ex.printStackTrace();

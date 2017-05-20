@@ -1,7 +1,4 @@
 <%@page import="business.UserAdminDomainFacade"%>
-<%@page import="model.data.DataFacade"%>
-<%@page import="model.data.IDataFacade"%>
-<%@page import="model.data.UserAdminMapper"%>
 <%@page import="model.entity.User"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
