@@ -1,3 +1,4 @@
+<%@page import="business.UserDomainFacade"%>
 <%@page import="business.OrderDomainFacade"%>
 <%@page import="model.entity.Productline"%>
 <%@page import="model.data.ProductlineMapper"%>
@@ -32,7 +33,7 @@
 <body>
             
     <%
-        OrderDomainFacade odf = new OrderDomainFacade();
+        UserDomainFacade udf = new UserDomainFacade();
     %>
     
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -93,31 +94,25 @@
                                                 <thead>
 						    <tr>
                                                         <!--<th data-field="state" data-checkbox="true" >Tag type</th> -->
-                                                        <th>Ordre ID</th> 
-                                                        <th>Tag type</th>
-						        <th>Bredde</th>
-						        <th>Længde</th>
-						        <th>Højde</th>
-                                                        <th>Bruger ID</th>
+                                                        <th>Brugernavn</th>
+                                                        <th>Fornavn</th>
+                                                        <th>Efternavn</th>
+                                                        <th>Tlf</th>
+                                                        <th>Email</th>
 						    </tr>
                                                 </thead>
                                                     <tbody>
                                                     <%
                                                         User u = (User) (session.getAttribute("user"));
-                                                        List<Order> theorder = odf.getUserOrder(u);
-                                                        for (Order order : theorder) {
+                                                        List<User> theuser = udf.getUser(u);
+                                                        for (User user : theuser) {
                                                     %>
                                                     <tr>
-                                                        <td> <%=order.getIdOrder()%></td>
-                                                        <td> <%=order.getRoofType()%></td>
-                                                        <td> <%=order.getWidth()%></td>
-                                                        <td> <%=order.getLength()%></td>
-                                                        <td> <%=order.getHeight()%></td>
-                                                        <td> <%=order.getUser_idUser()%></td>
+                                                        <td> <%=user.getIdUser()%></td>
                                                         <td> 
-                                                            <form action="OrderController" method="post">
-                                                                <input type="hidden" name="orderId" value="<% out.print(order.getIdOrder());%>">
-                                                                <input type="hidden" name="origin" value="DeleteOrder">
+                                                            <form action="UserController" method="post">
+                                                                <input type="hidden" name="userId" value="<% out.print(user.getIdUser());%>">
+                                                                <input type="hidden" name="origin" value="DeleteUser">
                                                                 <input type="submit" class="btn btn-info" value="Slet Ordre"/>
                                                             </form>
                                                         </td>

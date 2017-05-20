@@ -66,7 +66,7 @@ public class UserMapper {
     public List<User> getUser(User user) throws ToLogException{
         List<User> user2 = new ArrayList<>();
         try {
-            String sql = "select idUser, username, password, firstname, lastname, tlf, email where idUser = ?";
+            String sql = "select idUser, username, password, firstname, lastname, tlf, email from User where idUser = ?";
             
             PreparedStatement pstmt = DataBase.getConnection().prepareStatement(sql);
             pstmt.setInt(1, user.getIdUser());

@@ -8,6 +8,7 @@ package business;
 import business.interfaces.IUserDomainFacade;
 import exceptions.ToLogException;
 import exceptions.UserFeedbackException;
+import java.util.List;
 import model.data.UserDataFacade;
 import model.entity.User;
 
@@ -33,5 +34,9 @@ public class UserDomainFacade implements IUserDomainFacade{
     public void deleteUser(int idUser) throws ToLogException {
         udf.deleteUser(idUser);
     }
-    
+
+    @Override
+    public List<User> getUser(User user) throws ToLogException {
+        return udf.getUser(user);
+    }
 }

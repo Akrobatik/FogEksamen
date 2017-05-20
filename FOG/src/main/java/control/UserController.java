@@ -115,7 +115,7 @@ public class UserController extends HttpServlet {
         try {
             origin = request.getParameter("origin");
             if(origin != null && origin.equals("DeleteUser")) {
-                udf.deleteUser(Integer.parseInt(request.getParameter("")));
+                udf.deleteUser(Integer.parseInt(request.getParameter("userId")));
             }
         } catch (Exception ex) {
             ex.printStackTrace();
