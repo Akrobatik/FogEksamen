@@ -63,8 +63,8 @@
 		
 		<ul class="nav menu">
 			<li><a href="userIndex.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
-                        <li class="active"><a href="#"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg>Alle ordre</a></li>
-                        <li><a href="userDelete.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg>Indstillinger</a></li>
+                        <li><a href="userOrder.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg>Alle ordre</a></li>
+                        <li class="active"><a href="#"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg>Indstillinger</a></li>
 			<li role="presentation" class="divider"></li>
 		</ul>
 		<div class="attribution">By <a href="http://www.Rasmussen-Solutions.dk/">Emil Rasmussen</a></div>
@@ -74,13 +74,13 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><svg class="glyph stroked home"><use xlink:href="#stroked-home"></use></svg></a></li>
-				<li class="active">Orders</li>
+				<li class="active">Settings</li>
 			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Alle ordre</h1>
+				<h1 class="page-header">Indstillinger</h1>
 			</div>
 		</div><!--/.row-->
 				

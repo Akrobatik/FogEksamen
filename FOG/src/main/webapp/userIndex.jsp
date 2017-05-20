@@ -49,8 +49,9 @@
 	<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
 		
 		<ul class="nav menu">
-			<li class="active"><a href="#"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
-                        <li><a href="userOrder.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
+			<li class="active"><a href="#"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg>Forside</a></li>
+                        <li><a href="userOrder.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg>Alle ordre</a></li>
+                        <li><a href="userDelete.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg>Indstillinger</a></li>
 
 			<li role="presentation" class="divider"></li>
 		</ul>
