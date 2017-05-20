@@ -28,12 +28,6 @@ public class OrderController extends HttpServlet {
     HttpSession session;
     
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             origin = request.getParameter("origin");
@@ -41,10 +35,11 @@ public class OrderController extends HttpServlet {
             switch(origin) {
                 case "AddOrder":
                     addOrder(request, response);
-                    response.sendRedirect("SendOrder.jsp");
+                    response.sendRedirect("userOrder.jsp");
                     break;
                 case "DeleteOrder":
                     deleteOrder(request, response);
+                    response.sendRedirect("userOrder.jsp");
                     break;
             }
     }
@@ -69,7 +64,6 @@ public class OrderController extends HttpServlet {
             origin = request.getParameter("origin");
             if(origin != null && origin.equals("DeleteOrder")) {
             odf.deleteOrder(Integer.parseInt(request.getParameter("orderId")));
-            response.sendRedirect("OrderDeleted.jsp");
             }
         } catch (Exception ex) {
             ex.printStackTrace();
