@@ -33,6 +33,18 @@ public class OrderController extends HttpServlet {
     HttpSession session;
     
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            List<Order> order = odf.getOrders();
+            //User user = null;
+            //List<Order> userorder = odf.getUserOrder(user);
+        } catch (ToLogException ex) {
+            Logger.getLogger(OrderController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             origin = request.getParameter("origin");
@@ -73,5 +85,10 @@ public class OrderController extends HttpServlet {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+    
+    public List getUserOrder(User user) throws ToLogException {
+        List<Order> userorder = odf.getUserOrder(user);
+        return userorder;
     }
 }

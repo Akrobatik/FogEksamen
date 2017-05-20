@@ -108,7 +108,11 @@
                                                         for (User user : theuser) {
                                                     %>
                                                     <tr>
-                                                        <td> <%=user.getIdUser()%></td>
+                                                        <td> <%=user.getUsername()%></td>
+                                                        <td> <%=user.getFirstname()%></td>
+                                                        <td> <%=user.getLastname()%></td>
+                                                        <td> <%=user.getTlf()%></td>
+                                                        <td> <%=user.getEmail()%></td>
                                                         <td> 
                                                             <form action="UserController" method="post">
                                                                 <input type="hidden" name="userId" value="<% out.print(user.getIdUser());%>">
