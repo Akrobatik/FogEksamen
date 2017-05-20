@@ -78,6 +78,7 @@
                                         <h1 style="padding-left: 1em;">Tilføj ny admin</h1>
                                         <hr>
                                         <form action="SuperAdminController" method="post" >
+                                            <input type="hidden" name="origin" value="AddAdmin">
                                             <div class="form-group" style="padding-left: 2em;">
                                                 <input type="text" name="username" class="form-control input-lg" placeholder="Username" tabindex="1">
                                             </div>
