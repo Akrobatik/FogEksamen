@@ -22,11 +22,11 @@
                         <hr>
                         <input type="hidden" name="origin" value="">
                         <div class="form-group">
-                            <input type="text" name="username" id="username" class="form-control input-lg" placeholder="Brugernavn" tabindex="1">
+                            <input type="text" name="username" id="username" class="form-control input-lg" placeholder="Brugernavn" required="" tabindex="1">
                         </div>
 
                         <div class="form-group">
-                            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="3">
+                            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" required="" tabindex="3">
                         </div>
                         <hr>
                         <div class="row">
@@ -39,6 +39,11 @@
                         <div class="row">
                             <div class="col-xs-6 col-md-6"><input type="submit" name="submit" value="Ny bruger" class="btn btn-primary btn-block btn-lg" tabindex="5"></div>
                         </div>
+                    </form>
+                    <form action="UserController" method="get">
+                        <%
+                            out.println(session.getAttribute("ErrorMessage"));
+                        %>
                     </form>
                 </div>
             </div>

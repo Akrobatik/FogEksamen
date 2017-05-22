@@ -50,7 +50,8 @@ public class UserController extends HttpServlet {
                 userSuperAdmin = usadf.validateSuperAdmin(username, password);
                
                 if(user == null && userAdmin == null && userSuperAdmin == null) {
-                    response.setStatus(403);
+                    request.getSession().setAttribute("ErrorMessage", "Brugernavn og/eller password passer ikke" + "\nPrøv igen");
+                    response.sendRedirect("index.jsp");
                 } else if (user != null) {
                     session.setAttribute("user", user);
                     response.sendRedirect("userIndex.jsp");
@@ -62,7 +63,7 @@ public class UserController extends HttpServlet {
                     response.sendRedirect("superadminIndex.jsp");
                 }
         } catch (ToLogException | UserFeedbackException ex) {
-            ex.printStackTrace();
+            ex.getMessage();
         }
     }
 
