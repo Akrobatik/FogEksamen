@@ -33,16 +33,23 @@
                             <div class="col-xs-6 col-md-6"><input type="submit" name="submit" value="Login" class="btn btn-primary btn-block btn-lg" tabindex="5"></div>
                         </div>
                     </form>
-                    <form role="form" method="post" action="UserController" autocomplete="off">
+                    <form role="form" method="post" action="UserController" autocomplete="off" style="padding-bottom: 1em;">
                         <hr>
                         <input type="hidden" name="origin" value="Register">
                         <div class="row">
                             <div class="col-xs-6 col-md-6"><input type="submit" name="submit" value="Ny bruger" class="btn btn-primary btn-block btn-lg" tabindex="5"></div>
                         </div>
                     </form>
+                    
                     <form action="UserController" method="get">
+                       
+                         <%
+                            session.getAttribute("ErrorMessage");
+                            if(session.getAttribute("ErrorMessage")!=null){
+                        %>
+                        <div class="alert bg-danger">   <%out.println(session.getAttribute("ErrorMessage")); %> </div>
                         <%
-                            out.println(session.getAttribute("ErrorMessage"));
+                             }
                         %>
                     </form>
                 </div>

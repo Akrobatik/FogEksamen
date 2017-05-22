@@ -50,7 +50,7 @@ public class UserController extends HttpServlet {
                 userSuperAdmin = usadf.validateSuperAdmin(username, password);
                
                 if(user == null && userAdmin == null && userSuperAdmin == null) {
-                    request.getSession().setAttribute("ErrorMessage", "Brugernavn og/eller password passer ikke" + "\nPrøv igen");
+                    request.getSession().setAttribute("ErrorMessage", "Brugernavn og/eller password passer ikke." + "\nPrøv igen");
                     response.sendRedirect("index.jsp");
                 } else if (user != null) {
                     session.setAttribute("user", user);
