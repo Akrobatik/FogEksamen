@@ -5,7 +5,7 @@
  */
 package control;
 
-import business.OrderDomainFacade;
+import business.OrderBusinessFacade;
 import exceptions.ToLogException;
 import java.io.IOException;
 import java.util.List;
@@ -27,7 +27,7 @@ import model.entity.User;
 @WebServlet(name = "OrderController", urlPatterns = {"/OrderController"})
 public class OrderController extends HttpServlet {
 
-    OrderDomainFacade odf = new OrderDomainFacade();
+    OrderBusinessFacade obf = new OrderBusinessFacade();
     
     String origin;
     HttpSession session;
@@ -63,7 +63,7 @@ public class OrderController extends HttpServlet {
             double width = Double.parseDouble(request.getParameter("width"));
             double length = Double.parseDouble(request.getParameter("length"));
             double height = Double.parseDouble(request.getParameter("height"));
-            odf.addOrder(roofType, width, length, height, ((User)session.getAttribute("user")).getIdUser());
+            obf.addOrder(roofType, width, length, height, ((User)session.getAttribute("user")).getIdUser());
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -74,7 +74,7 @@ public class OrderController extends HttpServlet {
         try {
             origin = request.getParameter("origin");
             if(origin != null && origin.equals("DeleteOrder")) {
-            odf.deleteOrder(Integer.parseInt(request.getParameter("orderId")));
+            obf.deleteOrder(Integer.parseInt(request.getParameter("orderId")));
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -82,12 +82,12 @@ public class OrderController extends HttpServlet {
     }
     
     public List getOrders() throws ToLogException {
-        List<Order> order = odf.getOrders();
+        List<Order> order = obf.getOrders();
         return order;
     }
     
     public List getUserOrder(User user) throws ToLogException {
-        List<Order> userorder = odf.getUserOrder(user);
+        List<Order> userorder = obf.getUserOrder(user);
         return userorder;
     }
 }

@@ -16,7 +16,7 @@ import model.entity.User;
  *
  * @author Anders
  */
-public class OrderDomainFacade implements IOrderDomainFacade{
+public class OrderBusinessFacade implements IOrderDomainFacade{
     
     OrderDataFacade odf = new OrderDataFacade();
                 
