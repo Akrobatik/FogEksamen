@@ -14,14 +14,14 @@
     <body>
         <h1>Opret ny bruger</h1>
         <form action="UserController" method="post">
-            <input type="hidden" name="origin" value="RegisterUser">
-            <input type="text" name="username" placeholder="Brugernavn"/>
-            <input type="password" name="password" placeholder="password"/>
-            <input type="password" name="password2" placeholder="Gentag password"/>
-            <input type="text" name="firstname" placeholder="Fornavn"/>
-            <input type="text" name="lastname" placeholder="Efternavn"/>
-            <input type="text" name="tlf" placeholder="Tlf"/>
-            <input type="text" name="email" placeholder="Email"/>
+            <input type="hidden" name="origin" value="RegisterUser" >
+            <input type="text" name="username" placeholder="Brugernavn" required=""/>
+            <input type="password" name="password" placeholder="password" required=""/>
+            <input type="password" name="password2" placeholder="Gentag password" required=""/>
+            <input type="text" name="firstname" placeholder="Fornavn" required=""/>
+            <input type="text" name="lastname" placeholder="Efternavn" required=""/>
+            <input type="text" name="tlf" placeholder="Tlf" required=""/>
+            <input type="text" name="email" placeholder="Email" required=""/>
             <input type="submit" value="submit">
         </form>
     </body>
