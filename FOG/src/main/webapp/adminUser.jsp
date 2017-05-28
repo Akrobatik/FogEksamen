@@ -1,5 +1,4 @@
 <%@page import="control.UserAdminController"%>
-<%@page import="control.UserController"%>
 <%@page import="model.entity.User"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>

@@ -1,5 +1,4 @@
 <%@page import="control.SuperAdminController"%>
-<%@page import="model.data.UserSuperAdminDataFacade"%>
 <%@page import="model.entity.UserAdmin"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
