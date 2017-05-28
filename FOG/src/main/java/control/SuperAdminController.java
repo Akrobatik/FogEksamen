@@ -29,7 +29,8 @@ public class SuperAdminController extends HttpServlet {
     String origin;
     HttpSession session;
     
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
         
     }
 
@@ -85,10 +86,6 @@ public class SuperAdminController extends HttpServlet {
         }
     }
     
-    /**
-     *
-     * @return
-     */
     public List getAdmins() throws ToLogException{
         List<UserAdmin> useradmin = usabf.getAdmins();
         return useradmin;

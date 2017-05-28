@@ -1,4 +1,5 @@
-<%@page import="business.UserAdminDomainFacade"%>
+<%@page import="control.UserAdminController"%>
+<%@page import="control.UserController"%>
 <%@page import="model.entity.User"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
@@ -25,7 +26,7 @@
 
 <body>
     <%
-        UserAdminDomainFacade uadf = new UserAdminDomainFacade();
+        UserAdminController uac = new UserAdminController();
     %>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
@@ -95,7 +96,7 @@
                                             </thead>
                                             <tbody>
                                                 <%
-                                                    List<User> theuser = uadf.getUsers();
+                                                    List<User> theuser = uac.getUsers();
                                                     for (User user : theuser) {
                                                 %>
                                                 <tr>
