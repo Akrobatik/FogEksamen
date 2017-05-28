@@ -79,25 +79,25 @@
                                         <form action="SuperAdminController" method="post" >
                                             <input type="hidden" name="origin" value="AddAdmin">
                                             <div class="form-group" style="padding-left: 2em;">
-                                                <input type="text" name="username" class="form-control input-lg" placeholder="Username" tabindex="1">
+                                                <input type="text" name="username" class="form-control input-lg" placeholder="Username" required="" tabindex="1">
                                             </div>
                                             <div class="form-group" style="padding-left: 2em;">
-                                                <input type="password" name="password" class="form-control input-lg" placeholder="Password" tabindex="2">
+                                                <input type="password" name="password" class="form-control input-lg" placeholder="Password" required="" tabindex="2">
                                             </div>
                                             <div class="form-group" style="padding-left: 2em;">
-                                                <input type="password" name="password2" class="form-control input-lg" placeholder="Gentag password" tabindex="3">
+                                                <input type="password" name="password2" class="form-control input-lg" placeholder="Gentag password" required="" tabindex="3">
                                             </div>
                                             <div class="form-group" style="padding-left: 2em;">
-                                                <input type="text" name="firstname" class="form-control input-lg" placeholder="Fornavn" tabindex="4">
+                                                <input type="text" name="firstname" class="form-control input-lg" placeholder="Fornavn" required="" tabindex="4">
                                             </div>
                                             <div class="form-group" style="padding-left: 2em;">
-                                                <input type="text" name="lastname" class="form-control input-lg" placeholder="Efternavn" tabindex="5">
+                                                <input type="text" name="lastname" class="form-control input-lg" placeholder="Efternavn" required="" tabindex="5">
                                             </div>
                                             <div class="form-group" style="padding-left: 2em;">
-                                                <input type="text" name="tlf" class="form-control input-lg" placeholder="Tlf" tabindex="6">
+                                                <input type="text" name="tlf" class="form-control input-lg" placeholder="Tlf" required="" tabindex="6">
                                             </div>
                                             <div class="form-group" style="padding-left: 2em;">
-                                                <input type="text" name="email" class="form-control input-lg" placeholder="Email" tabindex="7">
+                                                <input type="text" name="email" class="form-control input-lg" placeholder="Email" required="" tabindex="7">
                                             </div>
                                                                 <hr/>
                                             <div class="row" style="padding-left: 2em;">

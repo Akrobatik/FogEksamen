@@ -22,25 +22,25 @@
                         <hr>
                         <input type="hidden" name="origin" value="RegisterUser">
                         <div class="form-group">
-                            <input type="text" name="username" id="username" class="form-control input-lg" placeholder="Username" tabindex="1">
+                            <input type="text" name="username" id="username" class="form-control input-lg" placeholder="Username" required="" tabindex="1">
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="2">
+                            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" required="" tabindex="2">
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password2" id="password2" class="form-control input-lg" placeholder="Gentag password" tabindex="3">
+                            <input type="password" name="password2" id="password2" class="form-control input-lg" placeholder="Gentag password" required="" tabindex="3">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="firstname" id="firstname" class="form-control input-lg" placeholder="Fornavn" tabindex="4">
+                            <input type="text" name="firstname" id="firstname" class="form-control input-lg" placeholder="Fornavn" required="" tabindex="4">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="lastname" id="lastname" class="form-control input-lg" placeholder="Efternavn" tabindex="5">
+                            <input type="text" name="lastname" id="lastname" class="form-control input-lg" placeholder="Efternavn" required="" tabindex="5">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="tlf" id="tlf" class="form-control input-lg" placeholder="Tlf" tabindex="6">
+                            <input type="text" name="tlf" id="tlf" class="form-control input-lg" placeholder="Tlf" required="" tabindex="6">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="email" id="email" class="form-control input-lg" placeholder="Email" tabindex="7">
+                            <input type="text" name="email" id="email" class="form-control input-lg" placeholder="Email" required="" tabindex="7">
                         </div>
                         <hr>
                         <div class="row">
