@@ -1,7 +1,7 @@
 package control;
 
-import business.UserAdminDomainFacade;
-import business.UserDomainFacade;
+import business.UserAdminBusinessFacade;
+import business.UserBusinessFacade;
 import business.UserSuperAdminBusinessFacade;
 import exceptions.ToLogException;
 import exceptions.UserFeedbackException;
@@ -23,9 +23,9 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "UserController", urlPatterns = {"/UserController"})
 public class UserController extends HttpServlet {
     
-    UserDomainFacade udf = new UserDomainFacade();
-    UserAdminDomainFacade uadf = new UserAdminDomainFacade();
-    UserSuperAdminBusinessFacade usadf = new UserSuperAdminBusinessFacade();
+    UserBusinessFacade ubf = new UserBusinessFacade();
+    UserAdminBusinessFacade uabf = new UserAdminBusinessFacade();
+    UserSuperAdminBusinessFacade usabf = new UserSuperAdminBusinessFacade();
     
     User user;
     UserAdmin userAdmin;
@@ -45,9 +45,9 @@ public class UserController extends HttpServlet {
                 username = request.getParameter("username");
                 password = request.getParameter("password");
                 
-                user = udf.validateUser(username, password);
-                userAdmin = uadf.validateAdmin(username, password);
-                userSuperAdmin = usadf.validateSuperAdmin(username, password);
+                user = ubf.validateUser(username, password);
+                userAdmin = uabf.validateAdmin(username, password);
+                userSuperAdmin = usabf.validateSuperAdmin(username, password);
                
                 if(user == null && userAdmin == null && userSuperAdmin == null) {
                     request.getSession().setAttribute("ErrorMessage", "Brugernavn og/eller password passer ikke." + "\nPrøv igen");
@@ -101,7 +101,7 @@ public class UserController extends HttpServlet {
             int tlf = Integer.parseInt(request.getParameter("tlf"));
             String email = request.getParameter("email");
             if(password.equals(password2)){
-                udf.addUser(username, password, firstname, lastname, tlf, email);
+                ubf.addUser(username, password, firstname, lastname, tlf, email);
                 request.getSession().setAttribute("username", username);  
                 response.sendRedirect("index.jsp");
             }else{
@@ -117,7 +117,7 @@ public class UserController extends HttpServlet {
         try {
             origin = request.getParameter("origin");
             if(origin != null && origin.equals("DeleteUser")) {
-                udf.deleteUser(Integer.parseInt(request.getParameter("userId")));
+                ubf.deleteUser(Integer.parseInt(request.getParameter("userId")));
             }
         } catch (Exception ex) {
             ex.printStackTrace();

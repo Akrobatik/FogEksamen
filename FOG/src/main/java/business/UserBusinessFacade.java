@@ -16,7 +16,7 @@ import model.entity.User;
  *
  * @author Anders
  */
-public class UserDomainFacade implements IUserDomainFacade{
+public class UserBusinessFacade implements IUserDomainFacade{
     
     UserDataFacade udf = new UserDataFacade();
 
