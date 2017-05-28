@@ -17,7 +17,7 @@ import model.entity.UserSuperAdmin;
  *
  * @author Anders
  */
-public class UserSuperAdminDomainFacade implements IUserSuperAdminDomainFacade{
+public class UserSuperAdminBusinessFacade implements IUserSuperAdminDomainFacade{
     
     UserSuperAdminDataFacade usadf = new UserSuperAdminDataFacade();
 

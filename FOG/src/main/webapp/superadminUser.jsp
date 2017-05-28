@@ -2,8 +2,6 @@
 <%@page import="model.data.UserSuperAdminDataFacade"%>
 <%@page import="model.entity.UserAdmin"%>
 <%@page import="java.util.List"%>
-<%@page import="model.data.DataFacade"%>
-<%@page import="model.data.IDataFacade"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +26,6 @@
 
 <body>
     <%
-        //UserSuperAdminDataFacade usadf = new UserSuperAdminDataFacade();
         SuperAdminController sac = new SuperAdminController();
     %>
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">

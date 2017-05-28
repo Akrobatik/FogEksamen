@@ -5,7 +5,7 @@
  */
 package control;
 
-import business.UserSuperAdminDomainFacade;
+import business.UserSuperAdminBusinessFacade;
 import exceptions.ToLogException;
 import java.io.IOException;
 import java.util.List;
@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.entity.Order;
 import model.entity.UserAdmin;
 
 /**
@@ -25,7 +24,7 @@ import model.entity.UserAdmin;
 @WebServlet(name = "SuperAdminController", urlPatterns = {"/SuperAdminController"})
 public class SuperAdminController extends HttpServlet {
 
-    UserSuperAdminDomainFacade usadf = new UserSuperAdminDomainFacade();
+    UserSuperAdminBusinessFacade usabf = new UserSuperAdminBusinessFacade();
     
     String origin;
     HttpSession session;
@@ -48,11 +47,11 @@ public class SuperAdminController extends HttpServlet {
         switch (origin) {
             case "AddAdmin":
                 addAdmin(request, response);
-                response.sendRedirect("adminIndex.jsp");
+                response.sendRedirect("superadminUser.jsp");
                 break;
             case "DeleteAdmin":
                 deleteOrder(request, response);
-                response.sendRedirect("adminIndex.jsp");
+                response.sendRedirect("superadminUser.jsp");
                 break;
         }
     }
@@ -67,7 +66,7 @@ public class SuperAdminController extends HttpServlet {
             String firstname = request.getParameter("firstname");
             String lastname = request.getParameter("lastname");
             if(password.equals(password2)) {
-                usadf.addUserAdmin(username, password, firstname, lastname);
+                usabf.addUserAdmin(username, password, firstname, lastname);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -79,7 +78,7 @@ public class SuperAdminController extends HttpServlet {
         try {
             session = request.getSession();
             if(origin != null && origin.equals("DeleteAdmin")) {
-                usadf.deleteUserAdmin(Integer.parseInt(request.getParameter("idAdmin")));
+                usabf.deleteUserAdmin(Integer.parseInt(request.getParameter("idAdmin")));
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -91,7 +90,7 @@ public class SuperAdminController extends HttpServlet {
      * @return
      */
     public List getAdmins() throws ToLogException{
-        List<UserAdmin> useradmin = usadf.getAdmins();
+        List<UserAdmin> useradmin = usabf.getAdmins();
         return useradmin;
     }
 }

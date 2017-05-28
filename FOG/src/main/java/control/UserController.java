@@ -2,7 +2,7 @@ package control;
 
 import business.UserAdminDomainFacade;
 import business.UserDomainFacade;
-import business.UserSuperAdminDomainFacade;
+import business.UserSuperAdminBusinessFacade;
 import exceptions.ToLogException;
 import exceptions.UserFeedbackException;
 import model.entity.User;
@@ -25,7 +25,7 @@ public class UserController extends HttpServlet {
     
     UserDomainFacade udf = new UserDomainFacade();
     UserAdminDomainFacade uadf = new UserAdminDomainFacade();
-    UserSuperAdminDomainFacade usadf = new UserSuperAdminDomainFacade();
+    UserSuperAdminBusinessFacade usadf = new UserSuperAdminBusinessFacade();
     
     User user;
     UserAdmin userAdmin;
