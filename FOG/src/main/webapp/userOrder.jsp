@@ -1,7 +1,4 @@
 <%@page import="control.OrderController"%>
-<%@page import="business.OrderDomainFacade"%>
-<%@page import="model.entity.Productline"%>
-<%@page import="model.data.ProductlineMapper"%>
 <%@page import="model.entity.User"%>
 <%@page import="model.entity.Order"%>
 <%@page import="model.data.OrderMapper"%>
@@ -33,7 +30,6 @@
 <body>
             
     <%
-        //OrderDomainFacade odf = new OrderDomainFacade();
         OrderController oc = new OrderController();
     %>
     

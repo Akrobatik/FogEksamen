@@ -1,10 +1,5 @@
-<%@page import="business.UserDomainFacade"%>
-<%@page import="business.OrderDomainFacade"%>
-<%@page import="model.entity.Productline"%>
-<%@page import="model.data.ProductlineMapper"%>
+<%@page import="business.UserBusinessFacade"%>
 <%@page import="model.entity.User"%>
-<%@page import="model.entity.Order"%>
-<%@page import="model.data.OrderMapper"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
@@ -33,7 +28,7 @@
 <body>
             
     <%
-        UserDomainFacade udf = new UserDomainFacade();
+        UserBusinessFacade ubf = new UserBusinessFacade();
     %>
     
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -104,7 +99,7 @@
                                                     <tbody>
                                                     <%
                                                         User u = (User) (session.getAttribute("user"));
-                                                        List<User> theuser = udf.getUser(u);
+                                                        List<User> theuser = ubf.getUser(u);
                                                         for (User user : theuser) {
                                                     %>
                                                     <tr>
@@ -117,7 +112,7 @@
                                                             <form action="UserController" method="post">
                                                                 <input type="hidden" name="userId" value="<% out.print(user.getIdUser());%>">
                                                                 <input type="hidden" name="origin" value="DeleteUser">
-                                                                <input type="submit" class="btn btn-info" value="Slet Ordre"/>
+                                                                <input type="submit" class="btn btn-info" value="Slet bruger"/>
                                                             </form>
                                                         </td>
                                                     </tr>
