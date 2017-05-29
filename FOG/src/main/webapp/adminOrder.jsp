@@ -65,8 +65,8 @@
 		</form>
 		<ul class="nav menu">
                         <li><a href="adminIndex.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
-			<li><a href="adminUser.jsp"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Users</a></li>
-                        <li class="active"><a href="#"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
+			<li><a href="adminUser.jsp"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg>Kunder</a></li>
+                        <li class="active"><a href="#"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg>Ordre</a></li>
                     
 			<li role="presentation" class="divider"></li>
 		</ul>
@@ -80,7 +80,7 @@
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Orders</h1>
+				<h1 class="page-header">Ordre</h1>
 			</div>
 		</div><!--/.row-->
 				

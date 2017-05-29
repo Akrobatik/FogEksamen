@@ -61,7 +61,7 @@
 		<ul class="nav menu">
 			<li><a href="superadminIndex.jsp"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
                         <li class="active"><a href="#"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Admins</a></li>
-                        <li><a href="superadminOrder.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
+                        <li><a href="superadminOrder.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Ordre</a></li>
                         <li role="presentation" class="divider"></li>
 		</ul>
 		<div class="attribution">By <a href="http://www.Rasmussen-Solutions.dk/">Emil Rasmussen</a></div>
@@ -74,7 +74,7 @@
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Orders</h1>
+				<h1 class="page-header">Admins</h1>
 			</div>
 		</div><!--/.row-->
 				

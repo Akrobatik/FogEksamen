@@ -102,7 +102,7 @@
                                         <option value="2.7">2.7m</option>
                                         <option value="3.0">3.0m</option>
                                     </select><br>
-                                    <input class="btn btn-primary" type="submit" value="submit"/>
+                                    <input class="btn btn-primary" type="submit" value="Send"/>
                                     <hr />
                                 </form>	
                             </div>

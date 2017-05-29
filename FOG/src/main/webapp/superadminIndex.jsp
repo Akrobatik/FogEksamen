@@ -53,7 +53,7 @@
 		<ul class="nav menu">
 			<li class="active"><a href="#"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Forside</a></li>
 			<li><a href="superadminUser.jsp"><svg class="glyph stroked male-user"><use xlink:href="#stroked-male-user"></use></svg> Admins</a></li>
-                        <li><a href="superadminOrder.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Orders</a></li>
+                        <li><a href="superadminOrder.jsp"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Ordre</a></li>
 
 			<li role="presentation" class="divider"></li>
 		</ul>
@@ -79,7 +79,7 @@
                                         <form action="SuperAdminController" method="post" >
                                             <input type="hidden" name="origin" value="AddAdmin">
                                             <div class="form-group" style="padding-left: 2em;">
-                                                <input type="text" name="username" class="form-control input-lg" placeholder="Username" required="" tabindex="1">
+                                                <input type="text" name="username" class="form-control input-lg" placeholder="Brugernavn" required="" tabindex="1">
                                             </div>
                                             <div class="form-group" style="padding-left: 2em;">
                                                 <input type="password" name="password" class="form-control input-lg" placeholder="Password" required="" tabindex="2">
@@ -101,7 +101,7 @@
                                             </div>
                                                                 <hr/>
                                             <div class="row" style="padding-left: 2em;">
-                                                <input type="submit" value="Submit" class="btn btn-primary " tabindex="8">
+                                                <input type="submit" value="Send" class="btn btn-primary " tabindex="8">
                                             </div>
                                         </form>
 				</div>
